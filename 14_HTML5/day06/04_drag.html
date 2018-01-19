@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        img{
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+
+<img id="p1"  src="p3.png" alt=""/>
+<img id="p2"  src="p3.png" alt=""/>
+<img id="p3"  src="p3.png" alt=""/>
+
+<div id="trans" style="width: 95px;height: 90px;background: url('9.png') no-repeat;background-size:  contain;"></div>
+<script>
+    //源对象开始拖动
+    var did=null,offsetX,offsetY;
+    var imgs = document.getElementsByTagName('img');
+    for(var i=0;i<imgs.length;i++){
+        var plane = imgs[i];
+        plane.ondragstart=function(e){
+            did = this.getAttribute('id')
+//            console.log("1111111111")
+//            offsetX= e.offsetX;
+//            offsetY= e.offsetY;
+//            console.log(offsetX,offsetY)
+            return did;
+
+        }
+        plane.ondrag=function(e){
+                console.log(1)
+//            left1 = e.clientX-offsetX;
+//             top1 = e.clientY-offsetY;
+//            console.log(e.clientY)
+//            this.style.cssText='top:'+top1+'px;left:'+left1)+"px;"
+
+        }
+        plane.ondragend=function(){
+                console.log(6)
+        }
+    }
+
+
+    trans.ondragenter=function(){
+            console.log(did)
+    }
+    trans.ondragover=function(e){
+        e.preventDefault();
+        console.log(2)
+    }
+    trans.ondragleave=function(){
+        console.log(3)
+    }
+    trans.ondrop=function(){
+        var img = document.getElementById(did);
+        document.body.removeChild(img)
+        console.log(7)
+    }
+</script>
+</body>
+</html>

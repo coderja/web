@@ -1,0 +1,26 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>DOM Tree</title>
+<meta charset="utf-8" />
+</head>
+<body>
+	<span id="s1">Hello</span>
+	<h1>标题一</h1>
+	<script>
+	  var body = document.body;
+		var childNodes = body.childNodes;
+		console.log(childNodes);
+		var child  = body.children;
+		console.log(child);
+		var html = body.parentNode;
+		console.log(html);
+		//var span = body.fisrtChild;
+		var span = body.firstElementChild;
+		console.log(span)
+		//var h1 = span.nextSibling;
+		var h1 = span.nextElementSibling;	
+		console.log(h1)
+	</script>
+</body>
+</html>

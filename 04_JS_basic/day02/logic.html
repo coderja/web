@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	  var n=prompt('输入一个字符');
+		(n>='a'&&n<='z')&&console.log('小写字母');
+		(n>='A'&&n<='Z')&&console.log('大写字母');
+		(!isNaN(n))&&console.log('数字');
+    (n>='\u4e00'&&n<='\u9fa5')&&console.log('汉字');
+		var a=3,b=5;
+//		a=a+b
+//		b=a-b
+//		a=a-b
+//		console.log(a,b)
+    
+
+		a^=b
+		b^=a
+		a^=b
+		console.log(a,b)
+	</script>
+</body>
+</html> 

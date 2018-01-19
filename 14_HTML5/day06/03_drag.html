@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<img id="p3"  src="p3.png" alt=""/>
+
+<div id="trans" style="width: 95px;height: 90px;background: url('9.png') no-repeat;background-size:  contain;"></div>
+<script>
+    //源对象开始拖动
+    p3.ondragstart=function(){
+        console.log('拖动开始')
+    }
+    //源对象拖动中
+    p3.ondrag=function(){
+        console.log('拖动中')
+    }
+    //源对象拖动结束
+    p3.ondragend=function(){
+        console.log('拖动结束')
+    }
+    trans.ondragenter=function(){
+        console.log('enter')
+    }
+    trans.ondragover=function(e){
+        e.preventDefault()
+        console.log('over')
+    }
+    trans.ondragleave=function(){
+        console.log('leave')
+    }
+    trans.ondrop=function(){
+        console.log('drop')
+    }
+</script>
+</body>
+</html>

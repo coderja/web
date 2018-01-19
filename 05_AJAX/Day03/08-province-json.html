@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			<select id="selProvince"></select>
+			<select id="selCity"></select>
+		</p>
+
+		<script src="common.js"></script>
+		<script>
+			function loadProvince(){
+				//1、创建 xhr
+				var xhr = createXhr();
+				//2、创建请求
+				xhr.open("get","08-load-province-json.php",true);
+				//3、设置回调函数
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						//接收响应数据并转换成JS数组
+						var province = JSON.parse(xhr.responseText);
+						//解析province，并拼成 <option>
+						var opts = "";
+						for(var i=0;i<province.length;i++){
+							var pro = province[i];
+							opts += "<option value='"+i+"'>"+pro+"</option>";
+						}
+						//将opts设置为 selProvince的innerHTML
+						$("selProvince").innerHTML=opts;
+					}
+				}
+				//4、发送请求
+				xhr.send();
+			}
+
+			window.onload = function(){
+				loadProvince();
+			}
+		</script>
+	</body>
+</html>

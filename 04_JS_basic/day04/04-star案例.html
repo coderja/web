@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  /*案例1：正三角*/
+	//第一步：打印第r行
+	
+	/*反复打印r个星星
+	1.循环条件：个数（n）<3
+	2.循环变量：个数,保存当前行所有星星的str
+		n从0开始，每次+1
+		str从“”开始，每次拼接一个*
+	3.循环体：向str中，拼接一个*
+
+	循环退出后，统一输出（str）一次star
+	
+	*/
+	//var r=3;
+    //for(n=0,str="";n<r;str+="*",n++);
+	//console.log(str);
+
+	/*第二步：
+	三要素：
+	1.循环条件：r<=l
+	2.循环变量：r
+		从1开始，每次加1
+	3.循环体：
+	 for(n=0,str="";n<r;str+="*",n++);
+	 console.log(str);
+	*/
+	//打印正三角
+/*
+	var l=prompt("输入行数：");
+	for(r=0;r<=l;r++){
+	 for(n=0,str="";n<r;str+="*",n++);
+	 console.log(str);
+	}
+*/
+
+
+	//案例2：反三角
+	/*第一步：打印任意一行(第r行)
+			共需打印l个字符
+			先需要l-r个空格
+			其余都是*
+	三要素：
+	1.循环条件：字符个数<l
+	2.循环变量：字符个数（n）
+			从0开始，每次+1
+	3.循环体：
+		如果n<l-r，就向str中拼接“ ”
+					  否则就拼接“*”	
+
+
+	*/
+/*
+    var l=6;
+	var r=4;
+	for(n=0,str="";n<l;n++){
+		str+=(n<l-r?" ":"*");
+	}
+	console.log(str);
+*/
+   /*第二步： 三要素：
+	1.循环条件：r<=l
+	2.循环变量：r
+			从1开始，每次加1
+	3.循环体：
+    	for(n=0,str="";n<l;n++){
+		str+=(n<l-r?" ":"*");
+*/
+
+/*
+    var l=prompt("输入行数：");
+    for(r=0,str="";r<=l;r++){
+	   for(n=0,str="";n<l;n++){
+	   str+=(n<l-r?" ":"*");}
+	   console.log(str);
+	}
+*/
+	//案例3：等腰三角
+		/*第一步：如果共l行
+		正在打印第r行
+		一行中，共需要几个字符
+				先需要几个空格
+		共 l 行
+		第 r 行：共l+r-1个字符，先l-r个空格
+		三要素：
+		1.循环条件：
+		*/
+		var l=parseInt(prompt("输入行数"))
+		for(var r=1;r<=l;r++){
+			for(var i=0,str="";i<l+r-1;i++){
+				str+=(i<l-r)?" ":"*";
+			}
+			console.log(str);
+		}
+ </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

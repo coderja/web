@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg width="500" height="500">
+        <text font-size="200" stroke="#aaa" fill="#e68" alignment-baseline="before-edge" x="500" y="300">web1708</text>
+        <image xlink:href="p3.png" x="500" y="300"></image>
+    </svg>
+</body>
+<script>
+    var y = window.innerHeight-5;
+    var x = window.innerWidth;
+    svg = document.getElementsByTagName('svg')[0]
+    svg.style.background='#f3f3f3';
+    svg.setAttribute('height',y);
+    svg.setAttribute('width',x);
+</script>
+</html>

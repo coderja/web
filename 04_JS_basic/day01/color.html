@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <script src='jquery.js'></script>
+</head>
+<body>
+   <button id='btn'>点击</button>	
+   <script>
+	   $('#btn').click(function(){
+		    $('<div style="width:100px;height:100px;"></div>').css('background',function(){
+					var r=parseInt(Math.random()*256);
+			    var g=parseInt(Math.random()*256);
+			    var b=parseInt(Math.random()*256);
+			    return "rgb("+r+","+g+","+b+")";
+				}).appendTo($('body'))
+		 })
+	 </script>
+</body>
+</html>

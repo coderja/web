@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>worker</title>
+</head>
+<body>
+
+<input type="text"/><button>计算累积和</button>
+<div id="msg"></div>
+<script>
+    var  name = sessionStorage['name'];
+    var  age = sessionStorage.getItem('age')
+    var  length = sessionStorage.length;
+    console.log('姓名：'+name,"年龄:"+age,"数据个数:"+length,'获取i位置下标:'+sessionStorage.key(1))
+    sessionStorage.removeItem('age');
+</script>
+</body>
+</html>

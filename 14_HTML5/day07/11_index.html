@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .blue{background: #ddf;color: #33aaff}
+        .pink{background: #fdf;color: #a3a}
+        .dark{background: #333;color: #eee}
+    </style>
+</head>
+<body>
+<select name="" id="sel">
+    <option value="blue">蔚蓝天空</option>
+    <option value="pink">芭比公主</option>
+    <option value="dark">暗黑主题</option>
+</select>
+<script>
+   sel.onchange=function(){
+        var val = this.value;
+       localStorage.setItem('theme',val);
+       document.body.className=localStorage['theme'];
+
+       //var i = sel.selectedIndex;
+       /*switch(i){
+            case 0:
+           document.body.className='blue';
+           break;
+           case 1:
+           document.body.className='pink';
+           break;
+           case 2:
+           document.body.className='dark';
+           break;
+       }*/
+   }
+    window.onload=function(){
+        var val = localStorage['theme']
+        document.body.className=val;
+       for(var i=0;i<sel.length;i++){
+           if(sel[i].getAttribute('value')==val){
+               sel[i].setAttribute('selected','selected')
+             console.log(sel[i])
+           }
+       }
+    }
+</script>
+</body>
+</html>

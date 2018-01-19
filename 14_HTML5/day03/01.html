@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id = 'cavs'>您的浏览器太低</canvas>
+    <script>
+        var  x = window.innerWidth;
+        var  y = window.innerHeight-5;
+        cavs.height=y;
+        cavs.width=x;
+        cavs.style.background='#f2f2f2';
+        var ctx = cavs.getContext('2d');
+        ctx.beginPath();
+        //ctx.moveTo(100,100);
+        //ctx.lineTo(300,500);
+        //ctx.lineTo(880,300);
+        //ctx.closePath();
+        ctx.lineWidth=1;
+        ctx.shadowColor=randonc();
+        ctx.shadowBlur=15;
+        ctx.shadowOffsetX=5;
+        ctx.globalAlpha=1;
+        ctx.fillStyle=randonc();
+        ctx.fill();
+        var count = 0;
+        function arcs(){
+            //ctx.clearRect(0,0,x,y)
+            ctx.beginPath();
+            if((randon(x,0)>100)&&(randon(x,0)<x-100)&&(randon(y,100)<y-100)&&(randon(y,100)>100)){
+					   ctx.arc(randon(x,0), randon(y,100), randon(100,20), 0 * Math.PI / 180, 360 * Math.PI / 180);
+            }
+						ctx.strokeStyle = randonc();
+            ctx.stroke();
+            (count++)>50?clearInterval(timer):timer;
+        }
+        function randon(max,min) {
+            var x = parseInt(Math.random() * (max - min + 1) + min);
+            return x;
+        }
+        function randonc(){
+            var r = parseInt(Math.random()*256)
+            var g = parseInt(Math.random()*256)
+            var b = parseInt(Math.random()*256)
+           return `rgb(${r},${g},${b})`
+        }
+        var timer = setInterval(arcs,1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+				"use strict";
+				function Student(fullName){
+				  Object.defineProperty(this,'fullName',{
+						get:this.getFullName,
+						set:this.setFullName,
+						enumerable:true
+				  })
+					  this.fullName=fullName;
+					}
+				Student.prototype={
+					getFullName(){return this.firstName+'.'+this.lastName},
+					setFullName(val){
+						 var arr=val.split(/\.|\s/);
+						 this.firstName=arr[0];
+						 this.lastName=arr[1]
+					}
+				}
+			  var lilei= new Student('lilei li');
+			  var hmm= new Student('meimei han');
+				
+				console.log(lilei.firstName,lilei.lastName);
+				console.log(hmm.firstName,hmm.lastName);
+				
+				lilei.fullName='wang jie';
+				console.dir(lilei)
+				for(var key in lilei){
+					console.log(key+':'+lilei[key])
+				}
+		</script>
+	</body>
+</html>

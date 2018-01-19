@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	   <script src='ajax.js'></script>
+		 <script>
+		   /*ajax({
+			  type:'get',
+				url:'3_conn.php',
+				callback(data){
+				  console.log(data);
+				}
+			});
+			 ajax({
+			  type:'get',
+				url:'3_query.php',
+				callback(data){
+				  console.log(data);
+				}
+			});
+			 ajax({
+			  type:'get',
+				url:'3_response.php',
+				callback(data){
+				  console.log(data);
+				}
+			})*/
+
+			/*ajax({
+			  type:'get',
+				url:'3_conn.php',
+				callback(data){
+				  console.log(data);
+					ajax({
+							type:'get',
+							url:'3_query.php',
+							callback(data){
+							console.log(data);
+						  ajax({
+								type:'get',
+								url:'3_response.php',
+								callback(data){
+									console.log(data);
+								}
+							})
+					  }
+			    })
+				}
+			})*/
+			//conn->query->response
+			ajax({type:'get',url:'3_conn.php',})
+			.then(function(data){
+				  console.log(data.msg);
+					return  ajax({type:'get',url:'3_query.php'})
+			})
+			.then(function(data){
+			    console.log(data.msg);
+					return  ajax({type:'get',url:'3_response.php'})
+			})
+			.then(function(data){
+				  console.log(data.msg);
+			});
+		 </script>
+	</body>
+</html>

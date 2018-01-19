@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="getWeather">查询天气</button>
+		<script src="js/jquery-3.2.1.js"></script>
+		<script>
+//			$.get("http://127.0.0.1/weather.php")
+//			            //同桌的IP
+//			.then(text=>{
+//				document.write(text);
+//			})
+//function doit(str){
+//	alert(str);
+//	//执行完处理函数后删除script
+//	document.body.removeChild(
+//		document.body.lastElementChild
+//	);
+//}
+//$("#getWeather").click(()=>{
+//	//动态创建script
+//	var script=document.createElement("script");
+//	script.src=
+//		"http://127.0.0.1/weather.php?callback=doit";
+//	document.body.appendChild(script);
+//})
+$("#getWeather").click(()=>{
+//	$.getJSON(//发现?callback就改为跨域请求
+//		"http://127.0.0.1/weather.php?callback=?",
+//		//?: 随机生成函数名
+//		(text)=>{alert(text)}
+//	)
+    $.ajax({
+       type:"get",
+       url:"http://127.0.0.1/weather.php",
+       dataType:"jsonp"
+      }).then(text=>{alert(text)})
+
+})
+		</script>
+		
+	</body>
+</html>

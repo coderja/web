@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  function fomat(date){
+			  var week = ['日','一','二','三','四','五','六'];
+				var y = date.getFullYear();
+				var m = date.getMonth()+1;
+				  m < 10&&(m="0"+m);
+				var d = date.getDate();
+				  d < 10&&(d="0"+d);
+				var day = week[date.getDay()];
+				var h = date.getHours();
+				var am = h<12?'上午':'下午';
+				  h>12&&(h-=12);
+				  h<10&&(h='0'+h);
+        var mi = date.getMinutes();
+			   mi<10&&(mi="0"+mi);
+				 return y+'年'+m+'月'+d+'日'+'星期'+day + am + h+':'+mi
+			}
+			console.log(fomat(new Date('2017/8/12 12:23:23')))
+		</script>
+	</body>
+</html>

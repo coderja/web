@@ -1,0 +1,61 @@
+#foot-box{
+    margin:30px 0 50px 0;
+}
+#foot-box>div{
+    float:left;
+    width:240px;
+    text-align:center;
+}
+#foot-box h3{
+    font-weight:normal;
+}
+
+/*#record*/
+#record{
+    text-align:center;
+    line-height:22px;
+}
+#foot-other{
+    margin-bottom:20px;
+}
+/*#foot-other */
+#foot-other>div{
+    width:320px;
+}
+#foot-other div.foot-list b{
+    font:14px simhei;
+    color:#333;
+}
+#foot-other div.foot-list ul{
+    float:left;
+    width:100px;
+    line-height:25px;
+}
+#foot-other div.foot-list ul:nth-child(2){
+    margin:0 10px;
+}
+#foot-other div.foot-list ul a{
+    color:#808080;
+    font-size:12px;
+    text-decoration:none;
+}
+#foot-other div.foot-list ul img{
+    margin-right:5px;
+}
+/*右侧二维码 和 客户端*/
+#foot-other div.qrCode{
+    float:right;
+}
+#foot-other div.service{
+    float:right;
+    margin-right:10px;
+}
+#foot-other div.service p{
+    margin-bottom:10px;
+    color:#333;
+    font-size:14px;
+}
+#foot-other div.service img{
+    display:block;
+    margin-bottom:5px;
+}

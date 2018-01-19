@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  //创建父级构造函数
+		  function Flyer(fname,speed){
+			  this.fname=fname;
+				this.speed=speed;
+			}
+			//将公共方法存放在父级原型对象中
+			Flyer.prototype={
+			  fly(){
+				  console.log(this.fname+'以时速'+this.speed+'飞行')
+				}
+			}
+			//创建构造函数Bee
+			function Bee(fname,speed,award){
+			  Flyer.call(this,fname,award)
+				this.award = award
+			}
+			//将方法保存在Bee的原型对象中
+			Bee.prototype={
+			  getWard(){
+				  console.log('击落'+this.fname+'奖励'+this.award+'次生命')
+				}
+			}
+			//设置bee的原型对象继承自Flyer的原型对象
+			Object.setPrototypeOf(Bee.prototype,Flyer.prototype);
+			// 调用构造函数创建多个相同结构的对象
+			var bee = new Bee('小蜜蜂',500,1)
+			bee.fly();
+			bee.getWard();
+			console.dir(bee)
+			
+			
+			function Plane(fname,speed,score){
+			  Flyer.call(this,fname,speed);
+				this.score=score;
+			}
+			Plane.prototype={
+			  getScore(){
+				  console.log('击落'+this.fname+'得'+this.score+'分');
+				}
+			}
+			Object.setPrototypeOf(Plane.prototype,Flyer.prototype);
+			var f16 = new Plane('f16','1000',10)
+			f16.fly();
+			f16.getScore();
+			console.dir(f16)
+		</script>
+	</body>
+</html>

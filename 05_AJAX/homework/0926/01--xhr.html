@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+  <script>
+	  var xhr = createXhr();
+	  function createXhr(){
+		  var xhr=null;
+			if(window.XMLHttpRequest){
+			  var xhr = new XMLHttpRequest()
+			}else{
+			  var xhr = new ActiveXObject('Mircrosoft.XMLHttp')
+			}
+			return xhr
+		}
+		console.log(xhr)
+	</script>
+	</body>
+</html>

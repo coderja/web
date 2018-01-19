@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  function isPrime(num){
+			  if(num<=3) return true;
+				else if(num%2==0) return false;
+				else{
+          for(var i=3;i<Math.sqrt(num);i+=2){
+					  if(num%i==0)
+						return false;
+					}				
+					return true
+				}
+			}
+			console.log(isPrime(16))
+		</script>
+	</body>
+</html>

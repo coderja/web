@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+//		  var str='那天我去了她家，我说：“我艹艹，我擦,你家真大”！';
+//			var r = str.replace(/我[艹擦][艹]?/g,function(kw){
+//			  return kw.length==2?'**':'***'
+//			})
+//      console.log(r)//那天我去了她家，我说：“***，**,你家真大”！
+//		
+//		  var st = '派出所的公安干警负责维护公共安全秩序';
+//			str = st.replace(/派出所|公安干警|公共安全/g,function(kw){
+//			  return kw=='派出所'?'pcs':
+//				       kw=='公安'?'ga':
+//							 kw=='干警'?'gj':
+//													'ggaq'
+//			});
+//			console.log(str)
+
+//      var str ='  \twang jie\t  '; 
+//			function ltrim(str){
+//			  return str1 = str.replace(/^\s*/g,'')
+//			}
+//      ltrim(str)
+//			console.log(str1);
+//			function rtrim(str){
+//			  return str1 = str.replace(/\s*$/g,'')
+//			}
+//			rtrim(str)
+//			console.log(str1);
+//			function trim(str){
+//			  return  str1 = str.replace(/^\s*|\s*$/g,'')
+//			}
+//			trim(str)
+//			console.log(str1);
+var str ='  \twang jie\t  '; 
+			function ltrim(str){
+			  return  str.replace(/^\s*/g,"")
+			}
+			function rtrim(str){
+			  return  str.replace(/\s*$/g,"")
+			}
+			function trim(str){
+			  return   str.replace(/^\s*|\s*$/g,"")
+			}
+			console.log(ltrim(str),rtrim(str),trim(str));
+		</script>
+	</body>
+</html>

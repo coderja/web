@@ -1,0 +1,122 @@
+footer iframe{
+  height:560px;
+}
+#title{
+  display:flex;
+  justify-content:space-between;
+}
+#title b{
+  color:#0aa1ed;
+  font-size:14px;
+}
+#title .blue{
+  color:#0aa1ed;
+  font-size:18px;
+  font-weight:bold
+}
+#nav{
+margin-top:20px;
+  height:40px;
+  border-top:1px solid #ddd;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(to bottom,#e5e5e5,#eee);
+  box-shadow:0 3px 3px 1px #ccc;
+}
+#nav span,#nav i{
+   display:inline-block;
+}
+#nav span:nth-child(1){
+  padding-left:10px;
+  width:54px;
+}
+#nav span:nth-child(2){
+  text-align:center;
+  width:380px;
+}
+#nav span:nth-child(3){
+  width:142px;  
+}
+#nav span:nth-child(4){
+  width:140px;
+}
+#nav span:nth-child(5){
+  width:120px;
+}
+#nav span:nth-child(6){
+  width:116px;
+  text-align:center
+}
+
+.productList{
+  border:1px solid #ddd;
+  background:#fff;
+  height:100px;
+  display:flex;
+  align-items:center;
+  margin-top:20px;
+}
+.productList .check{
+  width:40px;
+  padding-left:10px;
+}
+.productList .shangpin span{
+  display:inline-block;
+  width:280px;
+  padding-top:20px;
+}
+.productList .shangpin img{
+  vertical-align:baseline;
+}
+.productList .price,.productList .count{
+   width:160px;
+   text-align:center;
+   padding-top:44px;
+   box-sizing:border-box
+}
+.productList .count{width:120px;}
+.productList .price a{
+   color:#0aa1ed;
+   font-weight:bold
+ }
+ .count .square span{
+   display:inline-block;
+   width:24px;
+   height:24px;
+   text-align:center;
+   line-height:24px;
+   border:1px solid #ddd;
+   vertical-align:center;
+ }
+ 
+ .count .square span:not(:nth-child(2)){
+   background:#ddd;
+ }
+ .productList>div{
+   vertical-align:center;
+   height:100px;
+   border-right:1px solid #ddd;
+ }
+ .productList .jiage{
+   width:150px;
+   text-align:center;
+   line-height:100px;
+ }
+ .productList .delete{
+    width:140px;
+	border-right:none;
+	text-align:center;
+	line-height:100px;
+ }
+ #title span.btn{
+   display:inline-block;
+   background:#0aa1ed;
+   height:50px;
+   width:160px;
+   text-align:center;
+   line-height:50px;
+   color:#fff;
+   font-size:16px;
+   border-radius:3px;
+   margin-left:10px;
+ }

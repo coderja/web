@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="4_user_login.php" method="post" enctype="multipart/form-data">
+        <table cellpadding="10">
+            <caption >
+                <h3 align="left">增加管理员</h3>
+            </caption>
+            <tr>
+                <td>姓名：</td>
+                <td>
+                    <input type="text" name='uname' placeholder="请输入你的名字" maxlength="10">
+                </td>
+                <td>10个字符以内</td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td>
+                    <input type="password" name='upwd' placeholder="请输入你的密码">
+                </td>
+                <td>10个字符以内</td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td colspan=2>
+                    <input type="radio"  name='gender' value='1' checked>男<input type="radio"  name="gender" value="0" >女
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">角色：</td>
+                <td>
+                    <input type="checkbox"  name='admin' value='1' checked>超级管理员
+                </td>
+                <td rowspan="2">至少选择一个角色</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"  name='admin' value='1' checked>账单管理员
+                </td>
+            </tr>
+            <tr>
+                <td>头像：</td>
+                <td colspan="2">
+                    <input type="file" >
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <input type='submit' value='提交'>
+                    <input type="reset" vaule='重置'>
+                </td>
+            </tr>
+            <tr>
+                <td>自我介绍：</td>
+                <td colspan="2">
+                    <textarea cols=40 rows=5></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>下拉框</td>
+                <td colspan="2">
+                    <select name="course" id="" multiple size="5">
+                        <option value="-1">===请选择===</option>
+                        <option value="0" selected>HTML5</option>
+                        <option value="1">javascript</option>
+                        <option value="2">jquery</option>
+                        <option value="3">nodejs</option>
+                        <option value="4">mogodb</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

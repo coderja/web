@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+//		  var arr=[91,59,89];
+//			var [math,chs,eng]=arr;
+      var obj={
+			  math:91,
+				chs:59,
+				eng:89
+			}
+			var {math,chs,eng}=obj
+			console.log(math,chs,eng)
+		  
+			//function show([math,chs,eng]){
+			function show({math,chs,eng}){
+			  console.log(
+				  `
+					  数学:${math},
+						语文:${chs},
+						英语:${eng},
+						总分:${math+chs+eng}
+					`
+				)
+			}
+			show(obj)
+		</script>
+	</body>
+</html>

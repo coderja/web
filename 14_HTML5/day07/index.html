@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="box">
+    <a id="a" href="login.html">请登录</a>
+</div>
+<script>
+    var n = sessionStorage['name']
+    if(n){
+        box.innerHTML=`
+          welecom<h1>${n}</h1><a href="logout.html">退出登录</a>
+        `
+    }
+</script>
+</body>
+</html>

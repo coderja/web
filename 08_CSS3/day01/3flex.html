@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	  <style>
+		  #box{
+			  height:800px;
+			  display:flex;
+				flex-flow:column;
+				justify-content:space-around;
+				align-items:stretch;
+			}
+			.fles{
+			  align-self:center;
+			  height:100px;
+			  box-sizing:border-box;
+			  width:25%;
+				border:1px solid #ddd;
+			}
+			.fles:nth-child(2){
+			  flex-grow:10;
+				order:-2
+			}
+			.fles:nth-child(1){
+			   flex-grow:25;
+				order:-1
+			}
+			.fles:nth-child(4){
+			   flex-shrink:20;
+				order:5
+			}
+		</style>
+	</head>
+	<body>
+	  <div id='box'> 
+		   <div class="fles">1</div>
+		   <div class="fles">2</div>
+		   <div class="fles">3</div>
+		   <div class="fles">4</div>
+		   <div class="fles">5</div>
+		   <div class="fles">6</div>
+		</div>
+
+	</body>
+</html>

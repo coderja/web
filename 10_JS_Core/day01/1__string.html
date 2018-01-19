@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	  <style>
+		  class{
+			  background-image:radial-gradient(100px at top) ;
+		  }
+	  </style>
+	</head>
+	<body>
+	<form action="">
+	<input type="text" pattern="[a-z]{6}"/>
+		inpu
+	</form>
+	  <script>
+		  var pid = '321281199311081895';
+			var birth = pid.slice(6,14);
+			console.log(birth);
+			var gender = pid[pid.length-2]%2==0?'女':'男';
+			console.log(gender);
+			var n = pid.split('');
+			console.log(n.reverse().join(''))
+
+			var n= 'LOWER';
+			n.toUpperCase()
+			//"LOWER"
+			var n= 'LOWER';
+			n.toLowerCase()
+			//"lower"
+		</script>
+	</body>
+</html>

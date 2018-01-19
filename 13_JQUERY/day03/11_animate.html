@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		#d1{
+			border:1px solid #aaa;
+			border-radius:6px;
+			background:#eee;
+			width:50px; height:50px;
+			position:absolute; top:120px; left:0;
+		}
+	</style>
+ </head>
+ <body>
+	<h1>animate</h1>
+	<button id="btn1">启动动画</button>
+	<button id="btn2">停止动画</button>
+	<div id="d1">abcd</div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		//测试animate支持哪些属性
+    //测试启动和停止动画
+    //测试延迟执行
+		$('#btn1').click(()=>{
+		   $('#d1').animate({
+		    left:'20',
+				marginTop:20,
+		    lineHeight:'30px',
+			  fontSize:19,
+				borderWidth:10,
+				opacity:.2,
+				padding:10
+				//不支持背景 字体 字体颜色 过度
+			 },2000)
+		})
+		/*$('#btn1').click(()=>{
+		   $('#d1').animate({
+		    left:'20'
+				},1000).animate({marginTop:20},2000).animate({fontSize:19},1000)
+				.animate({opacity:.2},1000).animate({padding:10},1000)
+		})*/
+		$('#btn2').click(e=>{
+		  $('#d1').stop(false,false)
+		})
+	</script>
+ </body>
+</html>

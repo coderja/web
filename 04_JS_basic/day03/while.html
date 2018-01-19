@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var i=1;
+			while(i<=100){
+			 console.log(i) 
+			 i++
+			}
+
+			var i=1,sum=0;
+			while(i<=100){
+			 sum+=i 
+			 i++
+			}
+			console.log(sum)
+
+      var i=1,sum=0;
+			while(i<=100){
+			 if(i%2==0)
+			 sum+=i;
+			 i++
+			}
+			console.log(sum)
+
+			var i=1,sum=0;
+			while(i<=100){
+			 if(i%2==1){
+				 i++;
+			 continue;
+			 }
+			 sum+=i;
+			 i++
+			}
+			console.log(sum)
+			
+      
+			/*while(input!='exit'){
+				var input=prompt('输入')
+			  console.log(input) 
+			  i++
+			}*/
+			while(true){
+				var input=prompt('输入');
+			  if(input=='exit')
+				break
+				else
+				console.log(input);
+				i++;
+			}
+			//作业输入年月日计算该日是星期几前提是1900年的1月1日是星期1从1900年开始，到输入年份的前一年为止，天数进行累加。2.从1月份开始到输入月份的前一个月在进行累加3.再累加日4.将整体的数值%7==0是周日1-6就是星期一到星期六
+     
+		</script>
+	</body>
+</html>

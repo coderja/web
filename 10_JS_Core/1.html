@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  	<script>
+		   var date=new Date();
+			 ms=date.getTime();
+			 console.log(ms);
+
+			 var date=new Date(ms)
+			 console.log(date)
+
+			 var year=Number.MAX_VALUE/1000/3600/24/365;
+			 console.log(year);
+			 var now=new Date();
+			 var birth=new Date('1995/06/03');
+			 var ms=now-birth;
+			 var days=ms/1000/3600/24;
+			 console.log('来到人间'+Math.ceil(days)+'天')
+			 
+			 function dd(){
+			 var target=new Date('2017/8/28');
+			 var now=new Date();
+			 var s=parseInt((target-now)/1000);
+			 var d=parseInt(s/(3600*24));
+			 var h=parseInt(s%(3600*24)/3600);
+			 var m=parseInt(s%3600/60);
+			 var s=s%60;
+			   document.body.innerHTML="距离七夕还有"+d+"天"+h+"小时"+h+"分"+s+"秒";
+			 }
+			 setInterval(dd,1000);
+				
+			
+			var hiredate=new Date('2012/6/30 14:30:00');
+			var enddate=new Date(hiredate);
+			enddate.setFullYear(enddate.getFullYear()+3);
+			var renewdate=new Date(enddate);
+			renewdate.setMonth(renewdate.getMonth()-1);
+//			if(renewdate.getDay()==6){
+//						 renewdate.setDate(renewdate.getDate()-1)
+//			}else	if(renewdate.getDay()==0){
+//						 renewdate.setDate(renewdate.getDate()-2)
+//			}
+switch(renewdate.getDay()){
+		 case '0':
+			 renewdate.setDate(renewdate.getDate()-2)
+			 break;
+		 case '6':
+		   renewdate.setDate(renewdate.getDate()-1)
+       break;
+}
+			console.log(hiredate.toLocaleString());//	2012/6/30 下午2:30:00
+			console.log(enddate.toString());	// Tue Jun 30 2015 14:30:00 GMT+0800 (中国标准时间)
+			console.log(renewdate.toLocaleDateString());//	2015/5/30
+			console.log(renewdate.toLocaleTimeString());//	下午2:30:00
+			console.log(renewdate.toGMTString());//	Sat, 30 May 2015 06:30:00 GMT
+		</script>
+ </body>
+</html>

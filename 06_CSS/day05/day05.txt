@@ -1,0 +1,63 @@
+1.XML
+  AJAX:Asynchronous Javascript And XML
+  1.什么是XML
+    eXtensible Markup Language
+    可扩展的	标记	语言
+
+    XML的标记没有被预定义过，需要自行定义
+    XML的宗旨是做数据传递的，而非数据显示
+  2.XML的语法规范
+    XML可以保存成独立的***.xml文件，也可以以字符串的形式出现(服务器生成)
+    1、XML的最顶端是XML的声明
+       <?xml version="1.0" encoding="utf-8" ?>
+    2、XML标记的语法
+      1、XMl标记必须成对出现
+      2、XML的标记严格区分大小写，开始和结束必须一致
+      3、XML的标记也允许被浅套，注意嵌套顺序
+      4、每个标记都允许自定义属性，格式与html一致,必须用"括起来"
+      5、每个XML文档必须要有一个根元素
+    3、使用AJAX去请求XML文档
+      1、要遵循AJAX的请求步骤
+        1.创建 获取 xhr
+	2.创建请求
+	  xhr.open('get',"student.xml",true)
+	3.设置回调函数
+	xhr.onreadystatechange=function(){
+	   if(xhr.readyState==4&&xhr.status==200){
+	   
+	   }
+	}
+	4.发送请求
+	xhr.send(null)
+      2、在回调函数中处理响应数据
+         使用xhr.responseXML来获取响应的数据，返回的是XML文档对象
+    4、解析XML文档对象的内容
+      1、核心方法
+         elem.getElementsByTagName('标签名');
+	 elem : 表示获取范围的对象
+	 返回值:返回一个包含指定元素们的"类数组";
+
+	 ex:
+	  ...
+	  var xmlDoc = xhr.responseXML;
+	  xmlDoc.getElementsByTagName('student');
+    5、在PHP中返回xml返回格式的字符串
+       1、必须增加响应消息头
+         header('Content-Type:application/xml');
+       2、按照XML的语法结构，拼XML字符串，再响应给客户端
+        $xml="<?xml version='1.0' encoding='utf-8'>";
+	$xml.="<student>";
+	.....
+	$xml.="</student>";
+	echo $xml;
+
+
+
+
+
+
+
+
+
+
+

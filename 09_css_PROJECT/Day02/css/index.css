@@ -1,0 +1,168 @@
+/*将banner中所有的图片(4幅)，更改宽度为960px，以便配合整体布局*/
+#banner img{
+	width:960px;
+}
+
+#banner{
+	width:960px;
+	height:384px;
+	overflow:hidden;
+	/*相对定位：配合 a.ck-slide 做绝对定位*/
+	position:relative;
+}
+
+#banner a.ck-slide{
+	/*绝对定位，宽度，高度，偏移位置，背景颜色，边框倒角，透明度*/
+	position:absolute;
+	width:35px;
+	height:70px;
+	top:157px;
+	background:#000;
+	border-radius:3px;
+	opacity:0.1;
+	/*过渡*/
+	transition:all .3s;
+}
+#banner a.ck-slide:hover{
+	/*透明度*/
+	opacity:0.3;
+}
+#banner a.ck-left{
+	background:#000 url(../img/index/arrow-left.png) no-repeat center center;
+	left:5px;
+}
+#banner a.ck-right{
+	background:#000 url(../img/index/arrow-right.png) no-repeat center center;
+	right:5px;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#banner ul.indicators{
+	/*绝对定位，位置偏移 */
+	position:absolute;
+	left:446px;
+	bottom:15px;
+}
+#banner ul.indicators li{
+	/*宽度，高度，背景颜色，边框倒角*/
+	width:12px;
+	height:12px;
+	background:#fff;
+	border-radius:50%;
+	/*左浮动，右外边距*/
+	float:left;
+	margin-right:5px;
+}
+#banner ul.indicators li:hover{
+	cursor:pointer;
+	background:#0aa1ed;
+}
+
+/*楼层 ：1F/2F/3F*/
+div.floor{
+	margin-top:20px;
+}
+div.floor>div.floor-top{
+	/*文字大小，加粗，下边框，下内边距，下外边距*/
+	font-size:24px;
+	font-weight:bold;
+	border-bottom:2px solid #d9d9d9;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	/*背景图，左内边距*/
+	background:url(../img/index/computer_icon.png) no-repeat left center;
+	padding-left:40px;
+}
+/*6幅小图像*/
+div.floor-content>div{
+	background:#e8e8e8;
+	margin-bottom:10px;
+}
+div.floor-content>div:first-child{
+	width:610px;
+	height:370px;
+	/*相对定位：为了配合子元素做绝对定位*/
+	position:relative;
+}
+div.floor-content>div:nth-child(2){
+	width:340px;
+	height:370px;
+}
+div.floor-content>div:nth-child(3){
+	width:360px;
+	height:230px;
+}
+div.floor-content>div.product{
+	width:190px;
+	height:230px;
+}
+div.floor-content{
+	/*变为弹性布局的容器*/
+	display:flex;
+	/*允许自动换行*/
+	flex-wrap:wrap;
+	/*两端对齐*/
+	justify-content:space-between;
+}
+/*第一块内容的 文字标题*/
+div.floor-content>div:first-child p.name{
+	font-size:32px;
+	color:#333;
+}
+/*第一块内容的 描述*/
+div.floor-content>div:first-child p.details{
+	font-size:12px;
+	margin-bottom:24px;
+	color:#666;
+}
+/*第一块内容的 价格*/
+div.floor-content>div:first-child p.price{
+	font-size:24px;
+	color:#0aa1ed;
+	margin-bottom:12px;
+}
+div.floor-content>div:first-child a.view{
+	/*行内块，宽度:130，高度:40，水平居中对齐，行高，渐变的背景，倒角，取消下划线，文字颜色，文字大小*/
+	display:inline-block;
+	width:130px;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+	background:linear-gradient(to bottom,#27B1F6,#0aa1ed);
+	border-radius:2px;
+	text-decoration:none;
+	color:#fff;
+	font-size:16px;
+}
+div.floor-content>div:first-child div.desc{
+	width:245px;
+	position:absolute;
+	top:55px;
+	left:65px;
+}
+div.floor-content>div:first-child img{
+	position:absolute;
+	right:35px;
+	bottom:50px;
+}
+div.floor-content img{
+	transition:all .3s;
+}
+div.floor-content img:hover{
+	transform:scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+

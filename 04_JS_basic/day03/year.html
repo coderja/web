@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var y=prompt('输入年份')
+		  var m=prompt('输入月份')
+		  var d=prompt('输入日期')
+			var	arr=[31,0,31,30,31,30,31,31,30,31,30,31]
+			if((y%4==0&&y%100!=0)||(y%400==0)){
+   			  arr[1]=29
+			}else{
+			  arr[1]=28
+			}
+			for(var sum=0,i=0;i<m-1;i++){
+			  sum+=arr[i]
+			}
+			
+			console.log(`${y}年${m}月${d}日是${sum+parseInt(d)}天`)
+			console.log(arr[1])
+		</script>
+	</body>
+</html>

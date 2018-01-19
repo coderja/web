@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+  table,td,th{
+	  border:1px solid #ddd;
+	}
+	td,th{
+	  font-weight:normal;
+	  text-align:center;
+		height:32px;
+		line-height:32px;
+	}
+	table{
+	  width:100%;
+	  border-collapse:collapse;
+	}
+</style>
+<body>
+	<table>
+	  <thead>
+	  	<th>登录名称</th>
+	  	<th>电子邮箱</th>
+	  	<th>联系方式</th>
+	  	<th>用户头像</th>
+	  	<th>用户姓名</th>
+	  	<th>用户性别</th>
+	  	<th>操作</th>
+			<tbody id='tb'>
+			
+			</tbody>
+	  </thead>
+	</table>
+  <script src='common.js'></script>
+	<script>
+	  function loadTable(){
+		  var xhr = createXhr();
+			xhr.open('get','loadTable.php',true);
+			xhr.onreadystatechange=function(){
+			  if(xhr.readyState==4&&xhr.status==200){
+				  var txt = xhr.responseText;
+					var msg = JSON.parse(txt);
+				  console.log(msg)
+					var frag = document.createDocumentFragment()
+					for(var i=0;i<msg.length;i++){
+					  var tr = document.createElement('tr');
+						for(var key in msg[i]){
+						  var td=document.createElement('td');
+							td.innerHTML=msg[i][key]
+							tr.appendChild(td)
+							if(td.innerHTML==''){
+							  td.innerHTML='null';
+							}else if(td.innerHTML=='1'){
+							  td.innerHTML='男';
+							}else if(td.innerHTML=='0'){
+							  td.innerHTML='女';
+							}
+						}
+						  var td=document.createElement('td') ;
+							td.innerHTML=
+							`<a href='05-update.php?uname=${msg[i].uname}'>设置</a><a href='javascript:deleteuser("${msg[i].uname}")'>删除</a>`;
+							tr.appendChild(td);
+							frag.appendChild(tr)
+					}
+             $('tb').appendChild(frag)
+				}
+			}
+		  xhr.send(null)
+		}
+		
+    function deleteuser(uname){
+			console.log(uname)
+			var xhr = createXhr();
+			xhr.open('get','delete.php?uname='+uname,true)
+			xhr.onreadystatechange=function(){
+			  if(xhr.readyState==4&&xhr.status==200){
+					if(xhr.responseText=='1'){
+     				alert('要删除的用户uname:'+uname);
+				    loadTable();
+					}else{
+					  alert('删除失败');
+					}
+				}
+			}
+			xhr.send(null);
+		}
+		window.onload=function(){
+		  loadTable() 
+		}
+  
+    
+	</script>
+</body>
+</html>

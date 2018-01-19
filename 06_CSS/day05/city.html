@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <button onclick='loadXML()'>请求数据</button>
+		<div id='show'></div>
+		<script src='common.js'></script>
+  <script>
+		  function loadXML(){
+			  var xhr = createXhr();
+				xhr.open('get','city.xml',true);
+				xhr.onreadystatechange=function(){
+				   if(xhr.readyState==4&&xhr.status==200){
+					  var xmlDoc = xhr.responseXML;
+						console.log(xmlDoc)
+						var x = xmlDoc.getElementsByTagName('xml')[0];
+						console.log(x)
+						var c = x.getElementsByTagName('c')[0];
+						console.log(c)
+						var d = c.getElementsByTagName('d');
+						console.log(d)
+						for(var i=0;i<d.length;i++){
+								var a1 = d[i].getAttribute('d1');
+								var a2 = d[i].getAttribute('d2');
+								var a3 = d[i].getAttribute('d3');
+								var a4 = d[i].getAttribute('d4');
+								console.log(a1,a2,a3,a4)
+								console.log(d[i])
+								var data = `cid=${a1}&city=${a2}&pam=${a3}&pro=${a4}`;
+								xhr.open('post','weather.php',true);
+								xhr.onreadystatechange=function(){
+									if(xhr.readyState==4&&xhr.status==200){
+									   var str = xhr.responseText;
+									   console.log(JSON.parse(str))
+									}   
+								}
+								xhr.send(data)
+						}
+						$('show').innerHTML=c
+					 }
+				}
+			  xhr.send(null)
+			}
+		</script>
+ </body>
+</html>

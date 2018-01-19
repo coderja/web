@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//作业: 
+			//1. 定义构造函数
+			function Student(sname,sage){
+				this.sname=sname;
+				this.sage=sage;
+			}
+			Student.prototype.intr=function(){
+				console.log(
+					"I'm "+this.sname+", I'm "+this.sage);
+			}
+			//2. 调用构造函数创建多个相同结构的对象
+			var lilei=new Student("Li Lei",11);
+			    //lilei.__proto__->Student.prototype
+			var hmm=new Student("Han Meimei",12);
+			Student.prototype.className='初一二班'
+					//hmm.__proto__->Student.prototype
+			console.dir(lilei);
+			console.dir(hmm);
+			lilei.intr();
+			lilei.sage++;
+			lilei.intr();
+			hmm.intr();
+			hmm.sage++;
+			hmm.intr();
+			console.log(lilei.__proto__==hmm.__proto__);
+			//lilei.className='初二二班'
+			Student.prototype.className='初二二班';
+			console.log(lilei.className,hmm.className)
+		</script>
+	</body>
+</html>

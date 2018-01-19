@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="checkbox"/>是否播放
+    <audio controls autoplay preload='metadata' loop muted>
+        <source  src="rec/bg.mp3"/ >
+    </audio>
+    <script>
+        var input = document.getElementsByTagName('input')[0];
+        var at = document.getElementsByTagName('audio')[0];
+        function vlu(){
+            if(this.checked){
+                at.play()
+              at.volume=0;
+               var timer = setInterval(function(){
+                    at.volume+=0.1
+                    if(at.volume>0.9){
+                        clearInterval(timer);
+                        timer=null
+                        console.log('清除了')
+                    }
+                },1000)
+            }else{
+                at.pause()
+            }
+
+        }
+        input.onchange=vlu
+
+    </script>
+</body>
+</html>

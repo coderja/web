@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: #3af;
+        }
+    </style>
+</head>
+<body>
+    <h4>canvas验证码</h4>
+    <canvas id="c2" ></canvas>
+    <script>
+        //1.创建二个变量保存验证码的宽度和高度
+        var w = 120;
+        var h = 30
+        c2.width=w;
+        c2.height=h;
+        //2.填充背景颜色
+        var ctx = c2.getContext('2d');
+        ctx.fillStyle=rc(230,180);
+        ctx.fillRect(0,0,w,h);
+        var pool="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        for(var i=0;i<4;i++){
+            var c = pool[rn(pool.length,0)]
+            console.log(c)
+            var fs = rn(40,18);//字符大小
+            var deg = rn(45,-45);//角度
+            var bg = rc(80,180)
+            ctx.font=fs+"px SimHei";
+            ctx.fillStyle=bg;
+            ctx.textBaseline='top';
+            ctx.save();
+            ctx.translate(30*i+15,15)
+            ctx.rotate(deg*Math.PI/180)
+            ctx.fillText(c,-10,-15)
+            ctx.restore();
+        }
+        //3.绘制随机字符
+        for(var i=0;i<6;i++){
+            ctx.lineWidth=1
+            ctx.strokeStyle=rc(255,0)
+            ctx.beginPath()
+            ctx.moveTo(rn(w,0),rn(h,0))
+            ctx.lineTo(rn(w,0),rn(h,0))
+            ctx.stroke()
+        }
+        //4.绘制干扰点
+        for(var i=0;i<50;i++){
+            ctx.beginPath();
+            ctx.fillStyle=rc(255,0);
+            ctx.arc(rn(w,0),rn(h,0),0.5,0,2*Math.PI);
+            ctx.fill()
+        }
+        //5.绘制干扰点
+        function rc(max,min){
+            var r = rn(max,min)
+            var g = rn(max,min)
+            var b = rn(max,min)
+            return `rgb(${r},${g},${b})`;
+        }
+        function rn(max,min){
+            return Math.round(Math.random()*(max-min)+min)
+        }
+    </script>
+</body>
+</html>

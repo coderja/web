@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    //如果已启用cookie
+    if(navigator.cookieEnabled){
+      //提示: cookie已启用，请妥善保存个人信息
+      document.write("cookie已启用，请妥善保存个人信息");
+    }else{//否则
+      //提示: cookie已禁用，保存密码功能无法使用
+      document.write("cookie已禁用，保存密码功能无法使用")
+    }
+
+    function checkPlugin(name){
+      //遍历navigator的plugins集合
+      for(var i=0;i<navigator.plugins.length;i++){
+        //如果当前plugin的name和参数name相等
+        if(navigator.plugins[i].name==name){
+          //提示已安装name插件，可正常使用
+          document.write("<h1>已安装"+name+"插件，可正常使用</h1>");
+          return;//退出函数
+        }
+      }//(遍历结束)
+      //提示未安装name插件，请下载安装
+      document.write("<h1>未安装"+name+"插件，请下载安装</h1>");
+    }
+    checkPlugin("Shockwave Flash");
+    checkPlugin("QQMusic");
+
+    document.write("<h1>"+navigator.userAgent+"</h1>");
+    var browser="unknown";
+    var version="unknown";
+    var ua=navigator.userAgent;
+    if(ua.indexOf("MSIE")!=-1){//如果ua中能找到MSIE
+      browser="IE";//browser设置为IE
+    }else if(ua.indexOf("Trident")!=-1){
+      //否则，如果ua中能找到Trident
+      browser="IE";//browser设置为IE
+    }else if(ua.indexOf("Firefox")!=-1){
+      //否则，如果ua中能找到Firefox
+      browser="Firefox";//browser设置为Firefox
+    }else if(ua.indexOf("OPR")!=-1){
+      //否则，如果ua中能找到OPR
+      browser="Opera";//browser设置为Opera
+    }else if(ua.indexOf("Chrome")!=-1){
+      //否则，如果ua中能找打Chrome
+      browser="Chrome";//browser设置为Chrome
+    }else if(ua.indexOf("Safari")!=-1){
+      //否则，如果ua中能找到Safari
+      browser="Safari";//browser设置为Safari
+    }
+    document.write("<h1>Browser:"+browser+"</h1>");
+
+    //如果browser是IE且ua中找不到IE
+    if(browser=="IE"&&ua.indexOf("IE")==-1){
+      version=11;//version设置为11
+    }else{//否则
+      //在ua中找到browser的开始位置i
+      //i+browser的长度+1，保存回i中
+      var i=ua.indexOf(browser=="Opera"?"OPR":browser)
+            +(browser=="Opera"?3:browser.length)
+            +1;
+      //从ua中截取i开始的后3位，转为浮点数，保存到version
+      version=parseFloat(ua.slice(i,i+3));
+    }document.write("<h1>Version:"+version+"</h1>");
+  </script>
+ </head>
+ <body>
+   
+ </body>
+</html>

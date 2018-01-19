@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>worker</title>
+</head>
+<body>
+
+<input type="text"/><button onclick="add()">计算累积和</button>
+<div id="msg"></div>
+<script>
+    function add() {
+         var w3 = new Worker('03.js');
+         var inp = document.getElementsByTagName('input')[0]
+         var val = inp.value;
+         w3.postMessage(val)
+         w3.onmessage=function(e){
+             msg.innerHTML= e.data
+         }
+    }
+</script>
+</body>
+</html>

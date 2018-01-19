@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  //默认值的参数必须放在参数列表的后面
+		  function indexOf(arr,elem,fromi=0){
+			  //fromi=fromi||0
+				for(var i=fromi;i<arr.length;i++){
+				  if(arr[i]===elem)
+					return i;
+				}
+				return -1;
+			}
+			var arr=[1,3,4,5,4,2]
+			console.log(indexOf(arr,1,2))//-1
+			console.log(indexOf(arr,2,3))//5
+			console.log(indexOf(arr,3,3))//-1
+		</script>
+	</body>
+</html>

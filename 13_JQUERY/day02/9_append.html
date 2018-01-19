@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.container {
+			border: 1px solid #aaa;  overflow:hidden;
+		}
+		.block {
+			float: left; margin: 10px;
+			border: 1px solid #aaa;
+			background: #faa;
+			width: 150px; height: 150px;
+		}
+		.block:hover{ box-shadow:0 5px 6px #000; }
+		.close {
+			float:right; padding:5px;
+			font-weight:bold; opacity:.2; cursor: pointer;
+		}
+		.close:hover { opacity: .5; }
+	</style>
+ </head>
+ <body>
+  <h1>添加/删除节点</h1>
+	<button id="add-block">添加区块</button>
+	
+	<div class="container">
+<!-- 		<div class="block"> -->
+<!-- 			<span class="close">×</span> -->
+<!-- 		</div> -->
+	</div>
+	
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+	 function  randomColor(){
+	   var r=Math.round(Math.random()*256)
+	   var g=Math.round(Math.random()*256)
+	   var b=Math.round(Math.random()*256)
+	     return `rgb(${r},${g},${b})`
+	 }	
+	    var $box = $('.container')
+	 $('#add-block').click(e=>{
+			var $block = $(`<div class='block'>
+			    <span class='close'>X</span>
+			</div>`)
+			$block.css('background',randomColor()).prependTo($box);
+	    $box.click(e=>{
+					var $tar = $(e.target)
+					if($tar.is('.close')){
+							 if(confirm('确认删除'))
+										$tar.parent().remove()
+					 }
+			})
+	 
+	 })
+	</script>
+	
+ </body>
+</html>

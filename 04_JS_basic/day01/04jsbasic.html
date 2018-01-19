@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+	   <!--通过onclick时间执行js脚本-->
+    <div onclick="alert('你还真敢点')">
+		 <button>你点我试试</button>
+	  </div>	 
+		<div onclick='console.log("又点")'>111</div>
+	
+	   <!--2.嵌入在网页中的<script>标记中编写脚本并执行-->
+		 <script>
+		    document.write('这是另一个脚本');
+				console.time('eee')
+		 </script>
+		 <!---3.引入外部的js文件-->
+		 <script src='outer.js'></script>
+	</body>
+</html>

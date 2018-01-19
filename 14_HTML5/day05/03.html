@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg>
+        <defs>
+            <linearGradient  id="g3">
+                <stop offset="0%" stop-color="#f2f2f2"></stop>
+                <stop offset="50%" stop-color="#ae2"></stop>
+                <stop offset="100%" stop-color="#3e2"></stop>
+            </linearGradient>
+            <linearGradient id="g4" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#aff"></stop>
+                <stop offset="50%" stop-color="#aae"></stop>
+                <stop offset="100%" stop-color="#fd4"></stop>
+            </linearGradient>
+        </defs>
+            <rect width="50" height="300" x="100" y="600" fill="url(#g3)"></rect>
+            <rect width="50" height="400" x="200" y="500" fill="url(#g4)"></rect>
+            <rect width="50" height="350" x="300" y="550" fill="url(#g3)"></rect>
+    </svg>
+</body>
+<script>
+    var y = window.innerHeight-5;
+    var x = window.innerWidth;
+    svg = document.getElementsByTagName('svg')[0]
+    svg.style.background='#f3f3f3';
+    svg.setAttribute('height',y);
+    svg.setAttribute('width',x);
+</script>
+</html>

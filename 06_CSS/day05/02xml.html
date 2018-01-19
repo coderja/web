@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<script src='common.js'></script>
+	<body>
+	  <button onclick="loadXML()">加载</button>
+	  <script>
+		function loadXML(){
+		  var xhr = createXhr();
+			xhr.open('get','02-php-xml.php',true);
+			xhr.onreadystatechange=function(){
+			  if(xhr.readyState==4&&xhr.status==200){
+				  var xmlDoc = xhr.responseXML;
+					console.log(xmlDoc);
+					var name = xmlDoc.getElementsByTagName("name");
+					var age = xmlDoc.getElementsByTagName('age');
+					console.log("姓名"+name[0].innerHTML)
+					console.log("年龄"+age[0].innerHTML)
+				}
+			}
+			xhr.send(null)
+		}
+		</script>
+	</body>
+</html>

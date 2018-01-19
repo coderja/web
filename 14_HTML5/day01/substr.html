@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<title>Document</title>
+<style>
+		#container{width:240px;margin:0 auto}
+    #box{word-break:break-word}
+		#txt{font-size:22px;width:240px;}
+		.btn{color:#3af;border:1px solid #3af;border-radius:3px;background:#fff;}
+    .box{width:200px;margin-top:20px;color:#3af;font-size:22px;word-break:break-word}
+    .btnBox{display:flex;justify-content:center;}
+</style>
+</head>
+<body>
+<div id='container'>
+	<div id='box' class='box'></div><!--用来显示文字动画-->
+	<div id='show'>
+		<textarea name="" class='btn' id="txt" cols="15" rows="10">请输入文字:点击保存按钮后再点击预览按钮</textarea>
+		<div class='btnBox box'>
+			<button class='btn' id='btn' onclick='save()'>保存</button>
+			<button class='btn' id='bt' >预览</button>
+		</div>
+	</div>
+</div>
+<script>
+		      function showWords(div, msg, time) {
+							var count = 0;
+							var timer = null;
+							timer = setInterval(function () {
+									if (count > msg.length) {
+											clearInterval(timer);
+									}
+									else {
+											div.innerHTML = msg.substr(0, count)+'_';
+											count++
+									}
+							}, time)
+					}
+					 var words='';
+					//点击保存按钮触发该函数
+		      function save(){
+						 //获取文本框里的值
+							words = txt.value;
+							//点击预览按钮
+		          bt.onclick = function () {
+									var myBody = document.getElementById("box");
+									//调用showword函数
+									showWords(myBody, words, 200);
+									//获取文本框里文字的个数
+									var n=words.length;
+									var count1=0;
+									//创建一个定时器操作count
+									var timer =	setInterval(function(){
+												count1++
+												if(count1!=n){//当count==n清除定时器
+														//当count<n文本框消失
+														 show.style.display='none'
+												}else{
+														setTimeout(function(){
+															 show.style.display='block'//创建内层一次性定时器让文本框显示
+															 box.innerHTML=''//外层文字清空
+														},2000)
+												    clearInterval(timer)
+												}
+									},200)
+								
+					    }
+				  }
+					
+    
+</script>
+</body>
+</html>

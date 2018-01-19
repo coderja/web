@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  if(typeof Array.prototype.forEach!='function')
+			Array.prototype.forEach=function(callback){
+			  for(var i=0;i<this.length;i++){
+				  if(this[i]!==undefined)//防稀疏数组
+					callback(this[i],i,this)
+				}
+			}
+
+			if(typeof Array.prototype.map!='function')
+			Array.prototype.map=function(callback){
+			  for(var i=0,result=[];i<this.length;i++){
+				   result[i]=callback(this[i],i,this)
+				}
+				return result
+			}
+			var arr=[1,2,3,4,5];
+			arr.forEach(function(elem,i,arr){
+			  arr[i]=elem*2//修改原数组
+			})
+			document.write(arr+'<br>')
+		  var evens =	arr.map(function(elem){
+			  return elem*2//返回新数组
+			})
+			document.write(evens)
+		</script>
+	</body>
+</html>

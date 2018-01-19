@@ -1,0 +1,99 @@
+1.AJAX
+  1.名词解释
+    1.同步(Synchronous)
+	    在一个任务进行当中时，不能开始其他的任务
+	    同步访问：浏览器在向服务器发送请求的时候，浏览器只能
+	    等待服务器的响应，不能做其他的事情
+	    出现场合：
+		1、地址栏输入网址访问页面
+		2、a标记的默认跳转
+		3、submit按钮的表单提交 
+    2.异步(Asynchronous)
+	    在一个任务进行当中时,可以开启其他任务
+	    异步访问：浏览器在向服务器发送请求的时候，
+	    不耽误用户在网页上的其他操作
+	    使用场合：
+	      1.用户名的重复验证
+	      2.聊天室
+	      3.股票的走势图
+	      4.搜索的建议(百度，京东，淘宝的搜索框)
+  2.什么是AJAX
+    Asynchronous JavaScript And Xml
+    异步的           js     和  xml
+    
+    本质：使用js提供的异步对象(XMLHttpRequest),
+    异步的向服务器发送请求,并接受响应的数据(格式是xml,但已过时)
+
+    AJAX中,服务器响应回来的是部分的数据而不是完整的页面,并且可以
+    无刷新的效果来更改页面的局部内容
+  3.创建 XMLHttpRequest 对象 - 异步对象(xhr)
+    标准创建 var xhr = new XMLHttpRequest();
+    IE8以下的浏览器使用:
+       var xhr =  new ActiveXObeject('Microsoft.XMLHttp')
+       
+       允许通过 window.XMLHttpRequest来判断浏览器是否支持标准创建
+       
+       如果浏览器不支持标准创建法,那么window.XMLHttpRequest的值为null
+
+       if(window.XMLHttpRequest){
+        var xhr = new XMLHttpRequest();
+       }else{
+        var xhr = new XMLHttpRequest();
+       }
+  4.XHR的常用属性和方法(难点)
+    1、open()
+      作用:创建请求
+      语法:xhr.open(method,url,isAsyn);
+        1.method
+	  string 类型
+	  请求方式:get , post
+	2.url
+	  string 类型
+	  请求地址
+	3.isAsyn
+	  boolean类型
+	  指定采用同步(false)还是异步(true)的方式发送请求
+    2、readyState
+       作用:表示xhr对象的请求状态
+       值:0-4表示5个状态
+         0:请求尚未初始化
+	 1:已经打开服务器的链接，正在发送请求中
+	 2:请求完成
+	 3:正在接受服务器端的响应
+	 4:表示接受响应数据成功
+    3、status
+    4、onreadystatechange - 事件
+       作用:当xhr 的readyState属性的值发生改变时候，要自动
+       激发的操作
+       语法：
+         xhr.onreadystatechange = function(){
+	    //判断xhr.readyState为4并且xhr.status为200,就可以获得响应回来的结果
+	    if(xhr.readyState==4&&xhr.status==200){
+	      //接收响应回来的的结果
+	      var txt = xhr.responseText;
+	    }
+	 }
+    5、send()
+       作用；发送请求
+       语法：xhr.send(body);
+         body:请求主体
+         如果没有请求主体body位置为null
+	 如果有请求主体，则放请求的主体数据
+  5.发送异请求的步骤
+    1、创建xhr对象
+    2、创建请求
+    3、设置xhr的onreadystatechange(回调函数)
+      判断状态，并接受响应数据
+    4、发送请求
+  6.使用GET提交方式，发送请求数据
+    05-response.php?uname=value1&upwd=value2
+    在PHP中取值:
+    $_REQUEST['name1'];
+    $_REQUEST['name2'];
+
+    http://127.0.0.1/05_Ajax/day02/06-ajax.php?uname=11111&upwd=111111
+  7.使用AJAX发送POST请求
+    注意两点:
+    1、post的请求数据要放在请求体中
+       xhr.send("uname=value1&upwd=value2")
+       xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded')

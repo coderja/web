@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+					<button onclick="zx()">点击</button>  
+					<button onclick="zx2()">点击</button>  
+          <button onclick="zx3()">点击</button> 
+   	  <script>
+			  function zx(){
+				  sum(3,4)
+					console.log('总和'+sum)
+				}
+				function sum(a,b){
+					return sum=a+b 
+				}
+				
+				
+				function zx2(){
+				  max(9,4,5)
+					alert('最大'+mm)
+				}
+				function max(a,b,c){
+				   
+					 mm=a>b?a:b
+					 mm=mm>c?mm:c
+				  return mm
+				}
+
+				 
+					function bubbleSort(arr){
+					for (var r=1;r<arr.length ;r++ )
+					{
+						for (var i=0;i<arr.length-r;i++ )
+						{
+							if (arr[i]-arr[i+1]>0)
+							{
+								arr[i]+=arr[i+1];
+								arr[i+1]=arr[i]-arr[i+1];
+								arr[i]-=arr[i+1];
+							}
+						}
+					}
+				}
+				function zx3(){
+				 var arr=[12,3,23,123,33,2,1];
+				 bubbleSort(arr)
+				 console.log(arr)
+        }
+  
+				function sorter(a,b,c){
+				   if(a<b){
+					 a^=b
+					 b^=a
+					 a^=b
+					 }
+				   if(b<c){
+					 b^=c
+					 c^=b
+					 b^=c
+					 }
+				   if(a<b){
+					 a^=b
+					 b^=a
+					 a^=b
+					 }
+				console.log(a,b,c); 
+				}
+				function zx3(){
+				sorter(8,6,10)
+				}
+			
+			</script>
+	</body>
+</html> 

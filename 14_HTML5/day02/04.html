@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas{
+            background:#f2dede;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="400" >
+        您的浏览器不支持，请升级到最新版本
+    </canvas>
+    <script>
+        //获取画布
+        var cavs = document.getElementsByTagName('canvas')[0];
+        //创建画笔
+        var ctx = cavs.getContext('2d')
+        //设置填充样式
+
+        ctx.fillRect(150,100,200,200)
+        ctx.fillStyle='#d7f';
+        ctx.fillRect(450,0,50,50);
+        ctx.fillStyle='#ddd';
+        ctx.fillRect(0,350,50,50);
+        ctx.fillStyle='#f5f0f2';
+        ctx.fillRect(450,350,50,50);
+
+        ctx.fillStyle='#3f5';
+        x = 0,y = 0,ydir=1,xdir=1
+        setInterval(function(){
+            x+=20*xdir;
+            y+=20*ydir
+            if(x>450){
+                xdir = -1;
+            }else if(x<0){
+                xdir=1
+            }
+
+            if(y>350){
+                ydir=-1
+            }else if(y<0){
+                ydir=1
+            }
+            ctx.clearRect(0,0,500,400)
+            ctx.fillStyley='#3af';
+
+            ctx.fillRect(x,y,50,50);
+            ctx.fillRect(x,y,50,50);
+        },100)
+
+    </script>
+</body>
+</html>

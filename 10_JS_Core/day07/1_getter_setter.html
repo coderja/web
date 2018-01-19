@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+					"use strict";
+					function Emp(id,ename,salary,age){//外层函数
+						this.id=id;
+						this.ename=ename;
+						this.salary=salary;
+						Object.defineProperties(this,{
+							id:{},
+							ename:{},
+							salary:{enumerable:false},
+							_age:{writable:true},
+							age:{
+								get:this.getAge,
+								set:this.setAge,
+								enumerable:true
+							}
+						});
+						this.age=age;
+						//密封
+						Object.seal(this)
+					}
+					Emp.prototype={
+								getAge(){return this._age;},//内层函数
+								setAge(val){//内层函数
+									if(val>=18&&val<=65)
+										this._age=val;
+									else
+										throw new RangeError("年龄必须介于18~65之间");
+								}
+					}
+
+					var eric=new Emp(1001,"Eric",12000,25);
+					eric.id=1002;
+					//delete eric.ename;
+					//eric._age=-2;
+					console.log(eric.age)
+					//eric.age=-2;
+					for(var key in eric){
+					if(typeof eric[key] !='function')
+						console.log(key+":"+eric[key]);
+					}
+		</script>
+	</body>
+</html>

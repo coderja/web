@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+		<style>
+		div.box{
+		  position:relative;
+		}
+		div.box>div{
+		  position:absolute;
+			left:0;top:20px;
+			opacity:1;
+		  height:200px;
+/*			transition:all .1s ease-in;*/
+		}
+		div:target{
+		  background:#aaf;
+			color:#fff;
+			z-index:1000;
+		}
+		</style>
+	</head>
+	<body>
+	<div class='box'>
+	  <a href="#no1">床上用品</a>
+	  <a href="#no2">生活用品</a>
+	  <a href="#no3">保健用品</a>
+	  <a href="#no4">体育用品</a>
+		<div id='no1'>床上用品<img src="img/product_detail_1.png" alt=""></div>
+		<div id='no2'>生活用品<img src="img/product_detail_2.png" alt=""></div>
+		<div id='no3'>保健用品<img src="img/product_detail_3.png" alt=""></div>
+		<div id='no4'>体育用品<img src="img/product_detail_4.png" alt=""></div>
+	</div>
+	</body>
+</html>

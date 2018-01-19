@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	  <style>
+		  div{
+			 height:1000px;
+			 height:1000px;
+			  perspective:1000px;
+			}
+		  p{
+			  border-radius:50%;
+				font-size:30px;
+			  width:200px;
+				height:200px;
+				line-height:200px;
+				text-align:center;
+				left:0;
+				right:0;
+				bottom:0;
+				top:0;
+				position:absolute;
+        margin:auto;
+				background:#3ef;
+			  transition:all 4s;
+			}
+      p:hover{
+			  background:#fee;
+				border-radius:50%;
+				left:200px;
+				top:300px;
+				transform:translatey(1000px)  ;
+				box-shadow:0px 0px 5px 5px #ddd inset;
+			}
+		</style>
+	</head>
+	<body>
+	  <div>
+		  <p>滚</p>
+		</div>
+		<script>
+		  var divstyle = getComputedStyle('p');
+			conosle.log(divstyle)
+		</script>		
+	</body>
+</html>

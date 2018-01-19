@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/2.css"/>
+		
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				<div id="d3">
+				</div>
+			</div>
+		</div>
+		<div id='aa'></div>
+		<div id='ab'></div>
+		<div id='ac'></div>
+    <script>
+			d1.onclick=function(e){
+				var ta = e.target;
+			//e.stopPropagation();
+			  alert(ta.id)
+			}
+			d2.onclick=function(e){
+				var ta = e.target;
+			//e.stopPropagation();
+			  alert(ta.id)
+			}
+			d3.onclick=function(e){
+			//e.stopPropagation();
+				var ta = e.target;
+			  alert(ta.id)
+			}
+
+			d3.onmousemove=function(e){
+			  aa.innerHTML='距离屏幕左侧'+e.screenX+',距离屏幕顶部侧'+e.screenY;
+			  ab.innerHTML='距离文档左侧'+e.clientX+',距离文档顶部侧'+e.clientY;
+			  ac.innerHTML='距离当前元素左侧'+e.offsetX+',距离当前元素顶部侧'+e.offsetY;
+			}
+		</script>
+	</body>
+</html>

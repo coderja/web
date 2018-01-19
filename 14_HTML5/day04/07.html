@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>变形操作</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg width="500" height="400">
+        <!--<circle r="50" cx="250" cy="275" fill="blue" stroke="green" fill-opacity="0.9"></circle>-->
+        <circle r="50" cx="50" cy="50" fill="#3af" fill-opacity="0.5"></circle>
+        <circle r="50" cx="450" cy="50" fill="#3afa68" fill-opacity="0.5"></circle>
+        <circle r="50" cx="50" cy="550" fill="#afe" fill-opacity="0.5"></circle>
+        <circle r="50" cx="450" cy="550" fill="#df4" fill-opacity="0.5"></circle>
+    </svg>
+    <script>
+        var y = window.innerHeight-5;
+        var x = window.innerWidth;
+        svg = document.getElementsByTagName('svg')[0]
+        svg.style.background='#f3f3f3';
+        svg.setAttribute('height',y);
+        svg.setAttribute('width',x);
+        console.log(svg)
+        for(var i=0;i<60;i++){
+            var re = document.createElementNS('http://www.w3.org/2000/svg','circle');
+            console.log(re)
+            re.setAttribute('r',rs(100,20));
+            re.setAttribute('cx',rs(x,0));
+            re.setAttribute('cy',rs(y,0));
+            re.setAttribute('fill',rc());
+            re.setAttribute('fill-opacity',Math.random());
+            svg.appendChild(re)
+            re.onclick=function(){
+                var that = this ;
+                that.onclick=null;
+                var timer  = setInterval(function(){
+                    var r = that.getAttribute('r');
+                    r*=1.05;
+                    that.setAttribute('r',r);
+                    var p = that.getAttribute('fill-opacity');
+                    p*=0.9;
+                    that.setAttribute('fill-opacity',p);
+                    if(p<0.001){
+                        clearInterval(timer);
+                        svg.removeChild(that);
+                    }
+                },50)
+            }
+        }
+        function rc(){
+            var r = Math.round(Math.random()*256)
+            var g = Math.round(Math.random()*256)
+            var b = Math.round(Math.random()*256)
+            return `rgb(${r},${g},${b})`
+        }
+        function rs(max,min){
+           return Math.round(Math.random()*(max-min)+min);
+        }
+
+        setInterval(function(){
+            console.log(1)
+          var c =  document.getElementsByTagName('circle');
+            for(var p of c){
+                var r = p.getAttribute('r');
+                r*=1.05;
+                p.setAttribute('r',r);
+                var j = p.getAttribute('fill-opacity');
+                j*=0.9;
+                p.setAttribute('fill-opacity',j);
+            }
+            setTimeout(function(){
+                history.go(0)
+            },1500)
+        },10)
+    </script>
+</body>
+</html>

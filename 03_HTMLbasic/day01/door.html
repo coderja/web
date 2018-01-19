@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        body{
+                padding: 0;
+                margin: 0;
+        }
+        body:before{
+              content: "";
+              display: table;
+        }
+        #fixed{
+             width: 100%;
+             background:#3f70fb;
+             position:fixed;
+        }
+        #next{
+            width: 100%;
+            height:100px;
+            background:#32b;
+        }
+        #box{
+            width: 1200px;
+            height: 500px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .posi{
+             float: left;
+             height: 500px;
+			 width:200px;
+             overflow: hidden;
+             transition: width 1.1s ease-out;
+        }
+        .red{
+             background: #fb3fcd;
+        }
+        .yellow{
+             background: #ae3ffb;
+        }
+        .blue{
+             background: #3f70fb;
+        }
+        .purple{
+             background: #3ffbcd;
+        }
+        .col{
+             background: #9f6dfe;
+
+        }
+        .wid{
+           
+             width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id='fixed' width='100' >   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi deleniti, assumenda illum sit ea esse repellat incidunt nobis eius reiciendis, animi error facere. Veniam laboriosam odit, consequatur illum recusandae itaque!</div>
+    <div id='next' style=""></div>
+    <div id='box'>
+    <div id='box'>
+         <div class='posi wid red'>1</div>
+         <div class='posi yellow'>2</div>
+         <div class='posi blue'>3</div>
+         <div class='posi purple'>4</div>
+         <div class='posi col'>5</div>
+    </div>
+</body>
+<script src="jquery.js"></script>
+<script>
+   
+     const WI_DTH=400;
+     var $divs = $('.posi');
+     console.log($divs);
+   /*for(let n=0,len=$divs.length;n<len;n++){
+         var dwidth=(1200-WI_DTH)/(len-1);
+         $divs.eq(n).css('width',`${dwidth}px`);
+         $divs.eq(0).css('width',`400px`);
+         $divs.mouseenter(function(){
+			   $(this).css('width','400px').siblings().css('width',`${dwidth}px`);
+		});
+		
+   }*/$divs.mouseenter(function(){
+			   $(this).addClass('wid').siblings().removeClass('wid').stop(true,true);
+		});
+	
+ 
+        $('#next').css('margin-top',$('#fixed').height())
+        $(window).resize(function(){
+				   history.go(0)
+				})
+</script>
+</html>

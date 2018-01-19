@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="loadUsers()">加载数据</button>
+		<script src="common.js"></script>
+		<script>
+			function loadUsers(){
+				//1、创建 xhr
+				var  xhr = createXhr();
+				//2、创建请求
+				xhr.open("get","09-load-users.php",true);
+				//3、设置回调函数
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						//将响应的数据转换为JS数组
+						var users = JSON.parse(xhr.responseText);
+						console.log(users);
+					}
+				}
+				//4、发送请求
+				xhr.send(null);
+			}
+		</script>
+	</body>
+</html>

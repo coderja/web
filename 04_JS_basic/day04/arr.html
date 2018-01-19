@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var namesArr=['tom','erric','scott'];
+			namesArr[2]='jerry';
+			namesArr[2]='';
+			var genderArr=['男','男','男'];
+			var ageArr=[12,14,15];
+      namesArr[5]='smith';
+			console.log(namesArr,genderArr,ageArr)
+		  for(var i=0;i<namesArr.length;i++){
+			   console.log(`第${i+1}名:${namesArr[i]}`)
+			}
+		
+		var arr1=[
+							['tom','erric','scott'],
+							['男','男','男'],
+							[12,14,15]
+			      ];
+        
+			  for(var i=0;i<arr1.length;i++){
+			    for(var r=0;r<arr1[i].length;r++){
+			      console.log(arr1[i][r])
+				  } 
+			  }
+				
+		</script>
+	</body>
+</html>

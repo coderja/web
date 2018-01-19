@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var orderTime = new Date(1508403511504);
+			console.log(orderTime);
+			var now = new Date(); 
+			var birth = new Date('1993/06/03');
+			var ms = now - birth;
+			var days = parseInt(ms/1000/3600/24);
+      document.write('来到人间'+days+'天')
+
+			var max = Number.MAX_VALUE;
+			console.log(max)
+			var year = max/1000/3600/24/365
+			console.log(year)
+			
+			var future = new Date(now.getTime()+(3600*24*1000*90))
+			console.log(future.toLocaleString())
+		</script>
+	</body>
+</html>

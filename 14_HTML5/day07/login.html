@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input id="na" type="text" placeholder="请输入用户姓名"/><br>
+<input id="pwd" type="text" placeholder="请输入密码"/><br/>
+<button id="btn">登陆</button>
+<script>
+    btn.onclick=function(){
+        var n = na.value;
+        var p = pwd.value;
+        sessionStorage['name']=n;
+        sessionStorage['pwd']=p;
+        setTimeout(function(){
+            location="index.html"
+        },1000)
+    }
+</script>
+</body>
+</html>

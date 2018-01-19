@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+			<button onclick='guess()'>猜我开始猜数字</button>
+			<script>
+			function guess(){
+			  var n=parseInt(Math.random()*100)+1;
+			    console.log(n);
+					do{
+					 var input = prompt('输入(exit为退出)')
+           if(input>n){
+					   alert('大了')
+					 }else if(input==n){
+					   alert('猜对了')
+						 break;
+					 }else if(input<n){
+					   alert('小了')
+					 }else{
+						 if(input!='exit')
+					   alert('你耍我呀')
+					 }
+					}while(input!='exit')
+			}
+			</script>
+	</body>
+</html>

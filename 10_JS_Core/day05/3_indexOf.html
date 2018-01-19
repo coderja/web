@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>	
+		 //if(typeof Array.prototype.indexOf=='undefined')
+		 if(typeof Array.prototype.indexOf!='function')
+		   Array.prototype.indexOf=function(elem,fromi){
+				 document.write('<h6>自定义的indexof</h6>')
+			    fromi=fromi||0;
+					for(var i=fromi;i<this.length;i++){
+					  if(this[i]==elem){
+							return i
+						}
+					}
+					return -1
+			 }
+		 
+		 arr=[1,2,4,5];
+		document.write(arr.indexOf(2))
+		document.write(arr.indexOf(1))
+		document.write(arr.indexOf(3))
+		document.write(arr.indexOf(4))
+		</script>
+	</body>
+</html>

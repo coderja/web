@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>变形操作</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg>
+    </svg>
+    <script>
+        var y = window.innerHeight-5;
+        var x = window.innerWidth;
+        svg = document.getElementsByTagName('svg')[0]
+        svg.style.background="#3ed";
+        svg.setAttribute('height',y);
+        svg.setAttribute('width',x);
+        var html=`<rect width="50" height="50" x="50" y="50" fill="#ddd"></rect>`;
+        svg.innerHTML=html;
+        var r2 = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        r2.setAttribute('width',50)
+        r2.setAttribute('height',50)
+        svg.appendChild(r2)
+    </script>
+</body>
+</html>

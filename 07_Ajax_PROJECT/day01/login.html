@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  用户名:<input type="text" name='user' id='user'><br>
+		密  码:<input type="text" name='upwd' id='upwd'>
+		<div id='show'></div>
+	  <button onclick='login()'>登陆</button>
+	  <script src='common.js'></script>
+		<script>
+		  function login(){
+			  var uval = $('user').value;
+			  var pval = $('upwd').value;
+				var xhr = createXhr();
+				xhr.open('post','login.php',true)
+				xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+				xhr.onreadystatechange=function(){
+				  if(xhr.readyState==4&&xhr.status==200){
+					  var txt = xhr.responseText;
+					}
+				  $('show').innerHTML=txt;
+				}
+				xhr.send('user='+uval+'&upwd='+pval);
+			}
+		</script>
+	</body>
+</html>

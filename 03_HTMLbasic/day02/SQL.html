@@ -1,0 +1,57 @@
+DDL:DROP CREATE
+DML:UPDATE DELETE INSERT
+DQL:SELECT
+DCL:GRANT REVOKE
+
+SET NAMES UTF8;
+DROP DATABASE IF EXISTS xuezi;
+CREATE DATABASE CHARSET=UTF8;
+USE xuezi;
+CREATE TABLE xz_user(
+     id PRIMARY KEY AUTO_INCREMENT,
+     uname VARCAHR(32) NOT NULL UNIQUE,
+     avatar VARCHAR(32) DEFAULT 'img/avatar.img';
+     dept int  smallint bigint tinyint decimal(9,2) float double boolean varchar char text date datetime AUTO_INCREMENT
+     foreign key references
+);
+INSERT INTO xz_user VALUES(1,'tom',DEFAULT,'9000');
+UPDATE xz_user SET id=2 WHERE id=1;
+DELETE FROM xz_user WHERE id=1;
+SELECT * FROM xz_user;
+SELECT uname FROM xz_user WHERE id>2;
+SELECT DISTINCT id FROM xz_user;
+SELECT ename AS 姓名 FROM xz_user;
+SELECT salary*12 FROM xz_user;
+SELECT salary FROM xz_user ORDER BY salary desc;
+SELECT id FROM xz_user LIMIT 0,5;
+SELECT * FROM xz_user WHERE uname LIKE '%E%';
+SEELCT * FROM xz_user WHERE uname LIKE '%e_';
+SELECT dept FROM xz_user WHERE id=2 or id=1 or id=3;
+SELECT dept FROM xz_user WHERE id IN(1,2,3);
+SELECT COUNT(*) AS  总数 FROM xz_user;
+SELECT MAX(salary) FROM xz_user;
+SELECT AVG(salary) FROM xz_user;
+select ename,dname FROM emp,dept WHERE did=eid;
+SELECT  count(salary) FROM emp GROUP BY salary ;
+SELECT ename,dname FROM emp,dname where did=depId;
+SELECT ename,danme FROM emp INNER JOIN dept ON did=depId;
+(SELECT ename,danme FROM emp  LEFT OUTER JOIN ON did=depId)
+UNION
+(SELECT ename,danem FROM emp RIGHT OUTER JOIN ON did=depId);
+查找工资大于Tom工资的所有员工信息;
+var h=$('固定元素的').height();
+$('需要赋值元素').css('padding-top',h)
+<form action="" method="get" enctype="application">
+    <input type="text">
+    <input type="text">
+</form>
+
+
+
+
+
+
+
+
+
+

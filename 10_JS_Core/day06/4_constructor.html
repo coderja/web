@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+"use strict";
+function Emp(id,ename,salary,age){//外层函数
+	this.id=id;
+	this.ename=ename;
+	this.salary=salary;
+
+	var _age;//undefined//受保护的变量
+	Object.defineProperties(this,{
+		id:{ writable:false,configurable:false},
+		ename:{configurable:false},
+		salary:{enumerable:false,configurable:false},
+
+		age:{
+			get(){return _age;},//内层函数
+			set(val){//内层函数
+				if(val>=18&&val<=65)
+					_age=val;
+				else
+					throw new RangeError("年龄必须介于18~65之间");
+			},
+			enumerable:true,//属性在defineProperties内部创建的，默认特性时false
+			//configurable:false
+		}
+	});
+	this.age=age;
+	//保护结构:
+	//1.阻止扩展:
+	Object.preventExtensions(this)
+  //2.密封
+  //Object.seal(this)
+  //3.冻结
+	//Object.freeze(this)
+}
+var eric=new Emp(1001,"Eric",12000,25);
+console.log(Object.isExtensible(eric))
+//console.log(Object.isSealed(eric))
+//console.log(Object.isFrozen(eric))
+//eric.id=1002;
+//delete eric.ename;
+//eric.age=-2;
+eric._age=-2;//Uncaught TypeError: Cannot add property _age, object is not extensible
+for(var key in eric){
+	console.log(key+":"+eric[key]);
+}
+		</script>
+	</body>
+</html>

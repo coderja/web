@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+		<style>
+   	  table{text-align:center}
+		</style>
+	</head>
+	<body>
+	  <div>
+		  <h1 id='h1'></h1>
+		  <h2 id='h2'></h2>
+			<table>
+				<thead>
+					<tr>
+						<td>底薪</td>
+						<td>绩效</td>
+						<td>奖金</td>
+						<td>共计</td>
+					</tr>
+				</thead>
+				<tbody id='tbody'>
+					
+				</tbody>
+			</table>
+	  </div>
+		<script>
+		   var emp={
+			   sname:'王杰',
+				 level:'高级前端工程师',
+				 salary:10000,
+				 ji:3000,
+				 jx:2000
+			 }
+			 var html=`
+			     <tr>
+						<td>￥${emp.salary.toFixed(2)}</td>
+						<td>￥${emp.ji.toFixed(2)}</td>
+						<td>￥${emp.jx.toFixed(2)}</td>
+						<td>￥${(emp.salary+emp.ji+emp.jx).toFixed(2)}</td>
+					</tr>
+			 
+			 `;
+			 h1.innerHTML=`${emp.sname}`;
+			 h2.innerHTML=`${emp.level}`;
+			 tbody.innerHTML=html
+		</script>
+	</body>
+</html>

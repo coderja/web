@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  "use strict";//启动严格模式
+			(function(){
+			  var gf;
+				qgf='今晚';
+				console.log(gf)
+				console.log(qgf)
+			})()
+    
+  function fib(n){
+	   if(n<3) return 1;
+	   else
+		 return arguments.callee(n-1)+arguments.callee(n-2)
+	  //arguments.callee可自动调用当前函数名，专门做递归调用
+	}
+	console.log(fib(10))
+
+	function fb(n){
+	  if(n<3) return 1;
+		else{
+			var f1=1,f2=1,fn;
+		  for(var i=3;i<=n;i++){
+		    fn=f1+f2
+				f1=f2;
+				f2=fn;
+			}
+		}
+		return fn
+	}	
+	console.log(fb(10))
+  
+		"use strict";
+			var eric={
+			  id:1001,
+				age:12
+			};
+			Object.defineProperty(eric,'id',{
+				writable:false
+				});
+			eric.id=1002;
+			console.dir(eric)
+		</script>
+	</body>
+</html>

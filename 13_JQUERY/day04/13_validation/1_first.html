@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      input.error{
+        box-shadow: 0 0 10px red;
+      }
+      label.error{
+        background-image:url(../imgs/err.png);
+        color:red;
+        background-repeat:no-repeat;
+        background-position:left;
+        background-size: 25px 25px;
+        padding-left:25px;
+        margin-left:10px;
+        font-style: italic;
+      }
+      div.error{
+        box-shadow: 0 0 10px red;
+        display:none;
+      }
+      div.error>label.error{
+        display:block;
+        margin-left:1em;
+        color:red;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form1" method="post" action="submit.php">
+      <p>
+        <label>用户名: 
+        <input id="uname" name="uname">(必填，2个以上字符)
+        </label>
+      </p>
+      <p>
+        <label>密码: 
+        <input id="upwd1" name="upwd1" type="password">(必填，6~8位数字)
+        </label>
+      </p>
+      <p>
+        <label>确认密码: 
+        <input name="upwd2" type="password">(必填，必须和密码保持一致)
+        </label>
+      </p>
+      <p>
+        <label>电子邮件: 
+        <input id="email" name="email">(必填，但必须符合电子邮件)
+        </label>
+      </p>
+      <p>
+        <label>生日: 
+        <input id="birth" name="birth">(选填，但必须符合日期格式，且已满18岁)
+        </label>
+      </p>
+      <p>
+        <label>个人主页: 
+        <input id="url" name="url">(选填，但必须符合URL格式)
+        </label>
+      </p>
+      <p>
+        <label>QQ: 
+        <input id="qq" name="qq">(选填，但必须由5~11位数字组成)
+        </label>
+      </p>
+      <p>
+        <label>手机号: 
+        <input id="mobile" name="mobile">(选填，但必须符合中国手机号格式)
+        </label>
+      </p>
+      <p>
+        <label for="newsletter">我想接收来自网站的推荐消息: </label>
+        <input type="checkbox" id="newsletter" name="newsletter">
+      </p>
+      <fieldset>
+        <label>
+          <input type="checkbox" value="旅游" name="topic">旅游
+        </label>
+        <label>
+          <input type="checkbox" value="体育" name="topic">体育
+        </label>
+        <label>
+          <input type="checkbox" value="娱乐" name="topic">娱乐
+        </label>
+        <label for="topic" class="error" style="display:none"></label>
+      </fieldset>
+      <p>
+        <label> <input name="agree" type="checkbox">同意</label>
+      </p>
+      <div class="error">请按以下规则修改表单: </div>
+      <p>
+        <input type="submit" value="注册">
+      </p>
+    </form>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/jquery.validate.js"></script>
+    <script>
+      
+    </script>
+  </body>
+</html>

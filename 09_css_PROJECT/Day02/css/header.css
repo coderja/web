@@ -1,0 +1,84 @@
+div.main{
+	/*宽度为960px，水平居中对齐*/
+	width:960px;
+	margin:0 auto;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+#logo{
+	float:left;
+}
+#top-input{
+	float:left;
+	margin-left:30px;
+}
+#list{
+	float:right;
+}
+#list li{
+	float:left;
+	line-height:20px;
+}
+#list li img{
+	vertical-align:middle;
+}
+#list li b{
+	margin:0 10px;
+	color:#bbb;
+}
+#list li a{
+	/*文字大小，文本颜色*/
+	font-size:12px;
+	color:#bbb;
+}
+#list li a:hover{
+	/*文本颜色*/
+	color:#0aa1ed;
+}
+
+/*页面主导航*/
+#nav{
+	margin:40px 0 20px 0;
+}
+#nav li{
+	float:left;
+	margin-right:40px;
+}
+#nav li a{
+	color:#ccc;
+	font-weight:bold;
+	font-size:16px;
+}
+#nav li a:hover{
+	color:#b8b8b8;
+}
+
+/****/
+#input-box{
+	border:1px solid #0aa1ed;
+	width:400px;
+	height:32px;
+}
+#txtSearch{
+	/*取消边框，透明背景，宽度，高度，box-sizing*/
+	border:none;
+	background:transparent;
+	width:300px;
+	height:32px;
+	box-sizing:border-box;
+	/*左内边距，取消轮廓*/
+	padding-left:10px;
+	outline:none;
+}
+#input-box i.caret{
+	border:8px solid transparent;
+	border-top-color:#ddd;
+	position:relative;
+	top:10px;
+}

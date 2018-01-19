@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	  body{
+		   background:#eee;
+		   min-height:100%;
+			 padding-top:calc((100vh - 600px)/2);
+		}
+		div{
+		 
+		  height:600px;
+			width:1000px;
+			margin:0 auto;
+			
+		}
+	  table{
+		  width:1000px;
+			height:600px;
+			text-align:center;
+			/*border-collapse: collapse;*/
+		  border:1px solid pink;
+		  
+		}
+		th,td{
+		  border:1px solid pink;
+		}
+		caption{
+			font-weight: bold;
+			padding-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+  <div id='div'></div>
+	<script>
+	   var arr=[
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		        {ename:'tom',age:21,gender:0,salary:6000,email:'1407854543@qq.com',phone:'121391543'},
+		  
+		      ];
+					var table= document.createElement('table');
+					var tr=document.createElement('tr');
+					//var frag=document.createDocumentFragment();
+					var caption=document.createElement('caption');
+					caption.innerHTML='员工信息表';
+					table.appendChild(caption);
+					for(var key in arr[0]){
+					  var th=document.createElement('th');
+						th.innerHTML=key;
+					  tr.appendChild(th) ;
+					}
+					  table.appendChild(tr);
+					for(var i=0,len=arr.length;i<len;i++){
+					   tr = document.createElement('tr');
+						 table.appendChild(tr);
+						 for(var key in arr[i]){
+						   td=document.createElement('td');
+							 td.innerHTML=arr[i][key];
+							 tr.appendChild(td);
+						 }
+					}
+					table.appendChild(tr);
+					div.appendChild(table);
+
+
+	</script>
+</body>
+</html>

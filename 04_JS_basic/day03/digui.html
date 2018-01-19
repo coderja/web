@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  /*
+			计算数字n的阶乘
+			1.递归条件
+			2.递归前进
+			3.递归返回
+			*/
+			/*function f(n){
+			    if(n==1){
+					  return 1
+					}else{
+					  return n * f(n-1)
+					}
+			}
+			function test(){
+			   var result=f(10)
+			console.log(result)
+      }
+			test()*/
+
+
+			//以下数列1,1,2,3,5,8,13,21,34,55,....
+       function f(n){
+				 if(n==1||n==2){
+				   return 1
+				 }else{
+			     return f(n-1)+f(n-2)
+				 }
+			}
+			(function(){
+				var r = f(11)
+      console.log(r)
+			
+			})()
+		</script>
+	</body>
+</html>

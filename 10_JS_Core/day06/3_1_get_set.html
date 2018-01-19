@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	 <script>
+		  "use strict";
+			var eric={
+			    id:'1001',
+				  ename:'eric',
+			    salary:12000
+			};
+			//1.添加一个实际存储年龄的_age变量
+			(function(){//外层函数
+					var _age=25;//受保护变量
+					Object.defineProperties(eric,{
+						 id:{writable:false,configurable:false},
+						 ename:{configurable:false},
+						 salary:{enumerable:false,configurable:false},
+						 //2.定义访问器属性,保护数据属性_age
+						 age:{
+							 get(){return _age},
+							 set(val){
+								 if(val<65&&val>18){
+									 _age=val
+								 }
+								 else{
+									 throw new RangeError('范围错误')
+								 }
+							 },
+							 enumerable:true,
+							 configurable:false
+						 }
+					 });
+			})();
+			console.dir(eric)
+			console.log(eric.age)//25
+			console.log(eric.age=-2)
+			</script>
+	</body>
+</html>

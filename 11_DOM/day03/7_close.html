@@ -1,0 +1,24 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>倒计时自动关闭/跳转页面</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+	<span id='dd'>60秒钟后爆炸</span><br>
+	<a href='javascript:clearInterval(timer);timer=null'>留在本页</a>
+  <script>
+	var n = dd.innerHTML.slice(0,2);
+	function task(){
+	 if(n>0){
+	   n--;
+	   dd.innerHTML=n+'秒钟后自动关闭';
+	 }else{
+	   close()
+	  }
+	}
+	timer = setInterval(task,1000)
+  </script>
+</body>
+</html>

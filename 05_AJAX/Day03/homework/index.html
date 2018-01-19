@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ <style>
+   table,td{
+		 border:1px solid #ddd;
+	   border-collapse: collapse;
+		 color:#333;
+	}
+	td{
+    height:32px;
+		line-height: 32px;
+		text-align: center;
+		font-size: 14px;
+	}
+	button{
+		 border-radius: 5px;
+		 border: 1px solid #ddd;
+		 color: #333;
+		 background: none;
+		 padding: 5px 12px;
+	}
+ </style>
+ </head>
+ <body>
+	<button onclick='load()'>加载数据</button>
+	<table id='tb'></table>
+  <script src='common.js'></script>
+  <script>
+    function load(){
+		$('tb').innerHTML='';
+		var xhr = createXhr();
+		console.log(xhr)
+		xhr.open('get','table.php',true);
+		xhr.onreadystatechange=function(){
+		  if(xhr.readyState==4&&xhr.status==200){
+		     var txt = xhr.responseText;
+			 //var str = JSON.parse(txt);
+             var str = eval("("+txt+")")
+			//创建表头			 
+			 var tr = document.createElement('tr')
+			 $('tb').appendChild(tr);	
+			 for(var key in str[0]){
+			   var td= document.createElement('td');
+				td.innerHTML=key;
+				tr.appendChild(td);
+			 }
+			 var td= document.createElement('td')
+			 td.innerHTML='操作';
+			 tr.appendChild(td);
+			 //遍历表中的数据
+			 for(var i=0;i<str.length;i++){
+			   var tr = document.createElement('tr')
+			   $('tb').appendChild(tr);
+			   for(var key in str[i]){
+			    var td= document.createElement('td');
+				 td.innerHTML=str[i][key]
+				 tr.appendChild(td)
+			  }
+				//每行末尾追加操作属性
+				var td=document.createElement('td');
+				td.innerHTML='<a href="">设置</a>  <a>删除</a>'
+				tr.appendChild(td);
+			 }
+			}
+		}
+	    xhr.send(null);
+	}
+  </script>
+ </body>
+</html>

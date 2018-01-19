@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+	.bg{
+	   width:100px;
+		 height:100px;
+		 background:#de46de;
+		 transition:all 2s ease;
+	   position:relative;
+		 background:#ccc;
+	}
+	input[type='checkbox']{
+	   display:none;
+	}
+	input:checked+div.bg{
+	  border-radius:50%;
+		background:#fd98ef;
+		position:absolute;
+		left:50%;
+		margin-left:-50px;
+	}
+	</style>
+	<body>
+	  <label for='ck'>
+		  <input type="checkbox" id='ck' >
+			<div class='bg'></div>
+		</label>
+	</body>
+</html>

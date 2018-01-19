@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>变形操作</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg id="svg1" width="1000" height="600">
+        <rect width="50" height="50" x="0" y="0" fill="#3af" fill-opacity="0.5"></rect>
+        <rect width="50" height="50" x="450" y="450" fill="#af3" fill-opacity="0.5"></rect>
+        <rect  width="50" height="50" x="225" y="450" fill="transparent" stroke="#d5e" stroke-width="3" fill-opacity="0.5" stroke-opacity="0.5"></rect>
+        <rect width="30" height="300" x="465" y="150" fill="#faa" stroke-width="3" stroke="#800" fill-opacity="0.5"></rect>
+        <rect x="100" y="200" width="30" fill="#afe"></rect>
+        <rect x="100" y="200" height="30" fill="#afe"></rect>
+        <rect x="400" y="600" width="30" fill="#afe"></rect>
+        <rect x="400" y="600" height="30" fill="#afe"></rect>
+    </svg>
+    <script>
+        var y = window.innerHeight-5;
+        var x = window.innerWidth;
+        svg = document.getElementsByTagName('svg')[0]
+        svg.style.background="#3ed";
+        svg.setAttribute('height',y);
+        svg.setAttribute('width',x);
+        var r2 = document.getElementsByTagName('rect')[3];
+        var r4=  document.getElementsByTagName('rect')[4];
+        var r5=  document.getElementsByTagName('rect')[5];
+        var r6=  document.getElementsByTagName('rect')[6];
+        var r7=  document.getElementsByTagName('rect')[7];
+        console.log(r2)
+        var r3 = document.getElementById('r3')
+        r2.onmousemove =function(){
+            console.log(1)
+            r2.setAttribute('fill-opacity','1')
+            r2.setAttribute('stroke-opacity','1')
+        }
+        r2.onmouseleave =function(){
+            console.log(1)
+            r2.setAttribute('fill-opacity','0.5')
+            r2.setAttribute('stroke-opacity','0.5')
+        }
+        var y=1
+        var o = 400
+        var c = 630
+        var timer = setInterval(function(){
+            if(y<400) {
+                if(o>200) {
+                    y += 5
+                    o -= 5
+                    c-=5
+                    r4.setAttribute("height", y)
+                    r5.setAttribute('width', y)
+                    r6.setAttribute("height", y)
+                    r6.setAttribute('y', c)
+                    r7.setAttribute('width', y)
+                    r7.setAttribute('x', o)
+                }
+            }else{
+                clearInterval(timer);
+                timer=null
+            }
+        },10)
+    </script>
+</body>
+</html>

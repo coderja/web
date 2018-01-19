@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas{
+            background:#f5f5f5;
+        }
+        body{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="400">
+        您的浏览器不支持，请升级到最新版本
+    </canvas>
+    <script>
+        var cavs = document.getElementsByTagName('canvas')[0];
+        var ctx = cavs.getContext('2d');
+        var y= 0,dir=1;
+        setInterval(function(){
+            y+=1*dir
+            if(y>350){
+                dir=-1
+            }
+            if(y<0){
+                dir=1
+            }
+            ctx.clearRect(1,0,500,400)
+            ctx.fillStyle='#e78fd6';
+            ctx.fillRect(1,y,50,50)
+
+        },1)
+    </script>
+</body>
+</html>

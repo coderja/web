@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var obj1=[],obj2={},obj3=new Date(),obj4={};
+			obj4.__proto__=obj1;//认obj1为爹
+			//判断原型对象(爹)
+			 //console.log(Object.getPrototypeOf(obj1)===Array.prototype)
+			console.log(
+			  Array.prototype.isPrototypeOf(obj1),
+				Array.prototype.isPrototypeOf(obj2),
+				Array.prototype.isPrototypeOf(obj3),
+				Array.prototype.isPrototypeOf(obj4),
+			)
+			
+			//判断构造函数
+			console.log(
+			  //obj1.constructor===Array,
+			  obj1 instanceof Array,
+			  obj2 instanceof Array,
+			  obj3 instanceof Array,
+			  obj4 instanceof Array,
+			)
+
+			//判断对象的属性class
+			console.log(
+			  Object.prototype.toString.call(obj1)==='[object Array]',
+			  Object.prototype.toString.call(obj2)==='[object Array]',
+				Object.prototype.toString.call(obj3)==='[object Array]',
+				Object.prototype.toString.call(obj4)==='[object Array]'
+			)
+
+			//isArray()
+			console.log(Array.isArray(obj1),Array.isArray(obj2),Array.isArray(obj3),Array.isArray(obj4),)
+		</script>
+	</body>
+</html>

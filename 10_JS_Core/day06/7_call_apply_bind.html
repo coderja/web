@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  function calc(base1,base2,base3){
+			  console.log( this.ename+'总工资为:'+(base1+base2+base3));
+			}
+			var lilei = {ename:'li lei'};
+			var hmm = {ename:'han meimei'};
+			calc.call(lilei,10000,2000,2000);
+			var sals = [4000,6000,7000];
+			calc.apply(hmm,sals)
+
+			var lilei_calc=calc.bind(lilei,10000)
+			lilei_calc(2000,2000)
+			lilei_calc(1000,4000)
+			lilei_calc.call(hmm,2000,2000)//
+		</script>
+	</body>
+</html>

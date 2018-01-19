@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var arr1=[1,2,3,6,5];
+			var arr2=[1,3,5,7,9];
+			console.log(
+			arr1.every(function(elem){
+			  return elem%2==1
+			}),//false
+			arr2.every(function(elem){
+			  return elem%2==1
+			}),//true
+			arr1.some(function(elem){
+			  return elem%2==1
+			}),//true
+			arr2.some(function(elem){
+			  return elem%2==1
+			})//true
+			);
+      
+			//判断数组是否是升序
+      console.log(
+				arr1.every(function(elem,i,arr){
+					return i<arr.length-1?elem<=arr[i+1]:'true';
+				}),
+				arr2.every(function(elem,i,arr){
+				  return i<arr.length-1?elem<arr[i+1]:'true';
+				})
+			)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<button onclick='getres()'>异步请求</button>
+	<button onclick='setrequest()'>异步请求</button>
+	<div id='text'></div>
+	<script src='common.js'></script>
+	<script>
+	/*function getres(){
+		var xhr = createXhr();
+		console.log(xhr);
+		xhr.open('get','03-response.php',true);
+		xhr.send(null);
+		xhr.onreadystatechange=function(){
+    	if(xhr.readyState==4&&xhr.status==200){
+		    var txt=xhr.responseText;
+				console.log(txt)
+			  $('text').innerHTML=txt;
+			}else{
+			  $('text').innerHTML='连接错误';
+			}
+		}
+	}*/
+	function setrequest(){
+	  //1.创建xhr
+		var xhr = createXhr();
+		//2.创建请求
+		xhr.open('get','03-response.php',true)
+		//3.设置回调函数
+		xhr.onreadystatechange=function(){
+		  if(xhr.readyState==4&&xhr.status==200){
+			   var txt = xhr.responseText;
+				 $('text').innerHTML=txt;
+			}else{
+			   $('text').innerHTML='连接错误';
+			}
+		}
+		//4.发送请求
+	  xhr.send(null);
+	}
+	</script>
+	</body>
+</html>

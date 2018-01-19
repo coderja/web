@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc}
+</style>
+
+</head>
+<body>
+	<div id="data"></div>
+  <script>
+	var json=[
+    {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25},
+		 {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25},
+		 {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25}
+  ];
+	/*var table = document.createElement('table');
+	var tr = document.createElement('tr');
+	for(var key in json[0]){
+	  var td=document.createElement('td');
+		td.innerHTML=key
+	  tr.appendChild(td);
+	}
+	table.appendChild(tr);
+  var frag= document.createDocumentFragment();
+	for(var elem of json){
+	  var tr = document.createElement('tr');
+		for(var key in elem){
+		  var td = document.createElement('td');
+		  td.innerHTML=elem[key];
+			tr.appendChild(td);
+		}
+   table.appendChild(tr);
+	 frag.appendChild(table)
+	}
+	data.appendChild(frag);*/
+	var table = document.createElement('table');
+	var thead = table.createTHead();
+	var tr = thead.insertRow();//insertRow(0)
+	for(var key in json[0]){
+	  tr.insertCell().innerHTML=key;
+	}
+	tr.insertCell().innerHTML='OPR'//在表头末尾单独创建一列opr
+	var tbody = table.createTBody();
+	for(var emp of json){
+	var tr = tbody.insertRow(0);
+    for(var key in emp){
+		  tr.insertCell().innerHTML=emp[key];
+		}
+		var btn = document.createElement('button');//在每行末尾单独追加一列按钮
+		btn.innerHTML='x';
+		tbody.onclick=e=>{
+			var btn=e.target;
+		  if(btn.innerHTML=='x'){
+				var tr = btn.parentNode.parentNode;
+				var ename = tr.cells[0].innerHTML;
+				if(confirm('继续删除'+ename+'吗？')){  
+					table.deleteRow(tr.rowIndex)
+					//tr.parentNode.removeChild(tr)
+				}
+      }
+		}
+		tr.insertCell().appendChild(btn);
+	}
+	data.appendChild(table)
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>worker</title>
+</head>
+<body>
+  <p id="msg"></p>
+   <!--<script src="02.js"></script>-->
+   <script>
+       var w3 = new Worker('02.js');
+       w3.onmessage=function(e){
+           msg.innerHTML=e.data;
+       }
+       w3.postMessage('hello world')
+   </script>
+   <button>按钮</button>
+</body>
+</html>

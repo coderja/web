@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn1">click me!</button>
+		<script>
+				var arr=[12,3,123,1,23,2];
+				arr.sort((a,b)=>a-b);
+				console.log(arr);
+
+				var str="派出所的公安干警负责维护公共安全秩序";
+								//PCS     GA  GJ            GGAQ
+				str=str.replace(
+					/派出所|公安|干警|公共安全/g,
+					kw=>kw=="派出所"?"PCS":
+										 kw=="公安"?"GA":
+										 kw=="干警"?"GJ":
+																"GGAQ"
+				);
+				console.log(str);
+
+				var odds=[1,3,5,3,1];
+				var evens=odds.map(elem=>elem*2);
+				console.log(odds,evens);
+
+				console.log(
+					arr.every((elem,i,arr)=>i<arr.length-1?elem<=arr[i+1]:"true"),//true
+					odds.every((elem,i,arr)=>i<arr.length-1?elem<=arr[i+1]:"true"),//false
+				);
+
+				btn1.onclick=()=>alert("疼！")
+				(()=>{
+				  var end=new Date();
+					console.log('显示在at'+end.toLocaleString)
+				})()
+		</script>
+	</body>
+</html>

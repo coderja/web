@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>变形操作</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg>
+    </svg>
+    <script>
+        var y = window.innerHeight-5;
+        var x = window.innerWidth;
+        svg = document.getElementsByTagName('svg')[0]
+        svg.style.background="#3ed";
+        svg.setAttribute('height',y);
+        svg.setAttribute('width',x);
+        var html=`<rect width="50" height="50" x="50" y="50" fill="#ddd"></rect>`;
+        svg.innerHTML=html;
+        var r2 = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        r2.setAttribute('width',50)
+        r2.setAttribute('height',50)
+        svg.appendChild(r2)
+
+
+
+
+        function createXhr(){
+            var xhr;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest()
+            }else{
+                xhr = new ActiveXObject('Mircrosoft.XMLHttp')
+            }
+            return xhr
+        }
+        var xhr = createXhr()
+        xhr.open('get','saledata.php',true);
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                var data = xhr.responseText;
+                var obj = JSON.parse(data);
+                console.log(obj)
+                for(var i=0;i<obj.length;i++){
+                    p=obj[i]
+                    //var colors=['#afe','#3afa68','#3af','#df4']
+                    var r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+                    r.setAttribute("x",30*i+30*(i+1))
+                    r.setAttribute('y',500-p.value)
+                    r.setAttribute("width",30)
+                    r.setAttribute("height", p.value)
+                    r.setAttribute("fill",rc())
+                    //r.setAttribute("fill",colors[i])
+                    svg.appendChild(r)
+                }
+            }
+        }
+        xhr.send(null);
+        function rc(){
+            var r = Math.round(Math.random()*256)
+            var g = Math.round(Math.random()*256)
+            var b = Math.round(Math.random()*256)
+            return `rgb(${r},${g},${b})`
+        }
+    </script>
+</body>
+</html>

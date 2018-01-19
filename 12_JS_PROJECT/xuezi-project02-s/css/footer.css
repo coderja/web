@@ -1,0 +1,35 @@
+#foot-box{
+	display:flex;
+	padding:30px 0;
+}
+#foot-box>li{
+	width:240px;
+	text-align:center;
+}
+#foot-box h3{
+	font-weight:normal;
+}
+
+
+
+
+/*左：买家帮助*/
+div.foot-list{
+	margin-left:30px;
+	display:flex;
+}
+div.foot-list ul:nth-child(2){
+	margin:0 40px;
+}
+div.foot-list ul b{
+	color:#333;
+	font-weight:normal;
+	font-size:14px;
+}
+div.foot-list ul li{
+	margin-bottom:15px;
+	text-align:center;
+}
+div.client p+p{
+	margin-top:7px;
+}

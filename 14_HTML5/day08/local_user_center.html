@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .blue{background: #ddf;color: #33aaff}
+        .pink{background: #fdf;color: #a3a}
+        .dark{background: #333;color: #eee}
+    </style>
+</head>
+<body>
+    <h1>用户中心</h1>
+    <script>
+
+            var theme = localStorage['theme'];
+            if(theme){
+                document.body.className=theme;
+            }
+        window.onstorage=function(){
+            document.body.className=theme;
+        }
+    </script>
+</body>
+</html>

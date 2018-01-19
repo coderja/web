@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>变形操作</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg>
+        <ellipse rx="200" ry="40" cx="860" cy="500" fill="red"></ellipse>
+        <ellipse rx="40" ry="200" cx="860" cy="500" fill="red"></ellipse>
+    </svg>
+    <script>
+        var y = window.innerHeight-5;
+        var x = window.innerWidth;
+        svg = document.getElementsByTagName('svg')[0]
+        svg.style.background='#f3f3f3';
+        svg.setAttribute('height',y);
+        svg.setAttribute('width',x);
+
+    </script>
+</body>
+</html>

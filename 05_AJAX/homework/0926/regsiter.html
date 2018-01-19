@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  用户昵称：<input type="text" id='uname' onblur='setrequest()' ><span  id='show'></span>
+
+  <script src='common.js'></script>
+  <script>
+        function setrequest(){
+			  var xhr = createXhr();
+				var val=$('uname').value;
+				xhr.open('get','homework-login.php?uname='+val);
+				xhr.onreadystatechange=function(){
+				  if(xhr.readyState==4&&xhr.status==200){
+					  doResponse(xhr)
+					}
+				}
+				xhr.send(null);
+			
+		    function doResponse(xhr){
+				console.log('开始处理响应数据...');
+				if(xhr.responseText==='cunzai'){
+					$('show').innerHTML = '该用户名已被占用';
+				}else if(xhr.responseText==='bucunzai'){
+					$('show').innerHTML = '该用户名可以使用';
+				}else {
+					alert('不可识别的响应消息：'+xhr.responseText);
+				}
+		    }
+        }
+  </script>
+ </body>
+</html>

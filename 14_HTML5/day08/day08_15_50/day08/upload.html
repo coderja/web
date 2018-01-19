@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #drop_area{
+           width:100%;height:100%;
+           border:3px dashed silver;
+           line-height: 100%;
+           text-align: center;
+           font-size: 36px;
+           color:#d3d3d3;
+        }
+        #preview{width:500px;overflow: hidden}
+    </style>
+</head>
+<body>
+   <div id="drop_area">将图片拖拽到此处</div>
+   <div id="preview">图片预览区</div>
+   <script src="jquery.js"></script>
+   <script>
+     //1:阻止浏览器默认行为 document 离开 释放 进入 悬停
+     $(document).on({
+       dragleave:function(e){e.preventDefault()},
+       drop:function(e){e.preventDefault()},
+       dragenter:function(e){e.preventDefault()},
+       dragover:function(e){e.preventDefault()},
+     });
+     //2:获取拖拽区域
+     drop_area.ondrop = function(e){
+       //3:绑定事件 释放
+       //4:阻止浏览器默认行为
+       e.preventDefault();
+       //5:获取拖拽文件信息
+       var flist = e.dataTransfer.files;//获取文件对象
+       console.log(1);
+       console.log(flist);
+       //6:如果没有任何上传文件内容停止
+       if(flist.length == 0){
+         return;
+       }
+       //7:检测文件是否图片
+       if(flist[0].type.indexOf("image")===-1){
+         alert("拖动不是图片");
+         return;
+       }
+       //8:实现预览
+       //9:读取上传图片内容
+       //注意:执行警告:webkitURL 过时方法
+       var img = window.webkitURL  //15:35--15:37
+         .createObjectURL(flist[0]);
+       //10:上传文件名
+       var pname = flist[0].name;
+       var psize = Math.ceil(flist[0].size/1000);
+       if(psize>512){
+         alert("上传文件过大");
+         return;
+       }
+
+       var html = `
+         <img src="${img}" />
+         <p>图片名称:${pname}</p>
+         <p>图片大小:${psize} KB</p>
+       `;
+       $("#preview").html(html);
+       //11:预览结束
+       //12:创建xhr对象
+       var xhr = new XMLHttpRequest();
+       //13:打开连接   15:50--15:55
+       xhr.open("post","upload.php",true);
+       //14:修改响应头
+       xhr.setRequestHeader("X-Requested-With",
+         "XMLHttpRequest");
+       //15:创建FormData对象并且将上传文件传信息添加
+       var fd = new FormData();
+       fd.append("myfile",flist[0]);
+       //16:发送
+       xhr.send(fd);
+     }
+
+   </script>
+</body>
+</html>

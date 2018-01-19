@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  
+		<script>
+		  var url='http://tmooc.cn/img/logo.png';
+			var filename=url.slice(url.lastIndexOf('/')+1);
+			var ext = url.slice(url.lastIndexOf('.'));
+			console.log(filename,ext)
+			var reg=/\//;
+			var i = reg.exec(url)
+			console.log(i)
+		</script>
+	</body>
+</html>

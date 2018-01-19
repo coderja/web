@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  function add1(){
+			  var sum=0
+				for(var i=0;i<arguments.length;i++){
+				   sum+=arguments[i]
+				}
+				return sum
+			}
+			console.log(add1(98,98,100))
+
+   /**********************************/   
+			
+			function add2(sname,...nums){
+			  var sum=0
+				for(var i=0;i<nums.length;i++){
+				   sum+=nums[i]
+				}
+				return sum
+			}
+			console.log(add2('李雷',98,98,100))
+
+	 /**********************************/
+	
+			/*function add3(){
+				argument.reduce(function(prev,elem){
+       				return pre+elem
+				})
+			}
+			console.log(add3(98,98,100))*///报错
+    
+		 /**********************************/  
+		
+			function add4(sname,nums){
+        var sum=0;
+			//ES5//将arguments转为数组
+				var arguments=Array.prototype.slice.call(arguments,1);
+				var sum = arguments.reduce(function(prev,elem){
+				    return prev+elem;
+				})
+				return sname+sum 
+			}
+			console.log(add4('李雷',98,98,100))
+    
+		 /**********************************/
+	   
+			function add8(sname,...nums){
+        var sum=0;
+			//ES6
+				sum=nums.reduce(function(prev,elem){
+       				return prev+elem
+				})
+				return sname+sum 
+			}
+			console.log(add8('李雷',98,98,100))		
+		</script>
+	</body>
+</html>

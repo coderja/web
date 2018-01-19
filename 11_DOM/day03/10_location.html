@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>事件处理</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+ 	<form>
+		姓名:<input name="username"/><br>
+		密码:<input type="password" name="pwd"/><br>
+    爱好:<input type="checkbox" name="favs" value="running"/>跑步
+          <input type="checkbox" name="favs" value="swimming"/>游泳
+          <input type="checkbox" name="favs" value="basketball"/>篮球
+          <br>
+		<input type="submit"/>
+	</form>
+  <script>
+    var request={};
+		function search2Req(){
+		   var search = location.search;
+			 if(search!=''){
+			  var arr = search.slice(1).split('&');
+				for(var str of arr){
+				var subArr=str.split('=')
+				var [key,value]=subArr;
+				if(request[key]===undefined){
+					 request[key]=value;
+        }else{
+				  if(!Array.isArray(request[key])){
+					  request[key]=[request[key]]
+					}
+					request[key].push(value)
+				}
+			  }
+			 }
+		}
+		search2Req()
+		console.log(request)
+		
+  </script>
+</body>
+</html>

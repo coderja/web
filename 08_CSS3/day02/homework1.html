@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+		<style>
+		#box{
+		  width:200px;
+		  height:200px;
+			border-radius:50%;
+			border:4px solid #3ef;
+			position:relative;
+			box-sizing:border-box;
+		}
+		#hour{
+		  width:8px;
+			height:40px;
+			background:#ef0;
+			position:absolute;
+			left:96px;top:60px;
+/*			animation:ra 43200s infinite;*/
+			transform-origin:bottom center;
+		}
+		#min{
+		  width:6px;
+			height:60px;
+			background:#f5a;
+			position:absolute;
+			left:97px;top:40px;
+/*			animation:ra 3600s infinite;*/
+			transform-origin:bottom center;
+		}
+		#sec{
+		  width:4px;
+			height:70px;
+			background:#5af;
+			position:absolute;
+			left:98px;top:30px;
+/*			animation:ra 60s infinite;*/
+			transform-origin:bottom center;
+		}
+		@keyframes ra{
+		  form{
+			  transform:rotate(0deg)
+			}
+		  to{
+			  transform:rotate(360deg)
+			}
+		}
+		</style>
+	</head>
+	<body>
+	  <div id='box'>
+		  <div id='sec'></div>
+		  <div id='min'></div>
+		  <div id='hour'></div>
+		</div>
+		<script>
+	window.onload =	function(){
+		  setInterval(function(){
+				now = new Date();
+				var h = now.getHours();
+				var m = now.getMinutes();
+				var s = now.getSeconds();
+				var sdeg = s/60*360;
+				var mdeg = (m*60+s)/3600*360;
+				var hdeg = (h*60*60+m*60+s)/(3600*12)*360;
+				console.log(sdeg,mdeg,hdeg)
+			var hour = document.getElementById('hour')
+			var min = document.getElementById('min')
+			var sec = document.getElementById('sec')
+				hour.style.transform="rotate("+hdeg+"deg)"
+				min.style.transform="rotate("+mdeg+"deg)"
+				sec.style.transform="rotate("+sdeg+"deg)"
+			},1000)
+	}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="loadJSON()">加载数据</button>
+		<script src="common.js"></script>
+		<script>
+			function loadJSON(){
+				//1、创建 xhr
+				var xhr = createXhr();
+				//2、创建请求
+				xhr.open("get","Users.json",true);
+				//3、设置回调函数
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						//将响应回来的数据转换成JS对象/数组
+						var users = JSON.parse(xhr.responseText);
+						//按照数组的方式解析users
+						for(var i=0;i<users.length;i++){
+							var user = users[i];
+							console.log("用户名称:"+user.uname);
+							console.log("用户密码:"+user.upwd);
+							console.log("用户性别:"+user.gender);
+						}
+					}
+				}
+				//4、发送请求
+				xhr.send(null);
+			}
+		</script>
+	</body>
+</html>

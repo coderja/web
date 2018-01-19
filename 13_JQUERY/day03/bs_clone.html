@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function clone(obj){
+				//如果是引用类型对象
+				if(typeof obj=="object"){
+					//如果是数组，就创建数组
+					if(Array.isArray(obj)){
+						var newObj=[];
+					}else{
+						//如果是普通对象，就创建新的空对象
+						var newObj={};
+					}
+					//遍历obj对象的每个属性
+					for(var key in obj){
+						//为newObj添加新属性，属性名为key，属性值为obj中当前属性值
+						newObj[key]=clone(obj[key]);
+						       //深克隆需要再次克隆内嵌的子对象
+					}
+					return newObj;
+				}else//如果是原始类型，就直接返回，不克隆
+					return obj;
+			}
+			//浅克隆: 仅复制原始类型的值和对象属性的地址
+			//深克隆: 即复制原始类型的值，又复制引用类型的对象
+			var lilei={
+				sname:"Li Lei",
+				sage:18,
+				scores:{math:81,chs:59,eng:89},
+				friends:["tom","jerry","jack","rose"]
+			};
+			var lilei_clone=clone(lilei);
+			//var lilei_clone=lilei;
+			console.dir(lilei_clone);
+			console.dir(lilei);
+			console.log(lilei_clone==lilei);//fales
+			lilei.scores.chs=90;
+			console.log(lilei_clone.scores.chs);
+			var products=[
+				{pname:"iphone8",price:8888},
+				{pname:"iphoneX",price:10888}
+			];
+			var p_clone=clone(products);
+			console.dir(products);
+			console.dir(p_clone);
+			products[0].price=6888;
+			console.log(p_clone[0].price);
+		</script>	
+	</body>
+</html>

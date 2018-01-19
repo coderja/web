@@ -1,0 +1,105 @@
+正课: 
+1. 事件:
+***事件周期:
+   事件对象event: 取消和利用冒泡，事件坐标，取消事件
+2. 页面滚动:
+
+1. ***事件周期: 
+   DOM: 3个阶段:
+     1. 捕获: 由最外层元素向内，逐级记录绑定的事件处理函数
+	      只是记录，而不触发
+     2. 目标触发: 首先触发实际发生事件的元素上绑定的处理函数
+	  目标元素: 实际发生事件的元素
+     3. 冒泡: 由内层向外层依次执行各级绑定的处理函数
+   鄙视:能否修改事件触发的顺序: ——能！
+     elem.addEventListener("事件名",函数对象,false/true);
+       第三个参数: 是否在捕获阶段提前触发，
+		默认false，只能在冒泡阶段顺序触发
+                改为true，可在捕获阶段提前触发！
+                在捕获阶段提前触发的处理函数，冒泡阶段不会重复触发。
+   IE8: 2个阶段: 没有捕获！——不能修改事件触发的顺序
+      elem.attachEvent("on事件名",函数对象)
+   
+2. 事件对象event: 事件发生时自动创建的，封装事件信息的对象 
+     获得事件对象: 
+       1. 在html中绑定: <elem on事件名="fun(this,event)"
+                      function(elem,e){
+			其中，e得到的就是事件对象...
+		      }
+	  没有兼容性问题
+       2. 在js中绑定时: 
+       DOM: 事件对象作为处理函数的第一个参数传入函数对象
+          1. elem.on事件名=function(e){
+		arguments[0]->event
+                           e->event
+             }
+          2. elem.addEventListener("事件名",function(e){
+		e->event
+             });
+       IE8: 将事件对象保存为一个全局变量event
+	    window.event;
+       兼容: e=e||window.event;
+           如果e有效，就使用e，否则使用window.event
+
+    已经用过的: e.keyCode||e.which   e.screenX/screenY
+
+    取消冒泡: 一般用于事件处理函数的末尾
+	DOM: e.stopPropagation();
+        IE8: e.cancelBubble=true;
+        兼容: if(e.stopPropagation!==undefined){
+                  e.stopPropagation();
+              }else{
+		  e.cancelBubble=true;
+              }
+    利用冒泡: 
+      优化: 如果多个平级子元素都绑定了相同的事件处理函数，则只需要在父元素上绑定一次即可。不必反复绑定！
+      为什么: 绑定的事件处理函数越多，页面的执行效率越低。
+              应尽量减少页面中绑定的事件处理函数个数。
+      核心问题：如何获得目标元素: 
+          var target=e.target||e.srcElement
+            		DOM        IE8
+    取消事件: 在事件处理函数执行过程中，发生了异常或错误，希望事件不再继续触发。
+      如何取消: 
+      1. js动态绑定事件处理函数: 
+       DOM: e.preventDefault();
+       IE8: e.returnValue=false;
+       兼容: if(e.preventDefault!==undefined){
+	 	e.preventDefault();
+             }else{
+		e.returnValue=false;
+             }
+    课堂练习: 
+      form.onsubmit: 当提交表单之前，自动触发
+                     天生用作提交前验证所有表单内容
+      2. 在html中绑定: 2个return
+        1. 在事件处理函数的结尾: return true可以继续
+                                return false 就取消
+        2. 在html中事件处理函数调用时: return 函数()
+
+    事件中的鼠标坐标: 
+      1. 参照屏幕左上角: e.screenX/screenY
+      2. 参照文档显示区的左上角: e.clientX||x
+                                e.clientY||y
+      3. 参照页面左上角: e.pageX/pageY IE9+
+      4. 参照当前元素左上角: e.offsetX/offsetY
+
+3. 页面滚动: 
+   事件: window.onscroll=function(){}
+        当页面发生滚动时触发
+   如何在滚动事件中，获得当前页面滚动的距离:
+      var top=document.documentElement.scrollTop
+             ||document.body.scrollTop
+
+
+
+
+
+
+
+
+
+
+
+
+
+

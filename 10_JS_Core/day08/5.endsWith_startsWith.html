@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	  var str = 'start next';
+		console.log(str.endsWith('next'));//true
+		console.log(str.startsWith('start'));//true
+		//encodeURI(),decodeURI(),encodeURIComponet(),decodeURIComponet()
+		console.log(encodeURIComponent('王杰/:'));//%E7%8E%8B%E6%9D%B0%2F%3A
+		console.log(decodeURIComponent('%E7%8E%8B%E6%9D%B0%2F%3A'));//王杰/:
+		//decodeURIComponet()与decodeURI()的区别是前者不仅可解析文字还可以解析保留字符
+	</script>
+</body>
+</html>		

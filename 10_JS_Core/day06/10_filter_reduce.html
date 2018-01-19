@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var arr=[2,4,5,7,9];
+			var arr1=arr.filter(function(elem){
+			  return elem%2==0
+			})
+			console.log(arr1)
+		  var sum = arr.reduce(function(prev,elem){
+			  return prev+elem
+			},10)
+			console.log(sum)
+
+			function Pasta(grain, width, shape) {
+				this.grain = grain;
+				this.width = width;
+				this.shape = shape;
+
+				// Define a method.
+				this.toString = function () {
+					return (this.grain + ", " + this.width + ", " + this.shape);
+				}
+			}
+
+			// Create an object.
+			var spaghetti = new Pasta("wheat", 0.2, "circle");
+
+			// Put the enumerable properties and methods of the object in an array.
+			var arr = Object.keys(spaghetti);//获取对象的属性名
+			var arr1 = Object.getOwnPropertyNames(spaghetti);//获取对象的属性名
+			console.log (arr,arr1);
+			var obj = {
+				name:'tom',
+				age:12,
+				str(){
+				  console.log(1)
+				}
+			}
+			var bool = Object.hasOwnProperty('name');//true
+			console.log(bool)
+		</script>
+	</body>
+</html>

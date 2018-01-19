@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+  a { text-decoration: none;  color: #000;  line-height: 2em; }
+ul { list-style:none;  padding: 0 0 0 20px; }
+.affix { float: left;  border: 1px solid #aaa;  width: 150px; }
+.affix  .active  a{ color: #e4393c;  font-weight: bold; }
+.container { float: left;  width: 550px;  min-height: 300px;  border: 1px solid #aaa; }
+.container .box { height:0; transition:all 1s;overflow:hidden;}
+.container .box.active { height:300px; }
+
+	</style>
+ </head>
+ <body>
+  <h1>练习：查找元素&操作元素</h1>
+	<h3>使用附加导航(affix)实现内容切换</h3>
+
+	<div class="affix">
+		<ul>
+			<li><a data-toggle="item" href="#my-order">我的订单</a></li>
+			<li class="active"><a data-toggle="item" href="#user-setting">用户设置</a></li>
+			<li><a data-toggle="item" href="#account-security">账户安全</a></li>
+		</ul>
+	</div>
+
+	<div class="container">
+		<div id="my-order" class="box" style="background:#fee">我的订单的详细内容</div>
+		<div id="user-setting" class="box active" style="background:#efe">用户设置的详细内容</div>
+		<div id="account-security" class="box" style="background:#eef">账户安全的详细内容</div>
+	</div>
+    <div id='aa'></div>
+		<div id='ab'></div>
+		<div id='ac'></div>
+		<div id='ae'></div>
+ </body>
+ <script src="js/jquery-1.11.3.js"></script>
+ <script>
+    /*$('ul').click(e=>{
+		  var $tar = $(e.target);
+			if($tar.is('a')){
+				$tar.parent().addClass('active').siblings().removeClass('active');
+				var n = $tar.parent().index();
+				$('.container').children().eq(n).addClass('active').siblings().removeClass('active');
+			}
+		})*/
+		$('ul').on('click',e=>{
+			e.preventDefault()
+		  var $tar = $(e.target);
+			if(!$tar.parent().is('.active'))
+			   $tar.parent().addClass('active').siblings().removeClass('active');
+        var id = $tar.attr('href');
+				$(id).addClass('active').siblings().removeClass('active')
+		})
+		$(document).keydown(function(e){
+			  aa.innerHTML='距离屏幕左侧'+e.screenX+',距离屏幕顶部侧'+e.screenY;
+			  ab.innerHTML='距离文档左侧'+e.clientX+',距离文档顶部侧'+e.clientY;
+			  ac.innerHTML='距离当前元素左侧'+e.offsetX+',距离当前元素顶部侧'+e.offsetY;
+				var key =e.which
+				console.log(key)
+				keychar = String.fromCharCode(key);
+				ae.innerHTML=key+':'+keychar
+			})
+ </script>
+</html>

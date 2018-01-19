@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>商品列表-学子商城</title>
+  <link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+  <div class="main">
+    <!--1、页面头部-->
+    <header id="header">
+      <img src="img/loading.gif" alt="加载中..." >
+    </header>
+    <!--2、banner-->
+    <p id="banner">
+      <img src="img/index/index_guild.png">
+    </p>
+    <!--3、页面主体内容-->
+    <div id="product-list">
+      <!--1、左：商品列表(750px)-->
+      <div id="plist">
+        <p class="title">笔记本电脑</p>
+        <ul id="show-list">
+          <!-- <li>
+            <a href="product-details.html?lid=${p.lid}">
+              <img src="img/product/md/57b12a31N8f4f75a3.jpg" alt="">
+            </a>
+            <p>
+              ¥<span class="price">6988.00</span>
+              <a href="product-details.html?lid=${p.lid}">Apple MacBook Air 13.3英寸笔记本 银色(Core i5 处理器/8GB内存/128GB SSD闪存 MMGF2CH/A)</a>
+            </p>
+            <div>
+              <span class="reduce">-</span>
+              <input type="text" value="1">
+              <span class="add">+</span>
+              <a href="javascript:;" class="addCart">加入购物车</a>
+            </div>
+          </li> -->
+        </ul>
+        <!--页码-->
+        <div id="pages">
+          <!-- <a href="javascript:;" class="previous disabled">上一页</a>
+          <a href="javascript:;" class="current">1</a>
+          <a href="javascript:;">2</a> -->
+          <!-- <a href="javascript:;" class="next">下一页</a> -->
+        </div>
+      </div>
+      <!--2、右：商家公告(190px)-->
+      <div id="notice-board">
+        <p class="title">
+          <img src="img/foodstore/foodstore_icon2.png" alt="">
+          商家公告
+        </p>
+        <div class="content">
+          <p>本店推出全网最低价套餐，保证比其他平台的价格要低！</p>
+          <p>不要葱、姜、蒜等这些忌口暂时无法坐不了，敬请谅解！</p>
+          <p>晚上10点以后订餐需另加送餐费2元！谢谢合作！</p>
+        </div>
+
+						
+						
+						
+        <div id="cart">
+          <!-- 1、购物车标题 -->
+					<p class="title">
+                <span>购物车</span>
+                <a href="#">清空</a>
+          </p>
+            
+          <div class="cart_content">
+            <!-- 1、内容1 -->
+            <!--<div class="item">
+              <span>联想(ThinkPad)轻薄系列E470c(20H3A003CD)14英寸笔记本电脑(i5-6200U 8G 1T 2G独显 Win10)黑色</span>
+              <div>
+                <span class="reduce">-</span>
+                <input type="text" value="1">
+                <span class="add">+</span>
+              </div>
+              <p>
+                <span>￥5499.00</span>	
+              </p>
+            </div>-->
+          </div>
+          <!-- 3、购物车结算 -->
+          <div class="cart-result">
+            <span>
+              <img src="img/foodstore/foodstore_car_2.png">
+              ￥<span class="result" id="total">0.00</span>	
+            </span>
+            <a href="#">去结算</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--4、页面底部-->
+    <footer id="footer">
+      <img src="img/loading.gif" alt="加载中..." >
+    </footer>
+  </div>
+	<script src="js/ajax.js"></script>
+	<script src="js/header.js"></script>
+	<script src="js/products.js"></script>
+</body>
+</html>

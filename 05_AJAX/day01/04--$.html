@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <input type="text" id='uname'>
+		<div id='d1'></div>
+		<button onclick='printDiv()'>点我</button>
+		<script src='common.js'></script>
+	  <script>
+		  function printDiv(){
+			  $('d1').innerHTML='<h1>'+$('uname').value+'</h1>';
+			}
+		</script>
+	</body>
+</html>

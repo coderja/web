@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  //创建父级构造函数
+	  class Flyer{		
+		  constructor(fname,speed){
+			  this.fname=fname;
+				this.speed=speed;
+			} 
+			//将公共方法存放在父级原型对象中
+			fly(){
+				  console.log(this.fname+'以时速'+this.speed+'飞行')
+			}
+			toString(){
+			  return `
+				{
+				   fname:${this.fname},
+					 speed:${this.speed}
+				}`;
+			}
+    }
+			//创建构造函数Bee
+    class Bee extends Flyer{
+			constructor(fname,speed,award){
+			  //this原先指向的是window,需要调用call强行将this指向为new
+				super(fname,speed)
+				this.award = award
+			}
+			//将方法保存在Bee的原型对象中
+			getWard(){
+				  console.log('击落'+this.fname+'奖励'+this.award+'次生命')
+			}
+			toString(){
+				return `
+				{
+					father:${super.toString()}
+					award:${this.award}
+			    }`;
+			}
+    }
+			// 调用构造函数创建多个相同结构的对象
+			var bee = new Bee('小蜜蜂',500,1)
+			bee.fly();
+			bee.getWard();
+			console.dir(bee)
+			console.log(bee.toString())
+			
+	  class  Plane extends Flyer{
+			constructor(fname,speed,score){
+			  super(fname,speed);
+				this.score=score;
+			}
+			getScore(){
+				  console.log('击落'+this.fname+'得'+this.score+'分');
+			}
+    }
+			var f16 = new Plane('f16','1000',10)
+			f16.fly();
+			f16.getScore();
+			console.dir(f16)
+		</script>
+	</body>
+</html>

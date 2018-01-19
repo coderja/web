@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+	  .error{
+		  color:red;
+	  }
+	  .right{
+		  color:green;
+	  }
+  </style>
+ </head>
+ <body>
+  <form id="form1" method="POST" action="data/02_register/register.php">
+		<p>
+			用户名：
+			<input name="uname">
+			<span></span>
+		</p>
+		<p>
+			密码：
+			<input type="password" name="upwd" >
+		</p>
+		<p>
+			确认密码：
+			<input type="password" id="upwd2" >
+			<span></span>
+		</p>
+		<p>
+			电子邮件：
+			<input type="email" name="email">
+			<span></span>
+		</p>
+		<p>
+			移动电话：
+			<input type="tel" name="phone">
+		</p>
+		<p>
+			真实姓名：
+			<input name="user_name">
+		</p>
+		<p>
+			性别：
+			<select name="gender">
+				<option value="0">男</option>
+				<option value="1">女</option>
+			</select>
+		</p>
+		<p>
+			<input type="submit" value="注册">
+		</p>
+	</form>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="js/jquery.form.js"></script>
+	<script src="js/02_register.js"></script>
+</body>
+</html>

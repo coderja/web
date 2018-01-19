@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>
+英文<input type="text" id="en"/>
+</p>
+<p>
+中文<input type="text" id="cn"/>
+</p>
+<button id="btn">提交</button>
+<a href="test.html">开始测试</a>
+<script>
+btn.onclick=function(){
+    var english = en.value
+    var chinese = cn.value
+    localStorage.setItem(english,chinese);
+    alert('保存成功');
+    en.value=''
+    cn.value=''
+}
+</script>
+</body>
+</html>

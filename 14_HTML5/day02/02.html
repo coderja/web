@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .container{
+            position:relative;
+        }
+        .ctr{
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin-top:-60px;
+            margin-left:-60px;
+            z-index: 10;
+        }
+        .ctr2{
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin-left:-115px;
+            margin-top:-100px;
+        }
+        a.ctr img{
+            width: 120px;
+            height:120px;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="con">
+    <video id="m3">
+        <source src="rec/birds.mp4"/>
+        <source src="rec/birds.mp4"/>
+        <source src="rec/birds.mp4"/>
+        您的浏览器版本太低，请升级
+    </video>
+    <a class="ctr">
+     <img  id="im"  src="rec/pause.png" alt=""/>
+    </a>
+    <div class="ctr2" >
+        <img  id="gg" src="rec/drink_img1.png" alt=""/>
+    </div>
+</div>
+    <script>
+        var control = document.getElementsByTagName('a')[0]
+        control.onclick=function(e){
+			m3.playbackRate=3
+          e.preventDefault();
+          if(m3.paused){
+              m3.play()
+              im.src='rec/pause.png';
+              //gg.style.display='none'
+          }else{
+              m3.pause()
+              im.src='rec/play.png'
+              //gg.style.display='block'
+          }
+
+      }
+        con.onmouseenter=function(){
+            im.style.display='block';
+        }
+        con.onmouseleave=function(){
+            im.style.display='none'
+        }
+        m3.onplay=function(){
+            gg.style.display='none'
+        }
+        m3.onpause=function(){
+            gg.style.display='block'
+        }
+		m3.onended=function(){
+		  im.src='rec/play.png'
+		}
+    </script>
+</body>
+</html>

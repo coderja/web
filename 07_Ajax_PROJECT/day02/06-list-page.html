@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	 <style>
+		table,td,th{
+			border:1px solid #ddd;
+		}
+		td,th{
+			font-weight:normal;
+			text-align:center;
+			height:32px;
+			line-height:32px;
+		}
+		table{
+			width:100%;
+			border-collapse:collapse;
+		}
+	</style>
+	</head>
+	<body>
+	  <p>
+	 第几
+	 <select name="currentPage" onchange='load1()' id='cp'>
+	    <option value="1">1</option>
+	    <option value="2">2</option>
+	    <option value="3">3</option>
+	    <option value="4">4</option>
+	 </select>页&nbsp;
+	 <select name="pageSize" onchange='load1()' id='ps'>
+	    <option value="5">5</option>
+	    <option value="10">10</option>
+	    <option value="15">15</option>
+	    <option value="30">30</option>
+	 </select>
+	</p>
+	<table id='tb'>
+	
+	</table>
+	<script src='common.js'></script>
+	<script>
+	window.onload=function(){
+	  load1()
+	}
+//	window.onresize=function(){
+//	  load1()
+//	}
+	  function load1(){
+			var cval=$('cp').value;
+			var pval=$('ps').value;
+//			var pval = (window.outerHeight-180)/32;
+//			    pval = parseInt(pval)
+//			console.log(parseInt(pval))
+			var xhr = createXhr();
+			xhr.open('get','06-list.php?currentPage='+cval+"&pageSize="+pval,true)
+			xhr.onreadystatechange=function(){
+			  if(xhr.readyState==4&&xhr.status==200){
+					var txt = xhr.responseText;
+					var msg = JSON.parse(txt);
+				  console.log(msg)
+					$('tb').innerHTML='';
+					var frag = document.createDocumentFragment()
+					for(var i=0;i<msg.length-1;i++){
+					  var tr = document.createElement('tr');
+						for(var key in msg[i]){
+						  var td=document.createElement('td');
+							td.innerHTML=msg[i][key]
+							tr.appendChild(td)
+							if(td.innerHTML==''){
+							  td.innerHTML='null';
+							}else if(td.innerHTML=='1'){
+							  td.innerHTML='男';
+							}else if(td.innerHTML=='0'){
+							  td.innerHTML='女';
+							}
+						}
+							frag.appendChild(tr)
+					}
+             $('tb').appendChild(frag)
+						 var parseinfo = JSON.parse(msg[msg.length-1]);
+						 var str='';
+						 str+="<tr>";
+						 str+="<td>"+parseinfo.firstPage+"</td>";
+						 str+="<td>"+parseinfo.prePage+"</td>";
+						 str+="<td>"+parseinfo.nextPage+"</td>";
+						 str+="<td>"+parseinfo.totalPage+"</td>";
+						 str+="</tr>";
+						 console.log(str)
+						 $('tb').innerHTML+=str
+				}
+			}
+			xhr.send(null);
+		}
+
+	</script>
+	</body>
+</html>

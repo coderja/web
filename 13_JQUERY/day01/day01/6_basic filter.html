@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title></title>
+</head>
+<body>
+  <h3>基本过滤选择器.</h3>
+  <ul>
+    <li>child1-basic0</li>
+    <li>child2-basic1</li>
+    <li>child3-basic2</li>
+  </ul>
+  <ul>
+    <li>child1-basic3</li>
+    <li>child2-basic4</li>
+    <li>child3-basic5</li>
+  </ul>
+  <ul>
+    <li>child1-basic6</li>
+  </ul>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+    //查找第一个li
+		$('li:first').css('border',"1px solid #ddd")
+    //查找最后一个li
+		$('li:last').css('border',"2px solid #ddd")
+    //查找处于偶数位置的li
+		$('li:even').css({'font-size':"18px","color":"#e564ef"})
+		//查找第2个li
+		$('li:eq(1)').css({'font-weight':"bold"})
+		$('li').css('list-style','none')
+  </script>
+</body>
+</html>

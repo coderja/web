@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	   <script>
+		 //打印乘法口诀表
+       for(var i=1;i<=9;i++){
+			    for(var str='',j=1;j<=i;j++){
+			      str+=j*i+'='+j*i+' ' 
+					}
+					console.log(str)
+			 }
+      
+			//打印三角形
+		   for(var i=0;i<5;i++){
+			   for(var str='',j=0;j<=i;j++){
+				   str+='*';
+				 }
+				 console.log(str)
+			 }
+
+		//打印反三角
+		for(var i=1;i<=5;i++){
+			//打印空格
+		  for(var str='',j=0;j<5-i;j++){
+			  str+="_";
+			}
+			//打印星号
+			for(var j=1;j<=i;j++){
+				   str+='*';
+			}
+			console.log(str)
+		}
+		//打印反三角
+		for(var i=1;i<=5;i++){
+		  for(var str='',j=0;j<5;j++){
+			  str+=j<5-i?"_":"*"
+			}
+			console.log(str)
+		}
+    
+		//打印等腰三角
+		for(var i=1;i<=5;i++){
+		  //打印空格
+			for(var str='',j=0;j<5-i;j++){
+			  str+=" ";
+			}
+			//打印星号
+			for(var j=1;j<=2*i-1;j++){
+				   str+='*';
+			}
+			console.log(str)
+		}
+		//打印等腰三角形
+		/*第一步：如果共i行
+		正在打印第j行
+		一行中，共需要几个字符
+				先需要几个空格
+		共 l 行
+		第 r 行：共i+j-1个字符，先i-j个空格
+		三要素：
+		1.循环条件：
+		*/
+		for(var i=1;i<=5;i++){
+		  for(var str='',j=0;j<5+i-1;j++){
+			  str+= i<5-j ?" ":"*"
+			}
+			console.log(str)
+		}
+		 </script>
+	</body>
+</html>

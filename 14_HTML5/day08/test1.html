@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #contanier{
+            padding:10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div id="contanier"></div>
+<button id="sub" >提交答案</button>
+<script>
+    for(var i= 0;i<localStorage.length;i++){
+        var key = localStorage.key(i);
+        contanier.innerHTML+=key+':'+"<input/><br>"
+    }
+    score=0;
+    sub.onclick=function(){
+        for(var i=0;i<localStorage.length;i++){
+            var inps = document.querySelectorAll('input');
+            var val = inps[i].value;
+            var key = localStorage.key(i)
+            var lcal = localStorage[key];
+            if(lcal===val){
+                score++
+            }
+        }
+        sessionStorage['answer1']=score
+    alert('正确数'+score+"错误数"+(i-score))
+    }
+</script>
+</body>
+</html>

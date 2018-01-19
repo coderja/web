@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	  var n=prompt('输入一个字符');
+		(n>='a'&&n<='z')&&console.log('小母');
+		(n>='A'&&n<='Z')&&console.log('大写字母');
+		(!isNaN(n))&&console.log('数字');
+    (n>='\u4e00'&&n<='\u9fa5')&&console.log('汉字');
+	</script>
+</body>
+</html>

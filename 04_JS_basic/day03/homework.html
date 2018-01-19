@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  //作业输入年月日计算该日是星期几前提是1900年的1月1日是星期1从1900年开始，到输入年份的前一年为止，天数进行累加。2.从1月份开始到输入月份的前一个月在进行累加3.再累加日4.将整体的数值%7==0是周日1-6就是星期一到星期六
+      
+			var year=Number(prompt('输入年份'));
+      var month=Number(prompt('输入月份'));
+      var day=Number(prompt('输入日期'));
+			var sum=0;
+			var y=0;
+			var isRun=(year%4==0&&year%100!=0)||year%400==0;
+			//计算1900年的1月1日到当前年份前一年所有的天数
+			while(y<(year-1900)){
+			  sum+=isRun?366:365; 
+			  y++
+			} 
+			//总年份中的闰年数
+			var rday=parseInt((year-1900)/4)
+			//console.log(sum)
+			var msum=0
+			var m=0;
+			arr=[31,0,31,30,31,30,31,31,30,31,30,31];
+			arr[1]=isRun?29:28;
+			//计算输入月份中的所有月份的天数总和
+			while(m<month-1){
+			  msum+=arr[m];
+        m++;
+			}
+
+			var result = sum+rday+msum+day;//总年份数的天数+闰年个数(转为天数)+月数天数+日期数
+			alert("从1990年一月一号至今的总天数是"+result);
+			var week;
+			switch(result%7){
+				case 0:
+				week="周日"
+				case 1:
+				week='周一';
+				break
+				case 2:
+				week='周二';
+				break
+				case 3:
+				week='周三'
+				break;
+        case 4:
+				week='周四';
+        break;
+        case 5:
+				week="周五";
+				break;
+				case 6:
+				week='周六'
+				break;
+			}
+			alert(week)
+		</script>
+	</body>
+</html>

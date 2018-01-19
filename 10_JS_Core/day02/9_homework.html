@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+		<style>
+		  #show{
+			  font-size:40px;
+				color:#3af;
+				text-align:center;
+				padding-top:calc((100vh - 40px)/2);
+			}
+		</style>
+	</head>
+	 <div id='show'></div>
+	<body>
+	  <script>
+		function task(){
+			var show =document.getElementById('show')
+		  future = new Date('2017/11/11');
+			now = new Date;
+			var s = parseInt((future - now)/1000);
+			var d = parseInt(s/(3600*24))
+			var h = parseInt(s%(3600*24)/3600)
+			var m = parseInt(s%3600/60)
+			var s =  s%60
+			show.innerHTML='距离双11还有'+d+'天'+h+'小时'+m+'分'+s+'秒';
+			setTimeout('task()',1000)
+		}
+		task()
+			
+		</script>
+	</body>
+</html>

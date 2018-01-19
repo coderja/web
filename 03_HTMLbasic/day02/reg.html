@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<form id='form'>
+	   <input type="text" name='uname'><span id='uname_msg'></span><br>
+	   <input type="password" name='pwd'><span id='pwd_msg'></span>
+	</form>
+	  <script>
+		   var txt_reg=/^\w{6}$/, pwd_reg = /^\d{1,10}$/;
+			 
+        function vali(reg,txt,span,msg){
+				  if(reg.test(txt.value)){
+			      span.innerHTML=msg
+			    }else{
+					  span.innerHTML="X";
+					}
+				}
+			 form.uname.onblur=function(){
+				  vali(txt_reg,this,uname_msg,'文本格式正确')
+			 }
+       form.pwd.onblur=function(){
+			    vali( pwd_reg,this,pwd_msg,'密码格式正确')
+			  }
+		</script>
+	</body>
+</html>

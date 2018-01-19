@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <form action="">  
+    <table cellspacing='5'>
+        <tr>
+            <td colspan="2">
+                <b  style="font-size:30px;">--->></b>
+                <b  style="font-size:30px;background:#ff0;">求职申请</b>
+                <b  style="font-size:30px;"><<--</b>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">用户名：</td>
+            <td><input type="text" name='uname'></td>
+        </tr>
+        <tr>
+            <td align="right" >密码：</td>
+            <td><input type="text" name='upwd'></td>
+        </tr>
+        <tr>
+            <td align="right">籍贯：</td>
+            <td>
+                <select name="city" id="" >
+                    <option value="0">上海</option>
+                    <option value="1">北京</option>
+                    <option value="2">深圳</option>
+                    <option value="3">广州</option>
+                    <option value="4">南京</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">性别：</td>
+            <td>
+                <input type="radio" name='gender' >男
+                <input type="radio" name='gender' >女
+                <input type="radio" name='gender' checked>不透露
+            </td>
+        </tr>
+        <tr>
+            <td align="right">头像：</td>
+            <td>
+                <input type="file">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">愿意到以下城市工作：</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <select name="city" id="" multiple size="5">
+                    <option value="1">上海</option>
+                    <option value="2">北京</option>
+                    <option value="3">深圳</option>
+                    <option value="4">广州</option>
+                    <option value="5">南京</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td valign='top'>留言：</td>
+            <td>
+                <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="提交">
+                <input type="reset" value="清楚">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input id="ck" type="checkbox">
+                <label for="ck">不要公开我的信息</label>
+            </td>
+        </tr>
+    </table>
+   </form> 
+</body>
+</html>

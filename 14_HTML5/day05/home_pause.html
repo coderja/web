@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<svg width="1000" height="500">
+    <defs>
+        <filter id="f1">
+            <feGaussianBlur stdDeviation="4"></feGaussianBlur>
+        </filter>
+    </defs>
+    <image xlink:href="1.jpg" x="0" y="0" filter="url(#f1)"></image>
+    <image xlink:href="1.jpg" x="180" y="100" width="179" height="100"></image>
+    <rect x="180" y="100" width="180" height="100" stroke-width="20" fill="transparent" stroke="orange" stroke-opacity="0.3"></rect>
+    <circle r="25" cx="50" cy="250" fill="#fff" fill-opacity="0.5"  stroke-width="3" stroke="#afe"></circle>
+    <polyline points="45,242  60,252 45,260 45,242"  fill="#afe"></polyline>
+</svg>
+</body>
+</html>

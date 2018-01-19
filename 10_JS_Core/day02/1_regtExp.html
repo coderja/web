@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var names = ['明月','紫烟','紫烟','白鹭','日当午'];
+		  var str = '床前明月光，锄禾日当午，日照香炉生紫烟，一行白鹭上青天';
+		  var reg = new RegExp(names.join('|'),'g')
+			var k = str.replace(reg,function(kw){
+			  return kw.length==2?'**':'***'
+			})
+      console.log(k);
+			var result = str.match(reg);
+			console.log(result);
+
+		</script>
+	</body>
+</html>

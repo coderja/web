@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var str='那天我去了她家，我说：“我艹艹，我擦,你家真大”！';
+      var wx = '咱们微?信联系'
+		  var i = str.indexOf('我艹')
+		  console.error('在位置'+i+'处包含敏感词')
+		  
+			var r = str.replace(/我[艹擦][艹]?/g,function(kw){
+			  return kw.length==2?'**':'***'
+			})
+      console.log(r)//那天我去了她家，我说：“***，**,你家真大”！
+			
+			var l = str.match(/我[艹擦][艹]?/g);
+			console.log(l)//["我艹艹", "我擦"]
+			console.log('共替换'+(l.length!=null?l.length:0)+'处')//共替换2处
+    
+		 var k = wx.search(/(微|w(in)?).(信|x(in)?)/);
+		 console.log(k)//2
+		 
+		 var i=str.search(/[我卧][艹操草擦]/);//12
+		 
+		 var kwords=str.match(/[我卧][艹操草擦]/g);//[我艹，我擦]
+		 //var kwords=str.match(/hah/g)
+		 console.log('共查找到'+(kwords!==null?kwords.length:0)+'个关键词:'+kwords)//共查找到2个关键词:我艹,我擦
+
+		 var sti = 'no zuo no die no can no bibi';
+		 var i=-1;
+		 do{
+			 var i = sti.indexOf('no',i+1);
+			 if(i!=-1)
+			   console.log('在位置'+i+'发现敏感词')
+		   else
+         break;
+		 }while(true)
+
+		 var j=sti.lastIndexOf('no');
+		 console.log(j)//21
+     
+		</script>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <canvas id="c3" ></canvas>
+    <script>
+        var progress=0;
+        var bg = new Image();
+        bg.src = 'img/bg.jpg';
+        bg.onload=function(){
+            progress+=25
+            if(progress==100){
+                startDraw();
+            }
+        }
+        var disc = new Image();
+        disc.src = 'img/disc.png';
+        disc.onload=function(){
+            progress+=25
+            if(progress==100){
+                startDraw();
+            }
+        }
+        var pause = new Image();
+        pause.src = 'img/pause.png';
+        pause.onload=function(){
+            progress+=25
+            if(progress==100){
+                startDraw();
+            }
+        }
+        var play = new Image();
+        play.src = 'img/play.png';
+        play.onload=function(){
+            progress+=25
+            if(progress==100){
+                startDraw();
+            }
+        }
+        function startDraw(){
+            var w = bg.width
+            var h = bg.height
+            c3.width=w
+            c3.height=h
+            var ctx = c3.getContext('2d');
+            ctx.drawImage(bg,0,0)
+            ctx.beginPath();
+            ctx.arc(w/2,h/2,120,0,2*Math.PI);
+            ctx.fill();
+            var left = 120*Math.sin(Math.PI/4);
+            ctx.drawImage(disc,w/2-left,h/2-left,2*left,2*left)
+            //ctx.drawImage(disc,(w-120)/2,(h-120)/2,120,120)
+            //ctx.drawImage(pause,w/2-50,h-100,100,100)
+            ctx.drawImage(play,w/2-50,h-100,100,100)
+
+            c3.onclick=function(e){
+                ex = e.offsetX
+                ey = e.offsetY
+                var rx=w/2;
+                var ry=h-50
+                var r=50
+                if(Math.sqrt((ex-rx)*(ex-rx)+(ey-ry)*(ey-ry))<r){
+                    if(play.src == 'img/play.png'){
+                        play.src = 'img/pause.png';
+                        ctx.drawImage(play,w/2-50,h-100,100,100)
+                    }else{
+                        play.src = 'img/play.png';
+                        ctx.drawImage(play,w/2-50,h-100,100,100)
+                    }
+                }
+            }
+        }
+        var ctx = c3.getContext('2d');
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg >
+        <defs>
+            <linearGradient id="g3" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0" stop-color="#fefefe"></stop>
+                <stop offset="0.3" stop-color="#3af"></stop>
+                <stop offset="0.6" stop-color="#afe"></stop>
+                <stop offset="1" stop-color="#af45e2"></stop>
+            </linearGradient>
+        </defs>
+            <rect width="100%" height="100%" x="0" y="0" fill='url(#g3)'></rect>
+    </svg>
+</body>
+<script>
+    var y = window.innerHeight-5;
+    var x = window.innerWidth;
+    svg = document.getElementsByTagName('svg')[0]
+    svg.style.background='#f3f3f3';
+    svg.setAttribute('height',y);
+    svg.setAttribute('width',x);
+</script>
+</html>

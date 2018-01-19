@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	  function clone(obj){
+				if(typeof obj=='object'){//如果是引用类型对象
+						if(Array.isArray(obj)){//如果是数组,就创建数组
+						var newObj=[];
+					}else{//如果是普通对象就创建新的空对象
+						var newObj={};
+					}	//遍历obj对象的每个属性
+				for(var key in obj){
+					  newObj[key]=clone(obj[key]);//新对象的key等于obj的value
+				  } //深克隆需要再次克隆内嵌对象
+					return newObj;
+				}else//如果是原始类型，就直接返回不需要克隆
+					return obj;
+		  }
+		var lilei={name:'lilei',age:22};
+		console.log(clone(lilei));
+		//var lilei_clone=lilei;
+		//console.log(lilei_clone)
+		//console.log(lilei_clone==lilei)//true原始类型赋值，是复制地址
+		
+		
+		//console.dir(lilei)
+		//console.dir(clone(lilei))
+		//console.log(clone(lilei)==lilei)//false,因为创建了新的对象，地址不同
+	</script>
+</body>
+</html>

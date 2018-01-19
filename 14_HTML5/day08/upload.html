@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #drop_area{
+            width: 100%;
+            height: 100%;
+            line-height: 100%;
+            text-align: center;
+            font-size: 36px;
+            color: #d3d3d3;
+            border: 4px dashed #ddd;
+        }
+        #preview{
+            width: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="drop_area">将图片拖拽到此处</div>
+    <div id="preview">图片预览区</div>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).on({
+            dragleave:function(e){e.preventDefault()},
+            drop:function(e){e.preventDefault()},
+            dragenter:function(e){e.preventDefault()},
+            dragover:function(e){e.preventDefault()}
+        });
+        drop_area.ondrop=function(e){
+            e.preventDefault();
+            var flist = e.dataTransfer.files
+            console.log(flist)
+            if(flist.length==0){
+                return;
+            }
+            if(flist[0].type.indexOf("image")===-1){
+                alert("拖动的不是图片");
+                return;
+            }
+            var img = window.webkitURL.createObjectURL(flist[0]);
+            var pname = flist[0].name
+            var psize = Math.ceil(flist[0].size/1000)
+            if(psize>512){
+                alert('文件过大');
+                return;
+            }
+
+            var html = `
+                <img src="${img}"/>
+                <p>图片名称:${pname}</p>
+                <p>图片大小:${psize}kb</p>
+            `;
+            $('#preview').html(html)
+            var xhr = new XMLHttpRequest();
+            xhr.open('post','upload.php');
+            xhr.setRequestHeader("X-Requested-With","XMLHttpRequest");
+            var fd = new FormData();
+            fd.append('myfile',flist[0])
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4&&xhr.status==200){
+                  var str = JSON.parse(xhr.responseText);
+
+                  console.log(str)
+                }
+            }
+            xhr.send(fd)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <button>clike me</button>
+	  <button>clike me</button>
+	  <button>clike me</button>
+	  <button>clike me</button>
+	  <button>clike me</button>
+		<script>
+		  var btns = document.getElementsByTagName('button')
+			for(var i=0;i<btns.length;i++){
+			  (function(i){ 
+					btns[i].onclick=function(){
+				    console.log('第'+(i+1)+'个按钮')
+					}
+				})(i)
+      }
+
+//    for(let i=0;i<btns.length;i++){
+//		  btns[i].onclick= function(){
+//			  console.log('第'+(i+1)+'个按钮')
+//			}
+//		}
+  
+//      for(var i=0;i<btns.length;i++){
+//			  btns[i].onclick = (function(i){
+//				   return function(){
+//					   console.log('第'+(i+1)+'个按钮')
+//					 }
+//				})(i)
+//			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <div id='d1'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, nostrum, optio, alias nulla quia harum inventore nihil sapiente consequatur et officia sequi natus odio delectus dignissimos ea perferendis eaque error.</div>
+		<button onclick='val()'>点我</button>
+		<button onclick='val_ht()'>点我</button>
+		<button onclick='val_html()'>点我</button>
+		<script>
+		  function val(){
+			  var elem=document.getElementById('d1');
+				//elem.innerHTML='这是一个div'
+				console.log(elem);
+			}
+		  function val_ht(){
+			  var elem=document.getElementById('d1');
+				var elemVal = elem.innerHTML;
+				console.log(elemVal);
+			}
+		  function val_html(){
+			  var elem=document.getElementById('d1');
+				elem.innerHTML='这是我的第一个dom操作';
+				console.log(elem);
+			}
+		</script>
+	</body>
+</html>

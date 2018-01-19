@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<StudentList>
+   <student>
+      <name>tom</name>
+	  <gender>男</gender>
+	  <age>12</age>
+   </student>
+   <student>
+      <name>lily</name>
+	  <gender>女</gender>
+	  <age>12</age>
+   </student>
+   <student>
+      <name>erric</name>
+	  <gender>男</gender>
+	  <age>11</age>
+   </student>
+</StudentList>
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/header.css">
+	</head>
+	<body>
+		<div class="main">
+			<!-- 顶部：LOGO 、搜索框、登录和注册的列表 -->
+			<div id="header-top">
+				<!--1、左侧：LOGO -->
+				<a href="#" id="logo">
+					<img src="img/header/logo.png">
+				</a>
+				<!--2、中间：搜索框 -->
+				<div id="top-input">
+					<!-- 1、(左)搜索框部分内容 ：框，分类搜索，三角 -->
+					<div id="input-box" class="lf">
+						<input type="text" id="txtSearch" placeholder="请输入您要搜索的内容">
+						<span class="sort-search">
+							分类搜索
+						</span>
+						<i class="caret"></i>
+					</div>
+					<!-- 2、(右)搜索图标-->
+					<a href="#" class="lf">
+						<img src="img/header/search.png">
+					</a>
+				</div>
+				<!--3、右侧：列表 -->
+				<ul id="list">
+					<li>
+						<a href="#">
+							<img src="img/header/care.png">
+						</a>
+						<b>|</b>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/header/order.png">
+						</a>
+						<b>|</b>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/header/shop_car.png">
+						</a>
+ 						<b>|</b>
+					</li>
+					<li>
+						<a href="#">注册</a>
+						<b>|</b>
+					</li>
+					<li>
+						<a href="#">登录</a>
+					</li>
+				</ul>
+				<!--4、增加空块级元素 -->
+				<p style="clear:both;"></p>
+			</div>	
+			<!-- 页面主导航 -->
+			<ul id="nav">
+				<li>
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="#">学习用品</a>
+				</li>
+				<li>
+					<a href="#">私人订制</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	<style>
+	ul{
+	  background:#e2fefe;
+	}
+	 ul:before{
+	   content:'';
+		 display:table;
+	 }
+	 li:first-child{
+	   margin-top:100px;
+	 }
+	  li{
+		  list-style:circle;
+		}
+	  li:first-child{
+		  background:#ddf
+		}
+	  li:nth-of-type(2){
+		  background:red
+		}
+		li:nth-child(3){
+		  background:yellow
+		}
+		li:last-child{
+		  background:#3ed
+		}
+		li:not(:empty){
+		  border:1px solid #ddd;
+			font-style:italic;
+			height:40px;
+		}
+		div:first-letter{
+		  font-weight:bold;
+			color:#ddd;
+		}
+		div:first-line{
+		  font-style:italic;
+		}
+		div::selection{
+		  color:#fff;
+			background:#adf;
+		}
+		div:before{
+		  content:'html:';
+		}
+		div:after{
+		  content:'。。。。';
+		}
+		div:before{
+		  content:url(img/product_detail_1.png)
+		}
+	</style>
+	<body>
+	<!--[if ie]>
+	   测试代码
+	<![endif]-->
+	  <ul>
+	  	<li>4</li>
+	  	<li>3</li>
+	  	<li>4</li>
+	  	<li>5</li>
+	  	<li>6</li>
+			<li></li>
+	  </ul>
+		<div>
+		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, doloremque, alias, iste hic ut voluptatem aliquid pariatur repudiandae tenetur nesciunt voluptate adipisci fugit a. Saepe voluptates quasi ipsum nulla ducimus!
+		</div>
+	</body>
+</html>

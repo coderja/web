@@ -1,0 +1,183 @@
+
+/*banner*/
+		#banner{
+		  margin-top:30px;
+		  position:relative;
+		  overflow:hidden;
+
+		}
+		#banner .bannerCon{
+		  position:relative;
+		  left:0px;top:0;
+		  width:3840px;
+		  transition:all 1s ease;
+		}
+		#banner .bannerCon a{
+		  float:left;
+		}
+		#banner a>img{ display:block;width:960px;}
+		#banner span{
+		  width:30px;
+		  height:70px;
+		  background:#000;
+		  opacity:0.1;
+		  border-radius:3px;
+		  display:block;
+		  cursor:pointer;
+		}
+		#banner span:hover{
+		 opacity:0.3;
+		}
+		#banner span.cl{
+		  position:absolute;
+		  top:35%;
+		  left:20px;
+		  background:url('../img/arrow-left.png')  #000 no-repeat center center;
+		}
+		#banner span.cr{
+		  position:absolute;
+		  top:35%;
+		  right:20px;
+		  background:url('../img/arrow-right.png')  #000 no-repeat center center;
+		}
+		#banner ul li{
+		  background:#fff;
+		  height:10px;
+		  width:10px;
+		  border-radius:50%;
+		  display:inline-block;
+		  transition:all 0.3s linear;
+		}
+		#banner ul li:hover{
+		  background:#3af;
+		  width:20px;
+		  border-radius:5px;
+		}
+		#banner ul li.current{
+		  background:#3af;
+		  width:20px;
+		  border-radius:5px;
+		}
+		#banner ul{
+		  cursor:pointer;
+		  position:absolute;
+		  left:50%;
+		  bottom:20px;
+		  transform:translateX(-50%);
+		}
+/*floor1*/
+		#first,#second,#third{
+		   margin-top:30px;
+		   border-bottom:2px solid #ccc;
+		   padding-bottom:6px;
+		}
+		#first span,#second span,#third span{
+		  display:inline-block;
+		  font-size:24px;
+		  color:#666;
+		  margin-left:18px;
+		  vertical-align:bottom;
+		}
+		#first img,#second img,#third img{
+		  vertical-align:bottom
+		}
+		div.content{
+		  display:flex;
+		  flex-flow:row wrap;
+		  align-center:center;
+		  justify-content:space-around;
+		}
+		.content>.list1{
+		  width:540px;
+		  height:377px;
+		  background:#e8e8e8;
+		  margin-top:8px;
+		  }
+		.content>.list1>.duct{
+		  width:310px;
+		  box-sizing:border-box;
+		  padding-left:70px;
+		  padding-top:70px;
+		}
+		.title{
+		  word-break:break-word;
+		  font-weight:normal;
+		  font-size:30px;
+		  color:#333;
+		}
+		 .info{
+		  font-size:12px;
+		  color:#aaa;
+		}
+		 .price{
+		  color:#3af;
+		}
+		 .btn{
+		  color:#fff;
+		  font-size:16px;
+		  border-radius:3px;
+		  padding:8px 28px;
+		  background:linear-gradient(to bottom,#27b1f6,#0aa1ed);
+		  border:none;
+		  margin-top:16px;
+		}
+		.content .duct img{
+		  position:relative;
+		  top:-230px;right:-60px;
+		}
+		.content .duct2 img{
+		  position:relative;
+		  bottom:140px;right:-60px;
+		}
+		.content .duct3 img{
+		  position:relative;
+		  bottom:120px;right:-150px;
+		}
+		.content>.list2{
+		  width:400px;
+		  height:377px;
+		  background:#e8e8e8;
+		  margin-top:8px;
+		}
+		.content>.list2 .duct2{
+		  width:310px;
+		  box-sizing:border-box;
+		  padding-left:30px;
+		  padding-top:70px;
+		}
+		.content>.list3{
+		  width:377px;
+		  background:#e8e8e8;
+		  height:233px;
+		  margin-top:8px;
+		 }
+		.content>.list3 .duct3{
+		 width:179px;
+		 box-sizing:border-box;
+		 padding-top:30px;
+		 padding-left:30px;
+		}
+		.content>.list3 .duct3 h1{
+		  font-size:20px;
+		}
+
+		.content>.list4,.content>.list5,.content>.list6{
+		  width:188px;
+		  background:#e8e8e8;
+		  height:233px;
+		  margin-top:8px;
+		}
+		.content>.list4 p.info,.content>.list5 p.info,.content>.list6 p.info{
+		  padding:0;
+		  margin:0;
+		  text-align:center;
+		}
+		.content>.list4 h3.price,.content>.list5 h3.price,.content>.list6 h3.price{
+		  text-align:center;
+		}
+		.content>.list4 button.btn,.content>.list5 button.btn,.content>.list6 button.btn{
+		  text-align:center;
+		  margin-top:3px;
+		  margin-left:36px;
+		  padding:4px 28px;
+		}

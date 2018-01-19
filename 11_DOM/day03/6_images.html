@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{width:100%; height:100%;}
+    #slider{
+      width:100%; height:100%;
+      position:relative;
+      border:1px solid #555;
+    }
+    #slider>img{
+		width:100%; 
+
+      position:absolute; top:0; left:0;
+      opacity:0;
+      transition:all .5s linear;
+    }
+    #slider>img.show{  opacity:1; z-index:10; }
+  </style>
+</head>
+<body>
+<div id="slider">
+  <img src="images/1.jpg" class="show"  alt='1'/>
+  <img src="images/2.jpg"  alt='2'/>
+  <img src="images/3.jpg" alt='3'/>
+  <img src="images/4.jpg" alt='4'/>
+</div>
+<script>
+ function task(){
+	 var currimg = document.querySelector('#slider>img.show');
+			 currimg.className='';
+   if(currimg.nextElementSibling!=null){
+			 currimg.nextElementSibling.className='show';
+   }else{
+	   slider.firstElementChild.className='show'
+	 }
+ } 
+ var timer = setInterval(task,600)
+ slider.onmouseover=function(){
+   clearInterval(timer);
+   timer=null;
+ }
+ slider.onmouseleave=function(){
+   timer = setInterval(task,600)
+ }
+ var imgs = document.querySelectorAll('#slider img')
+ for(var img of imgs){
+   img.onclick=e=>alert(e.target.alt)
+ }
+</script>
+</body>
+</html>

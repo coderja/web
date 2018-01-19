@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			用户名称：
+			<input type="text" id="uname" onblur="check_uname()">
+			<span id="uname-show"></span>
+		</p>
+		<p>
+			用户密码：
+			<input type="password" id="upwd">
+		</p>
+		<p>
+			用户邮箱：
+			<input type="email" id="uemail">
+		</p>
+		<p>
+			联系方式：
+			<input type="text" id="utel">
+		</p>
+		<p>
+			真实姓名：
+			<input type="text" id="user_name">
+		</p>
+		<p>
+			用户性别：
+			<select id="ugender">
+				<option value="1">男</option>
+				<option value="0">女</option>
+			</select>
+		</p>
+		<p>
+			<button onclick="user_register()">注册</button>
+		</p>
+		<script src="common.js"></script>
+		<script>
+			//声明一个全局变量 isRegister
+			var isRegister = true; //允许注册
+
+			function check_uname(){
+				//1、创建 xhr
+				var xhr = createXhr();
+				//2、创建请求
+				var uname = $("uname").value;
+				var url = "00-check_uname.php?uname="+uname;
+				xhr.open("get",url,true);
+				//3、设置回调函数
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState==4 && xhr.status==200){
+						var resText = xhr.responseText;
+						if(resText == "0"){
+							$("uname-show").innerHTML="用户名称已存在";
+							isRegister = false;//不允许注册
+						}else{
+							$("uname-show").innerHTML="通过";
+						}
+					}
+				}
+				//4、发送请求
+				xhr.send(null);
+			}
+
+			function user_register(){
+				if(isRegister){
+					//1、创建xhr
+					var xhr = createXhr();
+					//2、创建请求
+					xhr.open("post","00-register.php",true);
+					//3、设置回调函数
+					xhr.onreadystatechange=function(){
+						if(xhr.readyState==4&&xhr.status==200){
+							alert(xhr.responseText);
+						}
+					}
+					
+					//更改请求消息头
+					xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+					//4、发送请求
+					var uname = $("uname").value;
+					var upwd = $("upwd").value;
+					var uemail = $("uemail").value;
+					var utel = $("utel").value;
+					var user_name=$("user_name").value;
+					var ugender=$("ugender").value;
+					var msg = "uname="+uname+"&upwd="+upwd+"&uemail="+uemail+"&utel="+utel+"&user_name="+user_name+"&ugender="+ugender;
+					xhr.send(msg);
+				}else{
+					alert("用户名称已经存在，请修改后注册");
+				}
+			}
+		</script>
+	</body>
+</html>

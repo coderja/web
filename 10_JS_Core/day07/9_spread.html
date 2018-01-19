@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		//笔试题将二维数组转为一维数组
+		  var arr=[
+			   [1,2,3,4],
+			   [1,2,3,4],
+			   [1,2,3,4],
+			   [1,2,3,4]
+			];
+//			arr=Array.prototype.concat.apply([],arr)
+			arr=[].concat(...arr)
+			console.log(arr)
+		</script>
+	</body>
+</html>

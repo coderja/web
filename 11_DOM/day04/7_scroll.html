@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<title>根据页面滚动位置显示浮动框</title>
+	<style>
+    body{height:2000px;}
+    #toTop{
+      position:fixed;
+      bottom:100px;
+      right:0;
+      display:none;
+    }
+  </style>
+
+ </head>
+ <body>
+	<div id="toTop">
+		<a>返回顶部</a>
+	</div>
+  <script>
+    window.onscroll=()=>{
+		  var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+			console.log(scrollTop)
+			  toTop.style.display =  scrollTop>300?'block':'none';
+		    var n=0
+				var isTop=true
+				toTop.onclick=()=>{
+					var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+					var timer = setInterval(function(){
+						 n-=20;
+						 window.scrollBy(0,n)
+					  if(scrollTop<10){
+						  clearInterval(timer)
+					    timer=null
+						}
+					},100)
+				}
+		}
+	</script>
+ </body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <button id='btn'>1楼</button>
+	  <script>
+		  var lilei={
+			  sname:'lilei',
+				friends:['jack','rose','erric','jerry'],
+//				intr(){
+//         回调函数中的this指向window 如需改this的指向，可用bind或者箭头函数
+//         如果希望内部this与外部不共用同一个this不可以改箭头函数
+//				  this.friends.forEach(function(elem){
+//					  console.log(this.sname+'认识'+elem)//this=>window
+//					}.bind(this))
+//				}
+          intr(){
+					  for(var i=0;i<this.friends.length;i++){
+						  console.log(this.sname+'认识'+this.friends[i])
+						}
+					}
+			}
+			lilei.intr()
+
+			var lilei={
+			  sname:'lilei',
+				friends:['jack','rose','erric','jerry'],
+				intr(){
+				  this.friends.forEach(elem=>
+					  console.log(this.sname+'认识'+elem)
+					)
+				}
+			}
+			lilei.intr()
+
+//      btn.onclick=function(){
+//			  alert('欢迎来到'+this.innerHTML)
+//			}
+        btn.onclick=e=>alert('欢迎来到'+e.target.innerHTML)
+		</script>
+	</body>
+</html>

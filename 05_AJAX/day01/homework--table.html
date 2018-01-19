@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<button onclick='load_table()'>加载表格</button>
+	  <table border='1'>
+      <thead>
+				<tr>
+					<th>编号</th>
+					<th>书名号</th>
+					<th>作者</th>
+					<th>描述</th>
+				</tr>
+			</thead>
+			<tbody id='tbody'>
+			
+			</tbody>
+		</table>
+		<script src='common.js'></script>
+		<script>
+		  function load_table(){
+			var infos = [
+							["《西游记》","吴承恩","古代神话故事"],
+							["《三国演义》","罗贯中","东汉末年诸侯分裂"],
+							["《水浒传》","施耐庵","105个男人和3个女人的故事"],
+							["《红楼梦》","曹雪芹","一个家族从繁荣到兴衰的过程"]
+				];
+				for(var r=0;r<infos.length;r++){
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+					td.innerHTML=r+1;
+					tr.appendChild(td);
+					for(var i=0;i<infos[r].length;i++){
+					  var td = document.createElement('td');
+
+						td.innerHTML=infos[r][i];
+					  tr.appendChild(td)
+					}
+          $('tbody').appendChild(tr);
+        }
+			}	
+		</script>
+	</body>
+</html>

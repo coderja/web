@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>取消与利用冒泡</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<div id="keys">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button><br>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>=</button>
+		</div>
+		<textarea id="sc" style="resize:none;width:200px; height:50px;" readonly></textarea>
+    <script>
+//			document.onkeydown=event=>{
+//			  var btn = event.keyCode;
+//			  var btn = event.key;
+//				alert('擦'+btn)
+//			}
+keys.onclick=e=>{
+	btn = e.target
+	if(btn.nodeName==='BUTTON'){
+	 switch(btn.innerHTML){
+	   case 'C': 
+		 sc.value='';
+		 break;
+	   case '=':
+		 try{
+				  sc.value += '='+eval(sc.value);
+				}catch(err){
+					 sc.value='输入有误'+String(err.message);
+				}	
+		 break;
+	   default:
+	   sc.value+=btn.innerHTML;
+   }
+  }
+}
+		</script>
+	</body>
+</html>

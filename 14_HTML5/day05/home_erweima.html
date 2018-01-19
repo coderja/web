@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas{
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="400" id="d1"></canvas>
+    <script>
+        var d1 = document.getElementById('d1');
+        var ctx = d1.getContext('2d');
+        ctx.fillStyle=rc();
+        ctx.fillRect(100,100,200,80);
+        function rs(max,min){
+            return Math.round(Math.random()*(max-min)+min);
+        }
+        function rc(){
+            var r = Math.round(Math.random()*256);
+            var g = Math.round(Math.random()*256);
+            var b = Math.round(Math.random()*256);
+            return `rgb(${r},${g},${b})`
+        }
+        var text="1234567890qwertyuiopasdfghjklzxcvbnm";
+        function text1(){
+            var str = text[rs(34,1)]
+            ctx.font='40px sans-serif'
+            ctx.fillStyle=rc();
+            ctx.fillText(str,rs(250,100),rs(160,140))
+        }
+        function line1(){
+            ctx.beginPath;
+            ctx.lineWidth=rs(2,1)
+            ctx.moveTo(rs(100,300),rs(100,180))
+            ctx.lineTo(rs(250,100),rs(180,120))
+            ctx.strokeStyle=rc();
+            ctx.closePath()
+            ctx.stroke();
+        }
+        line1()
+        for(var i=0;i<4;i++){
+          text1();
+        }
+        for(var j=0;j<10;j++){
+            line1()
+        }
+    </script>
+</body>
+</html>

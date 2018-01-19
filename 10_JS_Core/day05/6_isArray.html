@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var obj1=[],obj2={},obj3=new Date()
+		  //当不知道对象类型的时候,创建的函数要放在构造函数当中
+			if(typeof Array.isArray!='function')
+			Array.isArray=function(obj){
+			  return Object.prototype.toString.call(obj)==='[object Array]'
+			}
+			document.write(
+			  Array.isArray(obj1),
+				Array.isArray(obj2),
+				Array.isArray(obj3)
+			)
+		</script>
+	</body>
+</html>

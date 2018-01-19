@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h4>进度条</h4>
+    <progress value="0.7"></progress>
+    <br/>
+    <progress></progress>
+    <br/>
+    <progress value="0.5" ></progress>
+    <br/>
+    <progress value="0" id="pro"></progress>
+    <script>
+        function move(){
+          var i = pro.value;
+            i+=0.1;
+
+            pro.value=i
+            var timer = setTimeout(move,1000)
+            if(i>1){
+                alert('下载完成');
+                clearTimeout(timer);
+                timer=null;
+            }
+        }
+        move()
+    </script>
+</body>
+</html>

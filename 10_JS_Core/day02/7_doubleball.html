@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+		<style>
+		  div{
+			  color:#3af;
+				font-size:40px;
+			}
+		</style>
+	</head>
+	<body>
+	  <div id='show'></div>
+	  <script>
+		  function doubleball(){
+			  var reds=[]//定义空数组
+				while(reds.length<6){//反复：只要reds的个数<6
+				  var r=parseInt(Math.random()*34);//在1-33之间生成一个随机数r
+					for(var i=0;i<reds.length;i++){//遍历reds
+					  if(r==reds[i])//如果reds中的元素等于r
+						break;//退出内层循环
+					}
+					if(i==reds.length)//如果reds中没有r
+          reds.push(r)//将r压入reds中
+				}
+				var blue = parseInt(Math.random()*16-1+1+1)
+				show.innerHTML+=reds.sort((a,b)=>a-b).join(',')+' | '+blue+'<br><br>';
+			}
+			doubleball()
+			doubleball()
+			doubleball()
+			doubleball()
+			doubleball()
+		</script>
+	</body>
+</html>

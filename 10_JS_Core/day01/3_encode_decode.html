@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <textarea name="" id="txt" cols="30" rows="5"></textarea>
+		<button onclick='encode()'>编码</button>
+		<div id='show' style='width:210px;word-break:break-word;'></div>
+		<textarea name="" id="txt1" cols="30" rows="5" readonly></textarea>
+		<button onclick='decode()'>解码</button>
+	  <script>
+		 'use strict';
+			function encode(){
+					 var show = document.getElementById('show');
+					 var str = document.getElementById('txt').value;
+					 show.innerHTML = ''
+					 var code = [];
+					 for(var i=0;i<str.length;i++){
+							var s = (str.charCodeAt(i)+100000+'').slice(1)
+							code[code.length]=s
+					 }
+					 show.innerHTML = code.join(',')
+			}
+//		 var sre = '20170_26202_00051_00048_00056_00044_00119_00056_00052_00117';
+//		 sr = sre.split('_').join('');
+//		 function decode(sr){
+//		    var  str=[]
+//		    for(var i=0;i<sr.length;i+=5){
+//				    str[str.length]=String.fromCharCode(sr.slice(i,i+5))
+//				}
+//				return str;
+//		 }
+//		 console.log(decode(sr).join(''))
+		 
+		 function decode(){
+			 var sval = document.getElementById('show').innerHTML;
+			 var txt1 = document.getElementById('txt1');
+			 console.log(sval)
+		   var sre = sval.split(',').join('');
+				for(var i=0,s = '';i<sre.length;i+=5){
+				  s+=String.fromCharCode(sre.slice(i,i+5))
+				}
+				txt1.innerHTML = s
+		 }
+		</script>
+	</body>
+</html>

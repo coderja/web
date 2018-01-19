@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h3>地理定位</h3>
+    <button id="btn">读取我的定位信息</button>
+    <div id="box"></div>
+    <script>
+
+        btn.onclick=function(){
+            navigator.geolocation.getCurrentPosition(succCB,errCB);
+        }
+        //定位成功执行
+        function succCB(pos){
+            var html=''
+            html+='定位时间'+new Date(pos.timestamp).toLocaleTimeString();
+            html+='定位维度'+pos.coords.latitude;
+            html+='定位维度'+pos.coords.longitude;
+            html+='定位海拔'+pos.coords.altitude;
+            html+='定位速度'+pos.coords.speed;
+            box.innerHTML=html;
+        }
+        //定位失败执行
+        function errCB(err){
+            console.log(err.mode)
+            console.log(err.message)
+        }
+    </script>
+</body>
+</html>

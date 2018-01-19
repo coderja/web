@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  "use strict";
+			var eric={
+			     id:'1001',
+			     ename:'eric',
+			     salary:12000
+			}
+			Object.defineProperties(eric,{
+			   id:{writable:false,configurable:false},
+				 ename:{configurable:false},
+				 salary:{enumerable:false,configurable:false},
+			   //定义一个实际存储属性值的数据属性(defineProperties作为设置属性的四大特性，
+				 //当为不存在属性设置特性时，会自动添加该属性)
+				 _age:{
+				    value:25,
+						writable:true,
+						enumerable:false,
+						configurable:false
+				 },
+				 //定义访问器属性,保护数据属性
+				 age:{
+				   get(){return this._age},
+				   set(val){
+					   if(val<65&&val>18){
+						   this._age=val
+						 }
+						 else{
+						   throw new RangeError('范围错误')
+						 }
+					 },
+					 enumerable:true,
+					 configurable:false
+				 }
+			 }
+			)
+			console.dir(eric)
+			console.log(eric.age)//25
+			console.log(eric.age=-2)//Uncaught RangeError: 范围错误
+			//eric.id=1002//报错 Uncaught TypeError: Cannot assign to read only property 'id' of object '#<Object>
+			//delete eric.ename;//报错 Uncaught TypeError: Cannot delete property 'ename' of #<Object>
+      for(var key in eric){
+			  console.log(key+':'+eric[key])
+			}//id:'1001',ename:'eric',
+      
+		</script>
+	</body>
+</html>

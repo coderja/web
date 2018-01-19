@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  var t=0.3;
+			function conn(){
+			  console.log('建立连接耗时'+t+'s')
+			}
+			function query(){
+				t+=0.8
+			  console.log('查询耗时'+t+'s')
+			  var err = true;
+			  if(err){//(fucntion(){
+			    var  t = new Date();
+				  throw new Error('出错啦at'+t.toLocaleString())
+			 //})()
+				}
+			}
+			
+			conn();
+			query();
+			console.log('共耗时'+t+'s')
+		</script>
+	</body>
+</html>

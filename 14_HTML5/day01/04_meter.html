@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h4>刻度尺</h4>
+<datalist id="list1">
+    <option>1111</option>
+    <option>1111</option>
+    <option>1111</option>
+</datalist>
+<input type="text" list="list1"/><br/>
+
+薪水
+<meter id="m3" value="0" min="0" max="100000" optimum="99999" low="20000" high="80000"></meter>
+<script>
+    function add() {
+        var v = m3.value;
+        v += 5000;
+        m3.value = v;
+        timer = setTimeout(add, 1000);
+        if (v > 100000) {
+            alert('加载完成');
+            clearTimeout(timer);
+        }
+    }
+    add();
+</script>
+</body>
+</html>

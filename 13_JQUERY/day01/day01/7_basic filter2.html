@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title>...</title>
+ <style>
+	 table{border-collapse:collapse}
+ </style>
+<script src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+  <h1>实现按钮组效果</h1>
+  <ul id="btns" class="btn-group">
+  	<li class="btn btn-default">|&lt;</li>
+  	<li class="btn btn-default">▷</li>
+  	<li class="btn btn-default">||</li>
+  	<li class="btn btn-default">&gt;|</li>
+  </ul>
+	<div style="clear:both"></div>
+
+	<h1>实现表格隔行变色效果</h1>
+<!-- 	table>(thead>tr>td*4)(tbody>tr*3>td*4)	 -->
+	<table>
+		<thead>
+			<tr>
+				<td>#</td>
+				<td>firstname</td>
+				<td>lastname</td>
+				<td>username</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>许</td>
+				<td>为</td>
+				<td>饿</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>の</td>
+				<td>饿</td>
+				<td>日</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>地</td>
+				<td>饭</td>
+				<td>的</td>
+			</tr>
+		</tbody>
+	</table>				
+	<script>
+	   $('li').css({
+		   "list-style":'none',
+			 'float':'left',
+			 'width':'40px',
+			 'height':'40px',
+			 'border':'1px solid #ddd',
+			 'text-align':'center',
+			 'line-height':'40px',
+			 'color':'#ddd',
+			 'cursor':'pointer'
+		 })
+		 $('li:first').css({
+			 'border-top-left-radius':'15px',
+			 'border-bottom-left-radius':'15px',
+		 })
+		 $('li:last').css({
+			 'border-top-right-radius':'15px',
+			 'border-bottom-right-radius':'15px',
+		 })
+		 $('li:lt(3)').css('border-right','none')
+		 $('table>tbody>tr:even').css({
+			   'background':'#a9f',
+				 'color':'#eee'
+			})
+			$('table>tbody>tr:gt(0)>td').css({
+			   'border-top':'1px solid #3af',
+			})
+	</script>
+</body>
+</html>

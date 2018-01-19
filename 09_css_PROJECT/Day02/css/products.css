@@ -1,0 +1,189 @@
+#banner img{
+	width:960px;
+}
+#product-list{
+	margin-top:10px;
+	display:flex;
+	justify-content:space-between;
+}
+#pList{
+	width:740px;
+	min-height:200px;
+}
+#notice-board{
+	width:210px;
+}
+#title{
+	/*高度，行高，渐变背景，左内边距，文字大小，文字颜色*/
+	height:40px;
+	line-height:40px;
+	background:linear-gradient(to bottom,#f0f0f0,#e0e0e0);
+	padding-left:20px;
+	font-size:16px;
+	color:#808080;
+}
+
+#show-list{
+	/*背景颜色，内边距*/
+	background:#fff;
+	padding:10px;
+	/*弹性布局的容器，允许自动换行，两端对齐*/
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+}
+#show-list>li{
+	/*宽度，边框，内边距，box-sizing*/
+	width:230px;
+	border:1px solid #f0f0f0;
+	padding:0 10px 20px;
+	box-sizing:border-box;
+	margin-bottom:10px;
+}
+#show-list>li img{
+	width:100%;
+}
+
+#show-list p.price{
+	color:#0aa1ed;
+	font-weight:bold;
+	font-size:16px;
+	margin-bottom:10px;
+}
+#show-list>li>div>span{
+	/*行内块，宽度：24，高度：24，文字大小：32，文本颜色：白色，背景色*/
+	display:inline-block;
+	width:24px;
+	height:24px;
+	font-size:32px;
+	color:#fff;
+	background:linear-gradient(to bottom,#efefef,#e0e0e0);
+	text-align:center;
+	line-height:24px;
+}
+#show-list>li>div>input{
+	/*宽度，高度，取消边框，取消轮廓，相对定位微调位置*/
+	width:25px;
+	height:24px;
+	border:none;
+	outline:none;
+	text-align:center;
+	position:relative;
+	bottom:7px;
+}
+#show-list a.addCart{
+	/*行内块，宽度，高度，文本水平居中对齐，行高，文本大小，文本颜色，渐变背景，相对定位实现位置的微调*/
+	display:inline-block;
+	width:100px;
+	height:32px;
+	text-align:center;
+	line-height:32px;
+	font-size:14px;
+	color:#fff;
+	background:linear-gradient(to bottom,#27B1F6,#0aa1ed);
+	border-radius:3px;
+	position:relative;
+	bottom:7px;
+}
+#show-list>li>div{
+	margin-top:13px;
+}
+
+#notice-board p.title{
+	/*高度，行高，渐变背景，文字大小，颜色*/
+	height:40px;
+	line-height:40px;
+	background:linear-gradient(to bottom,#efefef,#e0e0e0);
+	font-size:16px;
+	color:#333;
+}
+#notice-board p.title img{
+	margin-left:15px;
+}
+#notice-board div.content{
+	background:#fff;
+	padding:20px;
+}
+#notice-board div.content p{
+	margin-bottom:5px;
+	font-size:14px;
+}
+/*购物车*/
+#cart{
+	margin-top:20px;
+}
+#cart p.title{
+	padding:0 10px;
+	display:flex;
+	justify-content:space-between;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+	background:linear-gradient(to bottom,#efefef,#e0e0e0);
+}
+#cart div.cart-result{
+	/*高度，行高，背景，上边框，左内边距*/
+	height:45px;
+	line-height:45px;
+	background:#808080;
+	border-top:1px dashed #d0d0d0;
+	padding-left:10px;
+	/*弹性布局，两端对齐*/
+	display:flex;
+	justify-content:space-between;
+}
+#cart div.cart-result span{
+	font-size:16px;
+	color:#fff;
+}
+#cart div.cart-result a{
+	width:30%;
+	font-size:16px;
+	color:#fff;
+	text-align:center;
+	background:linear-gradient(to bottom,#27b1f6,#0aa1ed);
+}
+
+#cart div.cart-content{
+	background:#fff;
+}
+
+
+#cart div.item{
+	/*上边框，弹性布局，两端对齐，上下左右内边距*/
+	border-top:1px dashed #d0d0d0;
+	display:flex;
+	justify-content:space-between;
+	padding:10px;
+}
+
+#cart div.item>span{
+	width:65px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+#cart div.item>div span{
+	/*行内块，宽度，高度，渐变背景，文本颜色，文字大小，水平居中，行高*/
+	display:inline-block;
+	width:14px;
+	height:14px;
+	background:linear-gradient(to bottom,#efefef,#e1e1e1);
+	color:#fff;
+	text-align:center;
+	line-height:14px;
+}
+#cart div.item>div input{
+	/*宽度，高度，取消边框，取消轮廓，文本水平居中对齐*/
+	width:14px;
+	height:14px;
+	border:none;
+	outline:none;
+	text-align:center;
+}
+
+
+
+
+
+

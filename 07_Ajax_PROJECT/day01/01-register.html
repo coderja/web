@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	   <form action="01-regster.php" method='post'>
+	   	用户昵称：<input type="text" placeholder='请输入用户昵称' name='user' id='user'  onblur='repeat()'><span id='show'></span><br>
+	   	用户密码：<input type="password" placeholder='请输入用户密码' name='upwd' id='pwd1'><br>
+	   	确认密码：<input type="password" placeholder='确认密码' name='upwd' id='pwd2' onblur='pwd()'><span id='pwdShow'></span><br>
+	   	用户邮箱：<input type="email" placeholder='请输入用户邮箱' name='email'><br>
+	   	联系方式：<input type="text" placeholder='请输入联系方式' name='phone'><br>
+	   	用户姓名：<input type="text" placeholder='请输入用户姓名' name='uname'><br>
+	    用户性别：<select  id="" name='gender'>
+								  <option value="1">男</option>
+								  <option value="0">女</option>
+							  </select><br>
+			<input type="submit" value='注册'>
+		 </form>
+		 <script src='common.js'></script>
+		 <script>
+		   function repeat(){
+			   var xhr = createXhr();
+				 var uval = $('user').value;
+				 xhr.open('get','repeat.php?user='+uval,true);
+				 xhr.onreadystatechange=function(){
+				    if(xhr.readyState==4&&xhr.status==200){
+						  var txt = xhr.responseText;
+						}
+						var reg=/\d/i;
+						if($('user').value==''){
+				         $('show').innerHTML='不能为空'
+				    }else if(!reg.test($('user').value)){
+							   $('show').innerHTML='格式不对'
+						}else{
+								  $('show').innerHTML=txt;
+					  }
+				 }
+				 xhr.send(null)
+			 }
+			 function pwd(){
+			   var pval = $('pwd1').value;
+			   var upval = $('pwd2').value;
+			   if(pval==upval){
+				  $('pwdShow').innerHTML='通过';
+				 }else{
+				  $('pwdShow').innerHTML='两次密码不一致';
+				 }
+			 }
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	    <p>
+			用户昵称：<input type="text" id='uname' onblur='setrequest()' ><span  id='ns'></span></br>
+			用户密码：<input type="password" id='upwd' ><span id='us'></span></br>
+			用户邮箱：<input type="email" id='email'></br>
+			用户手机：<input type="text" id='phone'></br>
+			用户姓名：<input type="text" id='user_name'></br>
+			用户性别：<select name="" id="gender">
+			           <option value="0">男</option>
+			           <option value="1">女</option>
+			        </select><br>
+		            <button onclick='register()'>注册</button>
+			        <div id='show'></div>
+		</p>
+		<script src='common.js'></script>
+		<script>
+		//点击注册按钮调用register方法
+		  function register(){
+			  var xhr=createXhr();
+				xhr.open('post','homework-register.php',true);
+				xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+				xhr.onreadystatechange=function(){
+				  if(xhr.readyState==4&&xhr.status==200){
+					   var txt = xhr.responseText;
+                $('show').innerHTML=txt;
+					}
+				}
+				var uname=$('uname').value;
+				var upwd=$('upwd').value;
+				var email=$('email').value;
+				var phone=$('phone').value;
+				var user_name=$('user_name').value;
+				var gender=$('gender').value;
+				
+				xhr.send('uname='+uname+'&email='+email+'&upwd='+upwd+'&phone='+phone+'&user_name='+user_name+'&gender='+gender);
+			}
+			//当用户名输入框失去焦点调用setrequest方法
+			function setrequest(){
+			  var xhr = createXhr();
+				var val=$('uname').value;
+				xhr.open('get','homework-login.php?uname='+val);
+				xhr.onreadystatechange=function(){
+				  if(xhr.readyState==4&&xhr.status==200){
+					  doResponse(xhr)
+					}
+				}
+				xhr.send(null);
+			
+				function doResponse(xhr){
+					console.log('开始处理响应数据...');
+					if(xhr.responseText==='cunzai'){
+						$('ns').innerHTML = '该用户名已被占用';
+					}else if(xhr.responseText==='bucunzai'){
+						$('ns').innerHTML = '该用户名可以使用';
+					}
+				}
+        }
+			/*
+			 作业1.登陆名重复性验证，参考学子商城注册页www.codeboy.com
+		  数据库检查用户是否存在，
+		  2.使用ajax的post请求方式完成异步注册
+		    1.提供一个register.html页面
+			  包含以下表单控件
+				uname-<input type='tetx'>
+				upwd-<input type='password'>
+				email-<input type='email'>
+				phone-<input type='text'>
+				uesr_name-<input type='text'>
+	      gender-<select>
+				注册按钮<input type='button'>单击时使用post提交方式，异步的发送给register.php并且完成注册给出响应(注册成功)
+			*/
+		</script>
+	</body>
+</html>
+			

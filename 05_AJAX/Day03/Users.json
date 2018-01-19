@@ -1,0 +1,17 @@
+[
+	{
+		"uname":"西门庆",
+		"upwd":"jinlian",
+		"gender":"男"
+	},
+	{
+		"uname":"潘金莲",
+		"upwd":"dalang",
+		"gender":"女"
+	},
+	{
+		"uname":"武大郎",
+		"upwd":"wangpo",
+		"gender":"男"
+	}
+]

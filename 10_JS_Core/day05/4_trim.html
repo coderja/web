@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  //判断浏览器兼容性
+		  if(typeof String.prototype.trim!='function')
+			//在String对象的的原型对象中添加trim函数
+			String.prototype.trim=function(){
+			  var reg = /^\s+|\s+$/g
+				this.replace(reg,'')
+			  return this
+			}
+		  var str = '					hello world			  '
+			document.write(str.trim())
+		</script>	
+	</body>
+</html>

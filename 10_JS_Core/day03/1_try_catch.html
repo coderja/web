@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		  try{
+			  consle.log('报错了')
+			}catch(err){
+			  console.log('抓住了'+err)
+			}
+		
+
+	  var num=prompt('输入一个数字');
+		var d = prompt('输入小数位数');
+		if(d>0&&d<20){//try{
+		  var result = parseFloat(num).toFixed(d)
+		  console.log(result)
+		}else{//}catch(err){
+			console.log('出错啦，小数位必须介于0-20之间')
+		}
+		console.log('程序继续')
+	</script>
+	</body>
+</html>

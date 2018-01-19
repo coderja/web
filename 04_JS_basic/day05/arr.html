@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  function change(arr){
+			  arr[0]='王宝强';
+			  arr[1]='蓉儿';
+				arr[2]='李大官人';
+			}
+			function test(){
+			  var arr=['大朗','金莲','门庆'];
+				console.log(arr)
+				change(arr)
+				console.log(arr)
+			}
+			test()//["大朗", "金莲", "门庆"],["王宝强", "蓉儿", "李大官人"]
+			
+			/*function change(arr){
+			  arr=new Array('王宝强','蓉儿','李大官人');
+			}
+			function test(){
+			  var arr=['大朗','金莲','门庆'];
+				console.log(arr)
+				change(arr)
+				console.log(arr)
+			}
+			test()//["大朗", "金莲", "门庆"],["大朗", "金莲", "门庆"]*/
+		</script>
+	</body>
+</html>

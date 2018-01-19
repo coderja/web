@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			<select id="selProvince" onchange="loadCity()"></select>省
+			<select id="selCity"></select>市
+		</p>
+		<script src="common.js"></script>
+		<script>
+
+			function loadCity(){
+				//1、创建 xhr
+				var xhr = createXhr();
+				//2、创建请求
+				var pValue=$("selProvince").value;
+				var url = "01-load-city.php?p="+pValue;
+				xhr.open("get",url,true);
+				//3、设置回调函数
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						$("selCity").innerHTML = xhr.responseText;
+					}
+				}
+				//4、发送请求
+				xhr.send(null);
+			}
+
+			function loadProvince(){
+				//1、创建xhr
+				var xhr = createXhr();
+				//2、创建请求
+				xhr.open("get","01-load-province.php",false);
+				//3、设置回调函数
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						$("selProvince").innerHTML=xhr.responseText;
+					}
+				}
+				//4、发送请求
+				xhr.send();
+			}
+
+			window.onload = function(){
+				loadProvince();
+				loadCity();
+			}
+		</script>
+	</body>
+</html>

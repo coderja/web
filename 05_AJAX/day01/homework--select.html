@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+    <select name="" id="sel"></select>
+    <select name="" id="sel_city"></select>
+	  <script src='common.js'></script>
+	  <script>
+		  window.onload = function(){
+				var province = ["黑龙江","吉林","辽宁"];
+				var city = [
+					["哈尔滨","齐齐哈尔","牡丹江"],
+					["长春","吉林","四平"],
+					["沈阳","大连","鞍山"]
+				];
+				//循环遍历取出每一个元素构建成option添加到sel_province中
+        var opts='';
+				var opt='';
+				for(var i=0;i<province.length;i++){
+				  opts+="<option value='"+i+"'>"+province[i]+"</option>";
+				}
+				$('sel').innerHTML=opts;
+			  
+				sel.onchange=function(){
+				  opt="";
+					var j=$('sel').value;
+					for(var k=0;k<city[j].length;k++){
+							opt+="<option>"+city[j][k]+"</option>";
+					}
+					$('sel_city').innerHTML=opt;
+			  }
+			}			
+
+		</script>
+	</body>
+</html>

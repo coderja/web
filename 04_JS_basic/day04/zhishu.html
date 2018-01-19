@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		  function issu(){
+		    var r = prompt('输入一个数')
+				su = true
+				for(var i=2;i<r;i++){
+		      if(r % i==0){
+					  su = false;
+						break;
+					}
+				}
+					if(su){
+					  console.log('素数')
+					}else{
+					  console.log('不是素数')
+					}
+		  }issu()
+		  
+//			(function(){
+//				var n1=1,n2=1;
+//				console.log(n1,n2)
+//				for(var i=1;i<=10;i++){
+//				 n1 = n1 + n2;
+//				 n2 = n1 + n2;
+//				 console.log(n1,n2)
+//				}
+//			})()
+//			
+//
+//			function print(n){
+//			  if(n==1||n==2){
+//				  return 1
+//				}else{
+//				  var n1=1,n2=1,num;
+//					for(var i=1;i<=n-2;i++){
+//				    num=n1+n2;
+//						n1 = n2;
+//						n2 = num;
+//					}
+//					return num
+//				}
+//			}console.log(print(100))
+		</script>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>退出登陆</h1>
+<script>
+    sessionStorage.removeItem('name');
+    setTimeout(function(){
+        alert('即将跳转登录页')
+     location='login.html'
+    },1000)
+</script>
+</body>
+</html>

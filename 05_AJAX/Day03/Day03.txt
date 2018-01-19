@@ -1,0 +1,127 @@
+1、JavaScript Object - JS对象
+	1、JS对象的格式
+		var yangmi = [];
+		yangmi[0] = "杨幂";
+		yangmi[1] = "1986.09";
+		yangmi[2] = "170cm";
+		yangmi[3] = "50KG";
+
+		console.log("身高:"+yangmi[2]);
+
+		改版后：
+		var yangmi = [];
+		yangmi["name"] = "杨幂";
+		yangmi["birth"] = "1986.09";
+		yangmi["height"] = "170cm";
+		yangmi["weight"] = "50kg";
+		console.log("身高:"+yangmi["height"]);
+
+		对象的语法结构：
+		var 对象名 = {
+			属性:值,
+			属性:值,
+			属性:值
+		};
+		ex：用对象的方式表示 yangmi以及她的信息
+			var yangmi={
+				name:"杨幂",
+				birth:"1986.09",
+				height:"170cm",
+				weight:"50KG"
+			};
+		练习：
+			1、创建一个对象 ， fanBingBing
+			2、包含三个属性
+				  name ，值为 范冰冰
+				height ，值为 165
+				gender ，值为 女
+			3、在控制台上分别将以上三个属性打印输出
+	2、什么是JSON
+		JavaScript Object Notation 
+		JS         对象   表现方式
+		JS对象表示法，即以JS对象的格式来表现出来的字符串
+	3、JSON语法
+		1、JSON对象
+			1、用一对 {} 来表示一个对象
+			2、对象的属性名称，必须用 "" 引起来(单引号都不行)，值如果是字符串的话，也必须用 "" 引起来
+			ex:
+				var ym='{"name":"杨幂","height":170}';
+		2、JSON数组
+			1、普通数组
+				'["杨幂","范冰冰","柳岩"]'
+			2、对象的数组
+				'[
+					{
+						"name":"杨幂",
+						"height":170,
+						"weight":50
+					},
+					{
+						"name":"柳岩",
+						"height":170,
+						"weight":70
+					},
+					{
+						"name":"范冰冰",
+						"height":175,
+						"weight":60
+					}
+				]'
+		3、JSON文件
+			以 .json 为后缀的文件，里面包含的是符合JSON格式的数据
+		4、将JSON字符串，转换成 JS对象 / 数组
+			var person = '{"name":"ym","age":18}';
+			var perArray = '[
+				{
+					"name":"ym","age":18
+				},
+				{
+					"name":"ly","age":18
+				}
+			]';
+			var persons = '["柳岩","杨幂"]';
+			
+			1、使用 eval()
+				var obj = eval("("+persons+")");//数组
+				var arr = eval("("+perArray+")");//数组
+				var per = eval("("+person+")");//对象
+			2、使用JSON.parse() 来将JSON字符串解析成JS对象
+				var obj = JSON.parse(persons);//数组
+				var arr = JSON.parse(perArray);//数组
+				var per = JSON.parse(person);//对象
+
+
+			练习：(20分钟)
+				1、创建一个 users.json 文件，里面包含一个数组，数组中有3个对象，每个对象包含 uname,upwd,gender 属性，分别赋值
+				2、06-getusers.html,使用异步的方式向users.json发送一个请求，并按照以下格式打印输出
+					用户名称：xxxx
+					用户密码：xxxx
+					用户性别：xx
+
+					用户名称：xxxx
+					用户密码：xxxx
+					用户性别：xx
+
+					用户名称：xxxx
+					用户密码：xxxx
+					用户性别：xx
+		5、在 php 中，可以直接将数组(一维，二维，关联)转化成JSON格式的字符串
+		语法：
+			通过 json_encode() 将数组转换为JSON字符串,并返回转换后的结果
+			xxx.php 中
+				$array=["杨幂","李文华","范冰冰"];
+				$str = json_encode($array);
+		练习：(15分钟)
+			1、改版 省市级联 为 JSON版本
+			2、将省份信息在php中直接以JSON格式字符串进行响应(不拼option)
+			3、浏览器中得到JSON格式字符串后，转换成JS对象/数组，并进行解析，拼成<option>，显示在 <select>中
+			4、以相同的方式 改版城市 信息
+
+
+
+
+
+
+
+
+

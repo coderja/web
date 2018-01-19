@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<!-- 	  <button onclick='ename()'>员工姓名</button> -->
+<!-- 	  <button onclick='max()'>获得最大数</button> -->
+<!-- 	  <button onclick='index()'>获得员工下标</button> -->
+	  <script>
+		    //1.不停地从弹框中输入姓名，将姓名保存在数组中知道输入exit位置，在控制台打印数组中所有元素
+				function ename(){
+					var names=[];
+					while(true){
+						var input = prompt('输入员工姓名');
+						if(input!='exit'){
+						  names[names.length]=input;
+						}else{
+						  break;
+						}
+					}
+					console.log(names)
+				}
+				//2.定义一个函数，声明一个整数数组，找出该数组中的最大值，
+				function max(){
+						var arr=[100,5,3,55,7,9]
+							var max=arr[0]
+						for(var i=0;i<arr.length;i++){
+								if(arr[i]>max){
+									max=arr[i] 
+								}  
+						}
+				  console.log(max)
+				}
+				//3再定义一个函数，声明一个数组随意声明数据。从弹框中录入一个信息，查找该信息在数组的下标是多少
+        function index(){
+				  var isfind=false
+					var arr=['tom','erric','scott','jerry'] 
+					var input = prompt('请输入输入一个需要查找的字符')
+					for(var i=0;i<arr.length;i++){
+					    if(input==arr[i]){
+						     var isfind=true
+									console.log(input+'下标'+i)
+									break;
+						  }
+          }
+					if(!isfind){
+					    console.log('未找到')
+					}
+				}
+			  index()	
+       
+				
+		</script>
+	</body>
+</html>

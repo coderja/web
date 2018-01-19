@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	   <button onclick="test()">test函数</button>
+	   <button onclick="show()">show函数</button>
+	  <script>
+		  var g_num = 20;
+			function test(){
+			   num = 10;//需执行一下函数，该全局变量才会被创建，不推荐使用
+				console.log(num);
+				console.log(g_num)
+			}
+			
+			function show(){
+				console.log(g_num)
+				console.log(num)
+			}
+		</script>
+	</body>
+</html>

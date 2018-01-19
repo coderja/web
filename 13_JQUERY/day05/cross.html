@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<section id="wrapper">    
+		<header>      
+		<h1>postMessage (跨域)</h1>     
+		</header>    
+		<article>       
+		<form>         
+		<p>           
+		<label for="message">给iframe发一个信息：   
+		</label>          
+		<input type="text" name="message" value="son" id="message"/>          
+		<input type="submit"/>         
+		</p>       
+		</form>       
+		<h4>目标iframe传来的信息：</h4>       
+		<p id="test">暂无信息</p>       
+		<iframe id="iframe"  src="http://127.0.0.1/cross-child.html">   
+		</iframe>     
+		</article>   
+	</section>  
+	<script>
+	   var parentwin = window.parent;
+	   var win = document.getElementById("iframe").contentWindow;
+	   document.querySelector('form').onsubmit=function(e){    
+		win.postMessage(document.getElementById("message").value,"*");     
+		if (e.preventDefault)      
+			e.preventDefault();     
+			e.returnValue = false;   
+		}   
+        parentwin.onmessage=function(e){
+		 document.getElementById("test").innerHTML = e.origin + "say:" + e.data; 
+		}
+	</script>
+
+</body>
+</html>	

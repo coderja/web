@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id = 'cavs'>您的浏览器太低</canvas>
+    <script>
+        var  x = window.innerWidth;
+        var  y = window.innerHeight-5;
+        cavs.height=y;
+        cavs.width=x;
+        cavs.style.background='#4ef';
+       var ctx = cavs.getContext('2d');
+        function closeMouth() {
+            ctx.beginPath();
+            ctx.lineWidth=4;
+            ctx.strokeStyle='#fff';
+            ctx.arc(200,200,100,0*Math.PI,2*Math.PI);
+            ctx.lineTo(200,200);
+            ctx.stroke();
+            //填充眼球
+            ctx.beginPath();
+            ctx.arc(200,150,25,0,2*Math.PI);
+            ctx.fillStyle='#3fa';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.fillStyle='#fff'
+            ctx.arc(203,135,3,0,2*Math.PI);
+            ctx.fill();
+        }
+        //closeMouth()
+        function openMonth(){
+
+            ctx.beginPath();
+            ctx.lineWidth=4;
+            ctx.strokeStyle='#fff';
+            ctx.arc(200,200,100,45*Math.PI/180,315*Math.PI/180);
+            ctx.lineTo(200,200);
+            ctx.closePath();
+            ctx.stroke();
+            //眼球
+            ctx.beginPath();
+            ctx.fillStyle='#4e5'
+            ctx.arc(200,150,25,0,2*Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.fillStyle='#fff';
+            ctx.arc(203,135,3,0,2*Math.PI);
+            ctx.fill();
+        }
+        //openMonth();
+        var c = 0;
+        setInterval(function(){
+            ctx.clearRect(0,0,600,600);
+            c++
+            if(c%2==0){
+                openMonth()
+            }else{
+                closeMouth()
+            }
+        },500)
+    </script>
+</body>
+</html>

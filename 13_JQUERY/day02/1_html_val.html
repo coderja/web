@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的内容和值</h1>
+	<form action="">
+		用户名:<input name="uname">
+					<span id="uname-msg"></span><br>
+		密码:<input type="password" name="upwd">
+					<span id="upwd-msg"></span><br>
+		<input type="submit" value="提交注册信息">
+	</form>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+    //正确时，使用图片:"<img src='img/ok.png'>"
+    //姓名错误时: "<img src='img/err.png'>用户名必须介于3~9位之间!"
+    //密码错误时: "<img src='img/err.png'>密码必须介于6~8位之间!"
+    //阻止默认行为: e.preventDefault();
+    //表单提交: $(form).submit();
+		var $form = $('form');
+		var $txtName = $('form>[name=uname]');
+		var $txtPwd = $('form>:password');
+		function vail(txt,minlength,maxlength,msg){
+		  if(txt.val().trim().length>=minlength&&txt.val().trim().length<=maxlength){
+			   txt.next().html("<img src='img/ok.png'>");
+			   return true
+		}else{
+			     txt.next().html("<img src='img/err.png'>"+msg)
+		      return false;
+		}    
+		}
+		$txtName.blur(e=>{
+		  var $tar = $(e.target);
+			vail($tar,3,6,'用户名必须介于3~9位之间!')
+		})
+		$txtPwd.blur(e=>{
+		  var $tar = $(e.target);
+			vail($tar,6,8,'密码必须介于6~8位之间!') 
+		})
+		$('form').submit(e=>{
+		  var rName=vail($txtName,3,6,'用户名必须介于3~9位之间!');
+		  var rPwd=vail($txtPwd,6,8,'用户名必须介于6~8位之间!');
+		  if(!(rName&&rPwd))
+			  e.preventDefault();
+		})
+	</script>
+ </body>
+</html>

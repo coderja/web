@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+			<script src='common.js'></script>
+	    <script>
+			  var sel = ['中国','英国','美国','日本','意大利'];
+				var unsel = ['印度','朝鲜'];
+				//从unsel中选择一个国家移入到sel中;
+				//用户输入朝鲜,将朝鲜加入到sel中，并从unsel中删除
+				//如果输入的国家不存在则提示不存在
+				while(true){
+				  var index=-1;
+					var input = prompt('输入国家')
+					index = findIndex(input,unsel)
+					console.log(index)
+					if(index!=-1){
+						unsel.splice(index,1);
+						//sel.splice(5,0,input)
+					  var sel = sel.concat(input)
+						console.log(unsel)
+					  console.log(sel);
+						break;
+					}else{
+					  console.log('不存在');
+						break;
+					}
+				 
+				}
+
+				
+			</script>
+	</body>
+</html>

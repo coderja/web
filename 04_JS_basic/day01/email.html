@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+		<style>
+		  #target{width:100px;height:100px;border:1px solid #ddd}
+		</style>
+	</head>
+	<body>
+   <div id='target'></div>
+			<input  type="range"    min='0' max='255' step='3' value='255'><span ></span><br>
+			<input  type="range"    min='0' max='255' step='3' value='255'><span ></span><br>
+			<input  type="range"    min='0' max='255' step='3' value='255'><span ><span/><br>
+			
+			
+		
+	  <script src='jquery.js'></script>
+		<script>
+		  
+			$('[type=range]').change(function(){
+			   $(this).next().html(this.value);
+			   changeDiv();
+			})
+			function changeDiv(){
+			      var   r=$('[type=range]')[0].value;
+						var   g=$('[type=range]')[1].value;
+						var   b=$('[type=range]')[2].value;
+			      //return "rgb("+r+","+g+","+"b"+")"
+				    console.log(r,g,b)
+						
+						 $('#target').css('background',"rgb("+r+","+g+","+b+")");//`rgb(${r},${g},${b})`
+			}			 														   
+			
+		</script>
+	</body>
+
+</html>

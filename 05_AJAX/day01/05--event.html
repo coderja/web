@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  用户文本：<input type="text" id='uname' onblur='b1()' onfocus='f1()'><span id='ns'>*</span></br>
+	  用户密码：<input type="password" id='upwd' onblur='b2()' onfocus='f2()'><span id='us'>*</span></br>
+	  确认密码：<input type="password" id='cpwd' onblur='b3()' ><span id='cs'>*</span></br>
+		<span id='show'></span>
+		<script src='common.js'></script>
+		<script>
+		  function f1(){
+			  $('ns').innerHTML='用户名称为6-18位';
+			}
+			function b1(){
+				if($('uname').value===''){
+					   $('ns').innerHTML='用户名不能为空';
+				}else{
+				     $('ns').innerHTML='通过';
+				}
+			}
+
+			function f2(){
+			  $('us').innerHTML='密码6-18位';
+			}
+
+			function b2(){
+			  if($('upwd').value===''){
+					   $('us').innerHTML='密码不能为空';
+				}else{
+				     $('us').innerHTML='通过';
+				}
+			}
+
+			function b3(){
+			   if($('cpwd').value===$('upwd').value){
+				   $('cs').innerHTML='密码一致';
+				 }else{
+				   $('cs').innerHTML='密码不一致';
+				 }
+			}
+		</script>
+	</body>
+</html>

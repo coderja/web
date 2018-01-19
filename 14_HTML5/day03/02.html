@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id = 'cavs'>您的浏览器太低</canvas>
+    <script>
+        var  x = window.innerWidth;
+        var  y = window.innerHeight-5;
+        cavs.height=y;
+        cavs.width=x;
+        cavs.style.background='#fefefe';
+        var ctx = cavs.getContext('2d');
+        //加载
+        ctx.beginPath();
+        ctx.strokeStyle='#3fa';
+        ctx.lineWidth=5;
+        ctx.arc(500,500,100,0*Math.PI/180,2*Math.PI);
+        ctx.stroke();
+            var start=-90;
+            var end = -90;
+            var count =0;
+        function arcs(){
+            end++
+            count++;
+            ctx.beginPath();
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = '#ae0';
+            ctx.arc(500, 500, 100, start * Math.PI / 180, end * Math.PI/180);
+            ctx.stroke();
+            ctx.clearRect(440,440,130,100);
+            s = parseInt(100/360*count)
+            var str = s+'%';
+            if(s==100){
+                clearInterval(timer)
+            }
+            ctx.font='50px sans-serif';
+            ctx.fillStyle='#ae0'
+            var w = ctx.measureText(str).width;
+            ctx.fillText(str,500-w/2,510)
+        }
+        var timer = setInterval(arcs,100)
+        //坐标轴
+        ctx.beginPath();
+        ctx.lineCap="round";
+        ctx.lineJoin='round'
+        ctx.moveTo(180,120);
+        ctx.lineTo(200,100);
+        ctx.lineTo(220,120);
+        ctx.strokeStyle='#78e56e';
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(200,105);
+        ctx.lineTo(200,400);
+        ctx.lineTo(395,400);
+        ctx.strokeStyle='#9087ef';
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.lineCap="round";
+        ctx.moveTo(380,380);
+        ctx.lineTo(395,400);
+        ctx.lineTo(380,420);
+        ctx.strokeStyle='#78e56e';
+        ctx.stroke();
+    </script>
+</body>
+</html>

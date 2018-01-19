@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+    div{
+	  position:fixed;
+	}
+  </style>
+ </head>
+ <body style='backgound:#fff;'>
+  <script>
+//    window.onload=function(){
+//	    for(var i=0;i<3;i++){
+//		   setTimeout((function(i){console.log(i)})(i),3000)
+//		}
+////       for(var i=0;i<3;i++){
+////	      (function(i){
+////		    setTimeout(function(){console.log(i)},3000)
+////		  })(i)
+////	   }
+//	}
+//	(function(){
+//	  var arr=[]
+//	  while(arr.length<6){
+//	     var n = parseInt(Math.random()*33)
+//		 for(var i=0;i<arr.length;i++){
+//		   if(n==arr[i])
+//		   break;
+//		 }
+//		 if(i==arr.length){
+//		   arr[arr.length]=n;
+//		 }
+//	  }
+//	   blue = parseInt(Math.random()*33)
+//       console.log(arr.sort().join(',')+','+blue)
+//	})()
+	(function(){
+	  for(var i=0;i<60;i++){
+	    var div = document.createElement('div')
+		var LEFT = parseInt(Math.random()*window.innerWidth);
+		var TOP1 = parseInt(Math.random()*window.outerHeight);
+	    var  width= parseInt(Math.random()*200);
+        div.style.cssText='left:'+LEFT+'px;top:'+TOP1+'px;width:'+width+'px;height:'+width+'px;background:rgb'+randomColor()+';'
+	    document.body.appendChild(div)
+        var offsetX,offsetY,canMove=false;
+		div.onmousedown=e=>{
+		  offsetX=e.offsetX;
+		  offsetY=e.offsetY;
+		  canMove=true;
+		}
+		window.onmousemove=e=>{
+		  if(canMove){
+            var left = e.clientX - offsetX
+            var top = e.clientY - offsetY
+			console.log(left)
+		      e.target.style.cssText='left:'+left+'px;top:'+top+'px;width:'+width+'px;height:'+width+'px;background:rgb'+randomColor()+';'
+		  }
+		}
+		div.onmouseup=()=>{
+		  canMove=false
+		}
+	    function randomColor(){
+		   var r=parseInt(Math.random()*255) 
+		   var g=parseInt(Math.random()*255) 
+		   var b=parseInt(Math.random()*255) 
+		  return `(${r},${g},${b})`;
+		}
+	  }
+       
+	})()
+  </script>
+ </body>
+</html>

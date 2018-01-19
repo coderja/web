@@ -1,0 +1,34 @@
+div.title{
+	display:flex;
+	justify-content:space-between;
+}
+div.title>b{
+	font:18px "Microsoft Yahei";
+	color:#333;
+	font-weight:bold;
+}
+div.title span{
+	font-size:16px;
+	color:#0aa1ed;
+	font-weight:bold;
+}
+
+#content-box>div.top{
+	/*上边框，高度，行高，背景色，边框阴影，上下外边距，文字颜色*/
+	border-top:1px solid #ccc;
+	height:36px;
+	line-height:36px;
+	background:linear-gradient(to bottom,#f4f3f4,#e7e7e6);
+	box-shadow:3px 3px 6px #ccc;
+	margin:10px 0;
+	color:#808080;
+	text-align:center;
+	/*弹性布局*/
+	display:flex;
+}
+div.check-top{ width:62px; }
+div.product-top{ width:380px; }
+div.price-top{ width:142px; }
+div.num-top{ width:140px; }
+div.total-top{ width:120px; }
+div.oper-top{ width:116px; }

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <script>
+		function date(){
+		  var y = prompt('输入年份');
+		  var m = prompt('输入月份');
+		  var d = prompt('输入日期');
+			var totaldays = 0;
+			var isRun = (y%4==0&&y%100!=0)||(y%400==0)
+			switch(m-1){
+			    case 11:
+						totaldays+=30;
+			    case 10:
+						totaldays+=31;
+					case 9:
+						totaldays+=30;
+					case 8:
+						totaldays+=31;
+					case 7:
+						totaldays+=31;
+					case 6:
+						totaldays+=30;
+					case 5:
+						totaldays+=31;
+					case 4:
+						totaldays+=30;
+					case 3:
+						totaldays+=31;
+					case 2:
+						totaldays+=isRun?29:28;
+					case 1:
+						totaldays+=31;
+				}
+				console.log(`${y}年${m}月${d}日是${totaldays+parseInt(d)}天`)
+    }date();  
+		</script>
+	</body>
+</html>

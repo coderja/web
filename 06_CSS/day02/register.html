@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+		<title></title>
+	  <style>
+		  *{
+			  font-family:'微软雅黑';
+			}
+			p,ul,li{
+			  margin:0;
+				padding:0;
+			}
+		  #bg{
+			  width:100%;
+				height:560px;
+				background:url(register/bg.png)
+			}
+			#bg table{
+			  float:right;
+				margin-right:140px;
+				margin-top:110px;
+			  border-collapse:collapse;
+			  width:253px;
+				height:277px;
+				background:rgba(0,0,0,0.3);
+			}
+			td{
+			padding:2px 3px;
+			}
+			#first td{
+			  
+			  border-bottom:1px solid #f8f8f8;
+			}
+			#first td p{
+			  font-weight:bold;
+			  color:#f8f8f8;
+			}
+			#second td,#third td{
+			  position:relative;
+			}
+			#bg td a{
+			  color:#f8f8f8;
+				font-size:12px;
+			}
+			#second input,#third input{
+			  width:260px;
+			  padding:6px  6px ;
+			}
+			#second span,#third span{
+			   display:inline-block;
+				 width:28px;
+				 height:28px;
+				 position:absolute;
+				 right:10px;
+				 top:15px;
+			}
+			#second span{
+			  background:url(register/yhm.png)
+			}
+			#third span{
+			  background:url(register/mm.png)
+			}
+			#fourth label{
+			  color:#f8f8f8;
+				font-size:12px;
+				vertical-align:middle;
+			}
+			#fourth input{
+			  vertical-align:middle;
+			}
+			#last button{
+			  width:260px;
+				margin-left:8px;
+				padding:8px 0px;
+				color:#fff;
+        font-weight:bold;
+				background-image:linear-gradient(to bottom,#27b0f6 0%,#37B0D8 51%  );
+				border:none;
+				border-radius:4px;
+			}
+		</style>
+	</head>
+	<body>
+	  <div id='bg'>
+		  <form action="">
+		    <table>
+				  <tr id='first'>
+				  	<td><p>登陆学子商城</p></td>
+				  	<td><a href=''>新用户注册</a></td>
+				  </tr>
+				  <tr id='second'>
+				  	<td colspan='2'><input type="text" placeholder='请输入您的密码'><span></span>
+						</td>
+				    
+					</tr>
+				  <tr id='third'>
+				  	<td colspan='2'><input type="text" placeholder='请输入您的姓名'>				    <span></span>
+            </td>
+					</tr>
+					<tr id='fourth'>
+					  <td><input type="checkbox" id='ck'><label for="ck">自动登录</label></td>
+					  <td><a href="">忘记密码</a></td>
+					</tr>
+					<tr id='last'>
+						<td colspan='2'><button>登陆</button></td>
+					</tr>
+				</table>
+			</form>
+		</div> 
+	</body>
+</html>
