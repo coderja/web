@@ -1,0 +1,105 @@
+推荐使用“主键约束”————会对主键列排序，提高查找速度。
+有的项目中不推荐使用唯一约束、非空约束、外键约束、
+检查约束————会影响插入和更新效率。
+
+1.MySQL专用关键词——AUTO_INCREMENT
+  不是SQL标准关键字
+  auto_increment 自动增长的列，用于INT型的主键列上，
+实现新插入的记录在已有的最大基础上+1。
+
+2.真实项目中数据库如何记录时间
+(1)使用CHAR和VARCHAR类型
+  不足：不方便进行日期大小比较 '2015-12-30'和'3-10-30'
+(2)使用DATE/TIME/DATATIME类型
+  不足:不便于实现i18n(internationalization，国际化)，
+  中国人:2017-10-25 22:38:55
+  美国人:10-25-1017 22:38:55
+  欧洲人:25/10/2017 22:38:55
+ (3)使用  BIGINT类型
+   存储方便，便于实现国际化
+ 计算机如何记录时间：一个很大很大的数字，表示从计算机元年
+ (1970-1-1 00:00:00 GMT)开始到指定的时间经过了多少“毫秒”
+ 所有的编程语言都可以把一个整数转换为日期时间反之亦然.
+
+3.简单查询——查询特定的列
+  示例：查询所有员工的姓名和工资
+  SELECT ename,salary FROM emp;
+
+  4简单查询——查询所有的列
+  示例：查询员工的所有信息
+  SELECT eid,ename,salary,hireDate,deptId
+  FROM emp;
+  SELECT * FROM emp;
+  提示：SQL语句中 * 指代的“所有的列名”
+
+  5.简单查询——给列取别名
+   示例：查询员工的编号、姓名和工资，列名用中文呈现
+      SELECT eid AS 工号,ename 编号,salary 编号 
+      FROM emp;
+      提示：给列取别名时AS关键字可以省略
+           别名之间不可以有空格，若有必须用引号括起来，
+  6.简单查询——只显示不同的值
+   示例：查询哪些部门有员工  
+   思路：查询出员工表中的部门编号即可,重复的值只显示一次
+      SELECT DISTINCT deptId FROM emp;    
+
+   7.简单查询——查询中执行运算
+   示例:使用SQL计算1+2
+   SELECT 1+2 AS 求和;  
+   示例：查询所有员工的姓名及其年薪(月薪X12)
+   SELECT ename,salary FROM emp; 
+   
+   8.简单查询查询结果的排序
+   示例：查询所有员工的姓名和工资，工资由低到高排列
+    SELECT eid,ename,salary FROM emp ORDER BY salary ASC; 
+    #  ascendant升序
+    #  DESC降序 descendant;
+    数据库中的排序可以按照数字，日期，字符串相关的列来排序
+   
+   9.分页查询
+     若结果集中的记录数很多，一般都需要“分页”呈现。
+     分页查询在不同的数据库中所用的语句不同！MySQL中
+     的分页查询语句是最简单的：
+     语法: SELECT....FROM ...WHERE...ORDER BY........
+     order:(1)顺序/排序 (2)订单   
+     LIMIT start,count; #对查询结果进行限制
+     start:表示从哪一行开始读取数据 从0开始
+     count:表示一次最多可以读取的行数
+     假设：每页最多显示5行，
+      第1页：SELECT...FROM...LIMIT 0,5;#0-4
+      第2页：SELECT...FROM...LIMIT 5,5;#5-9
+      第3页：SELECT...FROM...LIMIT 10,5;#10-14
+      第N页：SELECT...FROM...LIMIT (n-1)*5,5;
+
+    10，简单查询——条件查询
+    示例：查询员工编号为7788的员工所有信息
+     SELECT * FROM emp WHERE eid=7788;
+    示例：查询工资大于等于5000的员工的所有信息
+    SELECT * FROM  emp WHERE salary>=5000;
+    SELECT * FROM emp  WHERE depId!=10; 
+    SELECT * FROM emp WHERE depId=NULL;#错误写法
+    SELECT * FROM emp WHERE depId IS NULL;
+    SELECT * FROM emp WHERE depId IS NOT NULL;
+    
+    null表示"不确定"，一个不确定的值与任何其他值都是不能判定相等与否的(包括null)!
+    不能用=和!=对NULL进行断定。
+    示例：查询出工资在6000~8000之间的员工所有信息
+    可以使用AND(并且)/OR(或者)进行多条件判定
+    示例:查询出工资小于6000以及大于8000的员工信息
+    SELECT * FROM  emp WHERE salary>6000 AND salary<8000;
+    SELECT * FROM  emp WHERE salary<6000 OR salary>8000;
+
+    11.简单查询——条件查询——模糊条件查询
+     示例：
+     SQL中可以使用 % 匹配任意多个字符，该符号必须与LIKE关键词配合使用
+     SQL中可以使用 _ 匹配任意一个字符，该符号必须与LIKE关键词配合使用
+
+     12.复杂查询——分组/聚合查询
+      SQL中提供了如下几个分组查询函数：
+        SUM()、AVG()、COUNT()、MAX()、MIN()
+        查询出工资大于6000的员工数量
+        SELECT COUNT(salary) AS 总数 FROM emp 
+        WHERE salary>6000;  
+
+        课后作业删除笔记中的示例代码，根据注释写出SQL语句 
+        根据学子商城的设计说明书编写出SQL脚本文件

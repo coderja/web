@@ -1,0 +1,28 @@
+/*
+重新创建数据库：jd
+进入数据库：jd
+创建一个保存用户的表：user
+*/
+#丢弃数据库(如果存在的话)jd
+DROP DATABASE IF EXISTS jd;
+#创建数据库jd,使用字符集UTF8;
+CREATE DATABASE jd  CHARSET=UTF8;
+#进入指定的数据库jd
+USE jd;
+
+CREATE TABLE user(
+	id INT,
+	uname VARCHAR(6),
+	upwd VARCHAR(8)
+);
+#像用户表中插入一行数据
+INSERT INTO user VALUES(10,'tom','123456'); 
+INSERT INTO user VALUES(15,'mary','345678');
+
+
+#查询所有的数据
+#SELECT * FROM user;
+#delete from user;
+#delete from user where uname='mary';
+update user set uname='maria',upwd='999999' where id=15;
+
