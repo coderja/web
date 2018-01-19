@@ -1,0 +1,14 @@
+PHP预定义数组——重点！
+PHP解释器预定义了几个数量，无需用户在此定义，可以直接使用
+列如:
+$_GET
+$_POST
+$_REQUEST:array(0){}可以用于保存客户端提交给服务器端的请求数据
+$_FILES
+$_COOKIE
+$_SESSION
+
+客户端如何给服务器页面提交请求数据(如注册信息，搜索关键字)
+http://127.0.0.1/x.php?key1=value&key2=value4
+PHP解释器如何读取客户端提交的请求数据
+var_dump($_REQUEST);

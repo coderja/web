@@ -1,0 +1,86 @@
+1.复杂查询——分组查询/聚合函数查询
+  标准SQL提供的五个聚合查询函数
+  COUNT(),SUM(),MAX(),AVG(),MIN()
+  示例：查询所有员工的数量
+  SELECT COUNT(eid) FROM emp;
+  SELECT COUNT(*) FROM emp;
+  示例:查询10号部门的员工数量
+  SELECT COUNT(*) FROM emp WHERE depId=10;
+  示例：查询出每个部门的编号及该部门的员工的数量
+  SELECT depId,eid FROM emp GROUP BY depId;
+  注意:GROUP BY 后跟进行分组的依据列。只要有一条SELECT
+  使用GROUP BY 子句，SELECT字句中要么出现分组依据列，
+  要么出现聚合函数，不能直接出现分组依据列
+  查询出每个部门的编号，及该部门的工资最大最小值和平均值
+  SELECT depId,MAX(salary),MIN(salary),AVG(salary) FROM emp GROUP BY depId ;
+
+  2.复杂查询——子查询
+   子查询：在一条语句中，又出现一条查询语句
+   示例：查询出"研发部"所有员工的所有信息
+   分析：步骤1-查询"研发部"对应的部门编号=>10
+         SELECT did FROM dept WHERE dname="运营部";
+        步骤2 查询10号部门的员工信息
+         SELECT * FROM  emp WHERE depId=10;
+         上述两句话整合一句话:
+         SELECT * FROM  emp WHERE depId=(
+             SELECT did FROM dept WHERE dname="运营部"
+         );
+         查询出工资比Scott高的员工信息;
+         SELECT salary FROM emp WHERE ename='SCOTT';
+         SELECT * FROM emp WHERE salary>9300;
+         整合一句
+         SELECT * FROM emp WHERE salary>(
+         SELECT salary FROM emp WHERE ename='SCOTT'
+         );
+         
+         查询出工资比公司平均工资高的员工的所有信息
+         SELECT AVG(salary) FROM emp;
+         SELECT * FROM emp WHERE salary>6333;
+         整合一句
+         SELECT * FROM emp WHERE salary>(
+             SELECT AVG(salary) FROM emp
+         );
+         
+         查询出于TOM同一年入职的员工的所有信息
+         SELECT YEAR(hideDate) FROM emp WHERE ename='TOM';
+         SELECT * FROM emp WHERE YEAR(hideDate)=2000;
+         整合一句
+          SELECT * FROM emp WHERE YEAR(hideDate)=(
+              SELECT YEAR(hideDate) FROM emp WHERE ename='TOM'
+          );
+         扩展知识：SELECT YEAR('2000-1-1') ,返回2000，YEAR()函数用于获取一个DATE中的年份部门
+
+   3.复杂查询——跨表查询/多表查询——难点
+    一个查询结果集中的数据来自多个表。
+    示例：查询员工姓名及其所在部门的名称 
+    SELECT dname,ename FROM emp,dept WHERE depId=did; #跨表必须有约束      
+    SELECT * FROM emp,dept WHERE depId=did;
+   上述语法是SQL-92中的语法。不足:无法显示NULL对应的数据。
+   SQL-99标准中可以显示出NULL对应的数据：
+   (1)SQL-99中的跨表查询——"内连接"
+            SELECT ename,dname 
+            FROM emp  INNER JOIN dept
+            ON depId=did;  #作用等同于SQL-92语法
+   (2)SQL-99中的跨表查询——"左外连接"
+            SELECT ename,dname 
+            FROM emp LEFT OUTER JOIN dept
+            ON depId=did;
+   (3)SQL-99中的跨表查询——"右外连接"
+            SELECT ename,dname 
+            FROM emp RIGHT OUTER JOIN dept
+            ON depId=did;
+   (4)SQL-99中的跨表查询——"全连接"——mysql不支持
+            SELECT ename,dname 
+            FROM emp FULL JOIN dept
+            ON depId=did;
+   小知识：笛卡尔积-从两个集合中任取一个元素与另一个集合中的任意元素匹配最后有M*N种可能
+
+   4.复杂查询——结果集的合并
+     可以解决MySQL不支持全连接的问题
+     语法:(SELECT...FROM...)
+          UNION
+          (SELECT...FROM...);
+          示例：查询员工姓名及其所在部门的名称，要求所有员工姓名和部门名称至少显示一次
+          (SELECT ename,dname FROM emp LEFT OUTER JOIN dept ON depId=did)
+          UNION
+          (SELECT ename,dname FROM emp RIGHT OUTER JOIN dept ON depId=did); 

@@ -1,0 +1,27 @@
+学子商城项目编码步骤：
+(1)创建数据库结构——SQL
+(2)编写服务器端动态页面结构——PHP
+(3)编写客户端静态页面——HTML/CSS
+
+(1)编写学子商城“用户注册”功能需要的PHP页面
+(2)编写学子商城“修改用户信息”功能需要的PHP页面
+(3)编写学子商城“用户删除”功能需要的PHP页面
+(4)编写学子商城“用户登录”功能需要的PHP页面
+(5)编写学子商城“用户列表”功能需要的PHP页面
+
+基于单表的CRUD
+
+ Create Retrieve  Update  Delete  增删改查
+ 今日项目联系顺序
+ 1_user_register,php
+ 2_user_delete.php
+ 3_user_update.php
+ 4_user_login.php
+ 5_user_list.php
+
+
+
+ 2.客户端请求消息中的数据检验
+   @$u=$_REQUEST['uname'];
+   @运算符:用于
+   die()终止当前页面的执行！并向页面输出消息
