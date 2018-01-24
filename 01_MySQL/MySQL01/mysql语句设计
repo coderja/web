@@ -1,0 +1,73 @@
+MySQL03 SQL语句设计
+======================================================
+一 	操作数据表中的数据记录（DML语句）
+		1.	使用INSERT语句向数据表中添加数据
+			格式：
+			INSERT INTO 表名 [(字段名1,字段名2,…字段名n)] VALUES(‘值1’,‘值2’,…,’值n’);
+			或者
+			INSERT INTO 表名 [(字段名1,字段名2,…字段名n)] VALUES(‘值1’,‘值2’，…，‘值n’),VALUES(‘值1’,‘值2’,…,’值n’);
+			
+		2.	使用UPDATE语句更新数据表中已存在的数据
+			格式：
+			UPDATE 表名 SET 字段名=表达式 [,…][WHERE 条件]
+
+		3.	使用DELETE语句删除数据表中不需要的数据记录
+			格式：
+			DELETE FROM 表名 [WHERE 条件][ORDER BY 字段][LIMIT 行数]
+			
+二		通过SQL命令查询数据表中的数据
+		1. 格式
+			SELECT [ALL|DISTINCT]{*|table.*|[table.]field1[AS alias1][,[table.]field2[AS alias2][,…]]}FROM 表名
+			 [WHERE子句]
+			[GROUP BY..][HAVING..][ORDER BY..][LIMIT count];
+		2. 选择特定的字段
+		3. 使用AS子句为字段取别名
+		4. DISTINCT关键字的使用
+		5. 在SELECT语句中使用表达式的列
+		6. 使用WHERE子句按条件检索
+		7. 根据空值（NULL）确定检索条件
+		8. 使用BEETWEEN AND进行范围比较查询
+		9. 使用IN进行范围比对查询
+		10. 使用LIKE进行模糊查询
+			占位符：  _   一个字符    
+			              %	任何数量的任意字符
+		11. 多表查询（连接查询）
+		12. 嵌套查询（子查询）
+		13. 使用统计函数
+				COUNT()
+				SUM()
+				AVG()
+				MAX()
+				MIN()
+		14. 使用ORDER BY对查询结果排序  
+			DESC 降序操作
+			ASC  升序操作 （默认）
+		15. 使用LIMIT
+		16. 使用 GROUP BY 进行 分组
+
+三 	MySQL 运算符
+		1. 算术运算符
+			+	  -	   *	  /		 DIV 	 % 	  MOD
+		2. 比较运算符
+			数据列类型						说明										取值范围
+			=										a=b										若操作数a与操作数b相等，则为真
+			<=>									a<=>b									若a与b相等，则为真，可以用于NULL值比较
+			!=或<>								a!=b或a<>b							若操作数a与b不相等，为真
+			<										a<b										若操作数a小于b，为真
+			<=									a<=b									若操作数a大于b，为真
+			>										a>b										若操作数a大于b，为真
+			>=									a>=b									若操作数a大于等于b，为真
+			IS NULL							a IS NULL								若操作数a为NULL，为真
+			IS NOT NULL					a IS NOT NULL						若操作数a不为NULL，为真
+			BETWEEN							a BETWEEN b AND c				若a在b和c之间，为真
+			NOT BETWEEN					a NOT BETWEEN b AND c	若操作数a不在b和c之间，为真
+			LIKE									a LIKE b								SQL模式匹配，若a匹配b，为真
+			NOT LIKE							a NOT LIKE b						SQL模式匹配，若a不匹配b，则为真
+			IN									a IN (b1,b2….)						若a等于b1,b2,b3,…中的某一个，则为真
+		3. 逻辑运算符
+			操作符								语法										描述
+			AND 或 &&						a AND b 或 a && b				逻辑与，若两个操作数同时为真，则为真
+			OR 或 ||								a OR b 或 a||b						逻辑或，只要有一个操作数为真，则为真
+			XOR									a XOR b								逻辑异或，若有且仅有一个操作数为真，则为真
+			NOT 或 ！							NOT a 或 ！a						逻辑非，若操作数为假，则为真
+						

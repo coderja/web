@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MySQL常用操作</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>MySQL常用操作</h1>
+<h2>1. 表复制</h2>
+<blockquote>
+<p>复制表结构+复制表数据（推荐）</p>
+</blockquote>
+<pre><code>mysql&gt;create table t2 like t1;
+mysql&gt;insert into t2 select * from t1;
+</code></pre>
+
+<blockquote>
+<p>直接复制表数据，但无索引和约束</p>
+</blockquote>
+<pre><code>mysql&gt;create table t3 select * from t1; 
+</code></pre>
+
+<h2>2.	函数</h2>
+<blockquote>
+<p>数学</p>
+</blockquote>
+<pre><code>ABS(x)                      返回x的绝对值
+BIN(x)                      返回x的二进制（OCT返回八进制，HEX返回十六进制）
+CEILING(x)                  返回大于x的最小整数值
+FLOOR(x)                    返回小于x的最大整数值
+GREATEST(x1,x2,...,xn)      返回集合中最大的值
+LEAST(x1,x2,...,xn)         返回集合中最小的值
+LN(x)                       返回x的自然对数
+LOG(x,y)                    返回x的以y为底的对数
+MOD(x,y)                    返回x/y的模（余数）
+PI()                        返回pi的值（圆周率）
+RAND()                      返回０到１（不含1）的随机值,可以通过提供一个参数(种子)使RAND()随机数生成器生成一个指定的值。
+ROUND(x,y)                  返回参数x的四舍五入的有y位小数的值
+SIGN(x)                     返回代表数字x的符号的值
+SQRT(x)                     返回一个数的平方根
+TRUNCATE(x,y)               返回数字x截短为y位小数的结果
+</code></pre>
+
+<blockquote>
+<p>聚合(常用于GROUP BY从句的SELECT查询中)</p>
+</blockquote>
+<pre><code>AVG(col)                    返回指定列的平均值
+COUNT(col)                  返回指定列中非NULL值的个数
+MIN(col)                    返回指定列的最小值
+MAX(col)                    返回指定列的最大值
+SUM(col)                    返回指定列的所有值之和
+GROUP_CONCAT(col)           返回由属于一组的列值连接组合而成的结果
+</code></pre>
+
+<blockquote>
+<p>字符串函数</p>
+</blockquote>
+<pre><code>ASCII(char)                 返回字符的ASCII码值
+BIT_LENGTH(str)             返回字符串的比特长度
+CONCAT(s1,s2...,sn)         将s1,s2...,sn连接成字符串
+CONCAT_WS(sep,s1,s2...,sn)  将s1,s2...,sn连接成字符串，并用sep字符间隔
+LCASE(str)或LOWER(str)       返回将字符串str中所有字符改变为小写后的结果
+LEFT(str,x)                 返回字符串str中最左边的x个字符
+LENGTH(s)                   返回字符串str中的字符数
+LTRIM(str)                  从字符串str中切掉开头的空格
+POSITION(substr,str)        返回子串substr在字符串str中第一次出现的位置
+REPEAT(str,srchstr,rplcstr) 返回字符串str重复x次的结果
+REVERSE(str)                返回颠倒字符串str的结果
+RIGHT(str,x)                返回字符串str中最右边的x个字符
+RTRIM(str)                  返回字符串str尾部的空格
+TRIM(str)                   去除字符串首部和尾部的所有空格
+UCASE(str)或UPPER(str)       返回将字符串str中所有字符转变为大写后的结果
+</code></pre>
+
+<blockquote>
+<p>日期和时间函数</p>
+</blockquote>
+<pre><code>CURDATE()或CURRENT_DATE()    返回当前的日期
+CURTIME()或CURRENT_TIME()    返回当前的时间
+DATE_FORMAT(date,fmt)       依照指定的fmt格式格式化日期date值
+FROM_UNIXTIME(ts,fmt)       根据指定的fmt格式，格式化UNIX时间戳ts
+HOUR(time)                  返回time的小时值(0~23)
+MINUTE(time)                返回time的分钟值(0~59)
+MONTH(date)                 返回date的月份值(1~12)
+NOW()                       返回当前的日期和时间
+WEEK(date)                  返回日期date为一年中第几周(0~53)
+YEAR(date)                  返回日期date的年份(1000~9999)  
+</code></pre>
+
+<blockquote>
+<p>加密函数</p>
+</blockquote>
+<pre><code>MD5(str)                    计算字符串str的MD5校验和
+PASSWORD(str)               返回字符串str的加密版本，这个加密过程是不可逆转的，和UNIX密码加密过程使用不同的算法。
+SHA(str)                    计算字符串str的安全散列算法(SHA)校验和
+</code></pre>
+
+<blockquote>
+<p>格式化函数</p>
+</blockquote>
+<pre><code>FORMAT(x,y)                 把x格式化为以逗号隔开的数字序列，y是结果的小数位数
+INET_ATON(ip)               返回IP地址的数字表示
+INET_NTOA(num)              返回数字所代表的IP地址
+</code></pre>
+
+<blockquote>
+<p>系统信息函数</p>
+</blockquote>
+<pre><code>DATABASE()                  返回当前数据库名
+BENCHMARK(count,expr)       将表达式expr重复运行count次
+CONNECTION_ID()             返回当前客户的连接ID
+FOUND_ROWS()                返回最后一个SELECT查询进行检索的总行数
+USER()或SYSTEM_USER()        返回当前登陆用户名
+VERSION()                   返回MySQL服务器的版本
+</code></pre>
+
+<blockquote>
+<p>以上函数全部使用select调用输出，以下为常用show操作</p>
+</blockquote>
+<pre><code>SHOW CHARACTER SET          显示所有可用的字符集
+SHOW COLLATION              输出包括所有可用的校对字符集
+SHOW COLUMNS                显示在一个给定表中的各列的信息,对于视图，本语句也起作用。
+SHOW CREATE DATABASE        显示用于创建给定数据库CREATE DATABASE语句。
+SHOW DATABASES              SHOW DATABASES可以在MySQL服务器主机上列举数据库。
+SHOW ENGINES                检查一个存储引擎是否被支持，或者对于查看默认引擎是什么
+SHOW INDEX                  会返回表索引信息。
+SHOW TABLES                 列举了给定数据库中的非TEMPORARY表。  
+SHOW VARIABLES              列举当前环境变量
+</code></pre>
+
+<h2>3. 预处理</h2>
+<blockquote>
+<p>预先处理SQL的语法，通过传值完成SQL。</p>
+<p>优势：提高效率（重用），防止SQL注入（安全）。
+PDO中的prepare就是调用该方法！！！</p>
+</blockquote>
+<pre><code>1、设置stmt1预处理，传递一个数据作为一个where判断条件
+    mysql&gt;prepare stmt1 from ‘select * from t1 where id&gt;?’;
+2、设置一个变量
+    msyql&gt;set @i=1;
+3、执行stmt1预处理
+    mysql&gt;execute stmt1 using @i;
+4、删除预处理
+    mysql&gt;drop prepare stmt1;
+</code></pre>
+
+<h2>4.	事务</h2>
+<blockquote>
+<p>多个步骤为一个过程的事物（整体）,中间有任何一个环节出问题，都会造成事物的回滚</p>
+<p>表类型（引擎）：innodb</p>
+</blockquote>
+<pre><code>1、  关闭自动提交功能或开启事务
+mysql&gt;set autocommit=0;
+mysql&gt;begin;
+2、  删除记录
+mysql&gt;delete from t1 where id = 2;
+3、  创建还原点
+mysql&gt;savepoint p1;
+4、  删除记录
+mysql&gt;delete from t1 where id = 3;
+5、  再创建还原点
+mysql&gt;savepoint p2;
+6、  删除记录
+mysql&gt;delete from t1 where id = 4;
+7  退回还原点
+mysql&gt;rollback to p1;
+mysql&gt;rollback to p2;
+8   退回起始点
+mysql&gt;rollback;
+9  确认提交
+mysql&gt;commit;
+</code></pre>
+
+<h2>5.	存储</h2>
+<blockquote>
+<p>批量的有规律的mysql操作可以事前存在procedure中，后期调用。</p>
+</blockquote>
+<pre><code>1、  创建一个存储p1()
+mysql&gt;\d //     //将结束符修改为”//”  或者delimiter //
+mysql&gt;create procedure p1()
+-&gt;begin
+-&gt;set @i=1;
+-&gt;while @i&lt;6 do
+-&gt; select * from t1 where id=@i;
+-&gt;set @i=@i+1;
+-&gt;end while;
+-&gt;end//
+2、  执行存储p1()
+mysql&gt;\d ;          //将结束符修改回；
+mysql&gt;call p1;
+3、  查看所有procedure的status信息
+mysql&gt;show procedure status\G
+4、  查看procddure p1()的具体信息
+mysql&gt;show create procedure p1\G
+5、  删除procedure
+mysql&gt;drop procedure p1;
+</code></pre>
+
+<h2>6.	触发器</h2>
+<blockquote>
+<p>监视某种事件，并触发某种操作。（商品添加，订单消除等连贯表操作时使用）</p>
+<p>触发四要素：</p>
+<p>1、监视地点（table）2、触发时间（after/before）3、监视事件（insert/update/delete）4、触发事件（insert/update/delete）</p>
+</blockquote>
+<pre><code>1、  修改delimiter为//
+mysql&gt;\d //
+2、  创建一个名为tg1的触发器，当向t1表中插入数据前，就向a表中插入一条数据
+mysql&gt;create trigger tg1 before insert on t1 for each row   #固定写法
+-&gt;begin
+-&gt; insert into a values (4);
+-&gt;end//
+3、  修改delimiter为;
+mysql&gt;\d ;
+4、  插入数据测试
+insert into t1 values (null,'tom');
+</code></pre>
+
+<h2>7.	视图</h2>
+<pre><code>mysql&gt;insert into t1 (name) select t1.name from t1;
+创建视图：
+    mysql&gt;create view v_t1 as select * from t1 where id&gt;1 and id&lt;5;
+视图帮助信息：
+    mysql&gt;?  view
+    ALTER VIEW
+    CREATE VIEW
+    DROP VIEW   
+查看视图：
+    mysql&gt;show tables;
+mysql&gt;select * from v_t1;
+删除视图：
+    drop view v_t1;
+    视图相当于表查询的快捷方式，表数据改变，视图也跟着变。
+</code></pre>
+
+<h2>8.	临时表</h2>
+<blockquote>
+<p>仅在当前session有效的存在于内存中的临时表。</p>
+</blockquote>
+<pre><code>create temporary table tmp1 (id int) ;
+</code></pre>
+
+<blockquote>
+<p>只对当前会话(连接)有效，断开后，临时表自动清除，也可以自己drop table tmp1;临时表在销毁前，文件暂存/tmp下。</p>
+</blockquote>
+<h2>9.	虚拟表 dual</h2>
+<blockquote>
+<p>在Oracl中有虚拟表技术，MySQL也效仿设置虚拟表。MySQL中直接查数据或者调用函数可以不用from表，但为了照顾select from 的习惯固设立虚拟表 <strong>dual</strong></p>
+</blockquote>
+<pre><code>mysql&gt;select now();     //实际操作为下句
+mysql&gt;select now() from dual;
+</code></pre>
+
+<h2>10.	重置自增</h2>
+<blockquote>
+<p>MySQL数据库自增ID如何恢复</p>
+</blockquote>
+<pre><code>清空表
+    delete  from  tablename         //只能清空数据，不能重置ID
+修改表
+    alter table tablename auto_increment=1； 
+或者
+    truncate    table tablename;    //推荐
+</code></pre>
+
+<h2>11.	数据导入导出</h2>
+<blockquote>
+<p>完整备份：</p>
+</blockquote>
+<pre><code>[root@localhost ~]# /usr/local/mysql/bin/mysqldump -uroot -p -l -F test&gt;'/tmp/test.sql'
+</code></pre>
+
+<blockquote>
+<p>导出一个数据库中每一个表的相关SQL语句，包含建表、增删改查等导入导出速度慢！</p>
+<p>完整导入：</p>
+</blockquote>
+<pre><code>create database test2;
+
+[root@localhost ~]# /usr/local/mysql/bin//mysql -uroot -p123 test2&lt;/tmp/test.sql
+</code></pre>
+
+<blockquote>
+<p>单表数据备份：</p>
+</blockquote>
+<pre><code>mysql&gt;select * from t1 into outfile '/tmp/t1.txt';
+</code></pre>
+
+<blockquote>
+<p>仅仅是导出表数据，查什么就导出什么。</p>
+<p>导入数据：</p>
+</blockquote>
+<pre><code>truncate t1;        #准备工作，先清空表，或自己创建一个表 
+mysql&gt;load data infile '/tmp/t1.txt' into table t1;
+
+可以指定某一些列，空置字段为NULL或者默认值
+mysql&gt;load data infile '/test/users.txt' into table users(id,name);
+</code></pre>
+
+<h2>12. 索引操作</h2>
+<blockquote>
+<p>什么是索引？
+就像是书的目录，能够提高查询速度，降低写入速度，占用磁盘空间</p>
+<p>分类：主键、唯一、普通、全文(sphinx等检索引擎代替)</p>
+</blockquote>
+<pre><code>ALTER TABLE ADD             //增
+ALTER TABLE table_name ADD INDEX idx_name(column_list)
+ALTER TABLE table_name ADD UNIQUE uk_name (column_list)
+ALTER TABLE table_name ADD PRIMARY KEY (column_list)
+ALTER TABLE DROP            //删
+ALTER TABLE table_name DROP INDEX idx_name/uk_name  //唯一和普通都用此方式
+ALTER TABLE table_name DROP PRIMARY KEY
+show index from table_name  //查
+</code></pre>
+
+<blockquote>
+<p>注意：</p>
+<p>删除主键索引，该字段不能有auto_increment，如果有先修改掉再删。</p>
+<p>修改索引：先增再删</p>
+</blockquote>
+<h2>13. root密码丢失找回</h2>
+<blockquote>
+<p>丢失时的密码重置</p>
+</blockquote>
+<pre><code>1、  停止服务
+    pkill mysqld    
+2、  重启服务，但需要跳过授权表限制
+    /usr/local/mysql/bin/mysqld_safe --skip-grant-tables --user=mysql &amp; 
+3、  登录
+    mysql -uroot
+    不用密码即可  
+4、  查看现有用户
+    select user,host,password from mysql.user;  
+5、  修改密码
+    update mysql.user set password=password('123') where user='root' and host='localhost'   
+6、  退出
+    exit    
+7、  重启MySQL
+    pkill mysqld
+    /usr/local/mysql/bin/mysqld_safe --user=mysql &amp;
+</code></pre>
+
+<blockquote>
+<p>正常修改密码方式：</p>
+</blockquote>
+<pre><code>方法一： 
+正常登陆mysql后，
+mysql&gt; set password for root@localhost=password(&quot;123&quot;);
+
+方法二：
+脚本命令行   
+./mysqladmin -u root -p password mypasswd（新密码）
+然后输入旧密码
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
