@@ -61,7 +61,8 @@ SQL命令的执行有两种模式：
   (2)脚本模式：把所有要执行的SQL命令编写在一个文本文件中，
     一次性把整个文件交给服务器执行
     mysql -uroot  < d:/f1/xuezi.txt
-    mysql -uroot source d:/f1/xuezi.txt
+    mysql -uroot 
+    source d:/f1/xuezi.txt
 
   SQL语法规范
   (1)可以使用单行注释   #注释内容
