@@ -5,3 +5,7 @@ cd 目录名  进入目录
 cd ..      返回上一级
 ipconfig   查看网络状态
 ping jd.com  将域名转为ip地址
+mkdir 文件夹名  创建文件夹
+rmdir 文件夹名  删除文件夹
+dir>文件名  创建文件
+echo hi > .ighu  创建已‘.’开头的文件
