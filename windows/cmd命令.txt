@@ -1,0 +1,7 @@
+set path 查看环境变量
+cls  清空屏幕
+cd /       回到根目录
+cd 目录名  进入目录
+cd ..      返回上一级
+ipconfig   查看网络状态
+ping jd.com  将域名转为ip地址
