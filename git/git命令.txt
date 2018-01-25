@@ -1,0 +1,22 @@
+$ git config --list
+$ git config --global user.name "wangjie"
+$ git config --global user.email "1107854543@qq.com"
+
+git status 查看状态
+git log 查看日志
+git add  文件名
+git . 添加所有文件到暂存区
+git commit -m "说明文字" 提交到仓库
+git commit -am "说明文字" ==>上面两步并为一步
+如果进入vim编辑器中 敲esc -> shift zz  退出
+创建文件夹".idea" mkdir: .idea 
+创建文本文件".gitignore": touch .gitignore 
+在.gitignore文件中 文件夹名称 后面需要加 "/"
+git reset --hard 版本号
+git checkout -- 文件名
+git checkout 版本号
+提交到远程仓库记得后面加分支名
+git push git@github.com:coderja/wechat.git master 
+如果push不了试一下
+git pull git@github.com:coderja/wechat.git
+再执行上一步
