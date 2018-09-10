@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="container">
+     <p @click="show">{{msg}}</p>
+     <father v-if="msg!==''"></father>
+	 
+</div>
+<script>
+    Vue.component('father',{
+		data(){
+		   return {
+		      money:10000,
+			  count:0
+		   }
+		},
+		methods:{
+		   add(){
+		     this.count++
+		   }
+		},
+		beforeCreate(){
+//		  组件创建之前触发
+			console.log("组件创建之前触发")
+		},
+		created(){
+//		  组件创建完触发
+		   console.log("组件创建完触发")
+		},
+//		  组件挂载之前触发
+		beforeMount(){
+			console.log("组件挂载之前触发")
+		},
+//		  组件挂载完触发
+		mounted(){
+			console.log("组件挂载完触发")
+		},
+//		  组件更新之前触发
+		beforeUpdate(){
+		    console.log("组件更新之前触发")
+		},
+//		  组件更新之w完触发
+		updated(){
+			console.log("组件更新完触发")
+		},
+//		  组件销毁之前触发
+		beforeDestroy(){
+			console.log("组件销毁之前触发")
+		},
+//		  组件销毁后触发
+		destroyed(){
+			console.log("组件销毁后触发")
+		},
+        template:`
+		<div>
+			<h1 v-if="count<3">父组件</h1>
+			<button @click="add">{{count}}</button>
+		</div>`
+    })
+    new Vue({
+        el: "#container",
+        data: {
+            msg: "Hello Vue",
+			
+        },
+		methods:{
+		  show(){
+		    this.msg = ''
+		  }
+		}
+
+    });
+</script>
+</body>
+</html>

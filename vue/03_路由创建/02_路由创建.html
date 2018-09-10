@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+ </head>
+ <body>
+     <div id='app'>
+	   {{msg}}
+	   
+	   <router-view></router-view>
+	 </div>
+     
+     <script>
+        
+		let firstStep = Vue.component("bbb",{
+		  template:`
+		  <div>
+		    <router-link to="/sec">去登陆</router-link>
+		    <div>注册</div>
+		  </div>
+		  `
+		})
+		let secondStep = Vue.component("aaa",{
+		  template:`
+		     <div>
+				<router-link to="/">去注册</router-link>
+				<div>登陆</div>
+				<router-view></router-view>	
+			  </div>
+		  `
+		})
+		
+		let carCom = Vue.component('car',{
+		  template:`
+		     <div>
+			   <h3 @click="toPay">添加购物车</h3>
+			 </div>
+		  `,
+		  methods:{
+		    toPay(){
+			   this.$router.push('/sec/pay')
+			}
+		  }
+		})
+
+		let payCom = Vue.component('pay',{
+		  template:`
+		     <div>
+			   <h3>去付款</h3>
+			 </div>
+		  `
+		})
+
+		const myRoutes = [
+		  {path:'/',component:firstStep},
+		  {path:'/sec',component:secondStep,children:[
+		      {path:'/',redirect:'car'},
+			  {path:'car',component:carCom},
+			  {path:'pay',component:payCom},
+			  {path:"*",component:carCom}
+		  ]}
+		]
+
+		const router = new VueRouter({
+		    routes:myRoutes
+		})
+
+	    new Vue({
+		   el:'#app',
+		   router,
+		   data:{
+		      msg:'hello Vue'
+		   }
+		})
+	 </script>
+ </body>
+</html>

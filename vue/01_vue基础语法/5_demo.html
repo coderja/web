@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <h2 v-if="rightAnswer=='A'">A</h2>
+    <h2 v-else-if="rightAnswer=='B'">B</h2>
+    <h2 v-else-if="rightAnswer=='C'">C</h2>
+    <h2 v-else>D</h2>
+</div>
+<script>
+    new Vue({
+        el:'#example',
+        data:{
+            rightAnswer:'C'
+        }
+    })
+</script>
+</body>
+</html>

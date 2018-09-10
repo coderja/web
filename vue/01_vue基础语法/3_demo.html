@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src='js/vue.js'></script>
+</head>
+<body>
+<div id="example">
+    <h1>{{user.username}}</h1>
+    <h1>{{user.age}}</h1>
+    <h1>{{user.age*user.salary}}</h1>
+    <h1>{{user.age!=12&&user.age+2}}</h1>
+    <h1>{{user.age<12?'小孩':'少年'}}</h1>
+</div>
+<script>
+        new Vue({
+            el:'#example',
+            data:{
+                user:{'username':'tom','age':11,salary:12000}
+            }
+        })
+    </script>
+</body>
+</html>

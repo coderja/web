@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="container">
+    <p>{{msg}}</p>
+     <father></father>
+</div>
+<script>
+    Vue.component('father',{
+		data(){
+		   return {
+		      money:10000
+		   }
+		},
+        template:`
+		<div>
+			<h1 >父组件</h1>
+			<son ></son>
+		</div>`
+    })
+
+	Vue.component('son',{
+		data(){
+		   return {
+		       money:0
+		   }
+		},
+		created(){
+			this.money = this.$parent.money
+		},
+        template:`
+		<div>
+			<h1>子组件</h1>
+			老爸的钱￥{{money}}元
+		</div>`,
+		
+    })
+
+    new Vue({
+        el: "#container",
+        data: {
+            msg: "Hello Vue"
+        }
+    });
+</script>
+</body>
+</html>

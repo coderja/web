@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="example">
+        <h1>{{"型号是"+car.brand}}</h1>
+        <h1>{{"型号是"+car.modle}}</h1>
+        <h1>{{"价格是"+car.price}}</h1>
+    </div>
+    <script>
+        new Vue({
+            el:"#example",
+            data:{
+                    car:{brand:'volvo',modle:'xc60',price:30}
+            }
+        })
+    </script>
+</body>
+</html>

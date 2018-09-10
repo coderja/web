@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+    <style>
+        button{
+            display: inline-block;
+            border:1px solid #ddd;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            width:60px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .active{background:#3af;color:#fff}
+        body,html,div
+    </style>
+</head>
+<body>
+<div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">翻转 message</button>
+</div>
+<script>
+var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="container">
+    {{msg}}
+    <my-component></my-component>
+    <my-component/>
+</div>
+<script type="text/x-template" id="temp">
+   <div>hello world</div>
+</script>
+<script>
+    new Vue({
+        el: "#container",
+        data: {
+            msg: "Hello Vue"
+        },
+        components:{
+            "my-component":{
+                template:"#temp"
+            }
+        }
+    });
+</script>
+</body>
+</html>

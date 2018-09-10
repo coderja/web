@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="container">
+    <p>{{msg}}</p>
+    <my-comp></my-comp>
+	<hr>
+	<my-comp>
+       <div slot="slot2">替换坑2</div>
+	   <div slot="slot1">替换坑1</div>
+	</my-comp>
+</div>
+
+<script>
+    
+
+   Vue.component(
+     "my-comp",{
+	    template:`
+		   <div>
+		      <slot name="slot1">坑1</slot>
+			  <slot name="slot2">坑2</slot>
+		   </div>
+		`
+	 }
+   )
+
+    new Vue({
+        el: "#container",
+        data: {
+            msg: "Hello Vue",
+            myCount:0
+        }
+    });
+</script>
+</body>
+</html>

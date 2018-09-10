@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{msg}}</h1>
+	<comp></comp>
+	<hr>
+	<second></second>
+<!--实例里面创建的组件不能在全局组件里引用、只能在#app下面使用  -->
+	<inner-comp></inner-comp>
+
+	
+</div>
+<script>
+
+    Vue.component("comp",{
+	   template:`
+//	   需要有一个根节点，否则会报错
+	      <div>我的第一个组件</div>
+		  <div>我不显示</div>
+	   `
+	})
+    
+	 Vue.component("second",{
+	   template:`
+	   <div>
+	      <div>我的第一个组件</div>
+		  <div>我显示</div>
+		</div>
+	   `
+	})
+    new Vue(
+       {
+           el:"#app",
+           data:{
+                msg:'Hello VueJS'
+            },
+			components:{
+			   "inner-comp":{
+			      template:`<div>inerner componnet</div>`
+			   },
+				
+			}
+       }
+    );
+</script>
+</body>
+</html>

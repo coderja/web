@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+    <style>
+        button{
+            display: inline-block;
+            border:1px solid #ddd;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            width:50px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .active{background:#3af}
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div>
+        <button v-on:click="prev" v-bind:disabled="count==1">上一页</button>
+        <button @click="changColor(index)" v-for="(temp,index) in myList" v-bind:class="{active:count==(index+1)}">{{temp}}</button>
+        <button @click="next" v-bind:disabled="count==5">下一页</button>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: "#container",
+        data: {
+            msg: "Hello Vue",
+            myList:[1,2,3,4,5],
+            count:1
+        },
+        methods: {
+            changColor: function (page) {
+                this.count = page+1
+            },
+            next:function() {
+                if (this.count < 5) {
+                    this.count++;
+                }
+
+            },
+            prev:function() {
+                if (this.count > 1) {
+                    this.count--;
+
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

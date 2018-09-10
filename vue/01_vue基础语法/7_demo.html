@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="example">
+	<h1 v-if="!isReady">正在加载....</h1>
+	<ul v-if="isReady">
+		<li v-for="tmp in myList">{{tmp}}</li>
+	</ul>
+</div>
+<script>
+    var app = new Vue({
+      el:'#example',
+      data:{
+          isReady:false,
+          myList:[]
+      }
+    })
+    setTimeout(()=>{
+		   app.isReady=true;
+            for(var i=0;i<10;i++){
+               app.myList.push(rc(100,1))
+            }
+		},2000)
+    function rc(max,min){
+        return Math.round(Math.random()*(max-min+1)+min)
+    }
+    console.log(app.myList)
+</script>
+</body>
+</html>

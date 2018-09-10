@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="example">
+
+    <ul>
+        <li v-for="tmp in myList">
+            <p>{{tmp}}</p>
+            <!--通过methods调用方法-->
+            <p>{{getCount()}}</p>
+            <h3>{{getNowCount}}</h3>
+        </li>
+    </ul>
+
+</div>
+
+<script>
+    new Vue({
+      el:'#example',
+      mounted:function () {
+        setInterval(()=>{
+          this.num++;
+          this.myList.push(Math.random()*100)
+          //当num对4取模为0时候，向数组中插入一条随机的数据
+          if(this.num%4 == 0){
+            this.count++;
+          }
+        },1000);
+      },
+      data:{
+        count:0,
+        num:0,
+        myList:[]
+      },
+      methods:{
+        getCount:function () {
+          console.log('get count func is called');
+          return this.count;
+        }
+      },
+      //如果存在一个需要遍历循环一个巨大数组，并进行大量计算，高性能开销的场景下需要使用然而在某些场景下，你可能不希望有缓存，请使用 method 方法替代。
+	  computed:{
+        getNowCount:function () {
+          console.log('get now count computed is called');
+          return this.count;
+        }
+      }
+    })
+</script>
+
+</body>
+</html>

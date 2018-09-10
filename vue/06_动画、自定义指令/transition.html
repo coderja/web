@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src='js/vue.js'></script>
+  <style>
+    .fade-enter-active,.fade-leave-active{
+	   transition:all 2s
+	}
+	.fade-enter,.fade-leave-active{
+	   opacity:0
+	}
+	.fade-enter{
+	  transform:translateY(100px);
+	}
+	.fade-leave-active{
+	   transform:translateY(-100px)
+	}
+	
+	
+	.bounce-enter-active{
+	   animation:bounce-in 1s;
+	}
+	.bounce-leave-active{
+	   animation:bounce-in 1s reverse;
+	}
+	@keyframes bounce-in{
+	   from {
+	      transform:scale(1.2,1.2)
+	   }
+	   to{
+	      transform:scale(0.8,0.8)
+	   }
+	}
+
+  </style>
+ </head>
+ <body>
+ 	<div id='app'>
+	  <transition name='fade'>
+		  <h1  v-show='isshow' >{{msg}}</h1>
+	  </transition>
+	  <transition name='bounce'>
+		  <h1  v-show='isshow' >{{msg+"222222"}}</h1>
+	  </transition>
+	  <button @click="isshow=!isshow">toggle</button>
+	  <button @click="toggle">toggle</button>
+	</div>
+    <script>
+	   new Vue({
+	     el:'#app',
+		 data:{
+			msg:'自定义指令',
+			 isshow:false,
+			red:'#ff0'
+		 },
+		 methods:{
+		   toggle(){
+		      this.isshow=!this.isshow
+		   }
+		 }
+	   })
+		 
+	</script>
+ </body>
+</html>

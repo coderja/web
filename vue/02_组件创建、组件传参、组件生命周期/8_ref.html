@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="container">
+    <p>{{msg}}</p>
+     <father></father>
+</div>
+<script>
+    Vue.component('father',{
+		data(){
+		   return {
+		      sonName:''
+		   }
+		},
+		methods:{
+		   checkSon(){
+		      this.sonName  = this.$refs.ref.name
+		   }
+		},
+        template:`
+		<div>
+			<h1 @click='checkSon'>父组件-儿子的名字{{sonName}}</h1>
+			<son ref='ref'></son>
+		</div>`
+    })
+
+	Vue.component('son',{
+		data(){
+		   return {
+		       name:'smallbaby'
+		   }
+		},
+        template:`
+		<div>
+			<h1>子组件</h1>
+		</div>`,
+		
+    })
+
+    new Vue({
+        el: "#container",
+        data: {
+            msg: "Hello Vue"
+        }
+    });
+</script>
+</body>
+</html>

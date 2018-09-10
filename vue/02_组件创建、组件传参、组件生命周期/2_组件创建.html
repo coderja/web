@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{msg}}</h1>
+	<app-comp></app-comp>
+</div>
+<script>
+/*
+*Vue 组件的名称最好不要和原生 HTML 标签相同
+*app-comp
+*/
+    Vue.component("app-comp",{
+	   template:`
+	      <div>
+			  <h3>我是父组件组件</h3>
+			  <first></first>
+			  <second/>
+		  </div>
+	   `
+	})
+    
+	 Vue.component("first",{
+	   template:`
+	     <div>头部</div>
+	   `
+	})
+
+	Vue.component("second",{
+	   template:`
+	     <div>底部</div>
+	   `
+	})
+    new Vue(
+       {
+           el:"#app",
+           data:{
+                msg:'Hello VueJS'
+            }
+       }
+    );
+</script>
+</body>
+</html>

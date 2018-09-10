@@ -1,0 +1,12 @@
+SPA单页应用脚手架搭建
+    npm i -g vue-cli
+
+    vue init webpack project-name
+
+    cd project-name
+
+    npm i
+
+    npm run dev
+
+https://www.jianshu.com/p/0a30aca71b16

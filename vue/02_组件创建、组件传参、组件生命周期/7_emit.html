@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="container">
+    <p>{{msg}}</p>
+     <father></father>
+</div>
+<script>
+    Vue.component('father',{
+		data(){
+		   return {
+		      sonName:''
+		   }
+		},
+		methods:{
+		   rsvmsg(msg){
+		     this.sonName = msg
+		   }
+		},
+        template:`
+		<div>
+			<h1>父组件-儿子的名字{{sonName}}</h1>
+			<son @customEvent="rsvmsg"></son>
+		</div>`
+    })
+
+	Vue.component('son',{
+		data(){
+		   return {
+		       name:'smallbaby'
+		   }
+		},
+        template:`
+		<div>
+			<h1 @click="tofather">子组件</h1>
+		</div>`,
+		methods:{
+		  tofather(){
+			  console.log(1)
+		      this.$emit('customEvent',this.name)
+		  }
+		}
+    })
+
+    new Vue({
+        el: "#container",
+        data: {
+            msg: "Hello Vue"
+        }
+    });
+</script>
+</body>
+</html>

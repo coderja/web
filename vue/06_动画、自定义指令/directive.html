@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src='js/vue.js'></script>
+ </head>
+ <body>
+ 	<div id='app'>
+	  <h1 v-color='red' v-if='isshow'  @click='scale($event)' v-trigger>{{msg}}</h1>
+	  <input type="text" v-model='red' v-focus>
+	</div>
+    <script>
+	   new Vue({
+	     el:'#app',
+		 data:{
+			msg:'自定义指令',
+			 isshow:true,
+			red:'#ff0'
+		 },
+		 directives:{
+		    color:{
+				bind(el,bing){
+					console.log(el,bing)
+				},
+				update(el,bings){
+				   console.log(el,bings)
+				   this.isshow = false
+				   el.style.color = bings.value
+				},
+				unbind(){
+				  console.log(arguments)
+				}
+			},
+			trigger:{
+			   inserted(el){
+				 el.click()
+			   }
+			},
+			focus:{
+			  inserted(el){
+			    el.focus()
+			  }
+			}
+		 },
+		 methods:{
+		    scale(e){
+			   e.target.style.fontWeight = 'normal'
+			}
+		 }
+	   })
+	</script>
+ </body>
+</html>

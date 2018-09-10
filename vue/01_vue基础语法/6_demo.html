@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <ul>
+        <li v-for="tem  in list">{{tem}}</li>
+    </ul>
+    <ul>
+        <li v-for="(value,index) in list">
+            <p>{{index}}</p>
+            <h5>{{value}}</h5>
+        </li>
+    </ul>
+    <div>
+        <a v-for="(tmp,key,index) in car">
+            <p>{{"属性是:"+index+key+"值是:"+tmp}}<p>
+        </a>
+    </div>
+</div>
+<script>
+new Vue({
+    el:'#example',
+    data:{
+        list:[1,2,3,4,5,6],
+        car:{
+            name:'bmw',
+            price:1200000
+        }
+    }
+})
+</script>
+</body>
+</html>

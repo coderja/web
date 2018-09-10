@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="container">
+    <p>{{msg}}</p>
+    <img style="width: 100px" v-bind:src="imgUrl" @click="changePic" alt=""/>
+    <a v-bind:href="linkUrl">跳转</a>
+    <a :href="linkUrl">跳转</a>
+</div>
+<script>
+    new Vue({
+        el: "#container",
+        data: {
+            msg: "Hello Vue",
+            imgUrl:'img/1.jpg',
+            linkUrl:'http://www.baidu.com'
+        },
+        methods:{
+            changePic:function(){
+            var n = this.imgUrl.slice(4,5);
+                n++;
+                if(n>3)n=1;
+                this.imgUrl="img/"+n+".jpg"
+                console.log(n)
+         }
+        }
+    });
+</script>
+</body>
+</html>

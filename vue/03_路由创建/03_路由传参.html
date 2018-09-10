@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+ </head>
+ <body>
+     <div id='app'>
+	   {{msg}}
+	   
+	   <router-view></router-view>
+	 </div>
+     
+     <script>
+        
+		let firstStep = Vue.component("bbb",{
+			data(){
+			 return{
+				userName:"wangjie",
+				time:''
+			 }
+		  },
+		  template:`
+		  <div>
+		    <button @click="login">去登陆</button>
+			{{time}}
+		  </div>
+		  `,
+		  methods:{
+		    login(){
+			  this.$router.push('/sec/'+this.userName)
+			}
+		  },
+		  created(){
+			console.log(1)
+		    this.time = decodeURIComponent(this.$route.query.time)
+		  }
+		})
+
+		let secondStep = Vue.component("aaa",{
+		 data(){
+			 return{
+				msg1:'',
+				time:""
+			 }
+		  },
+		  template:`
+		     <div>
+				<button @click="logout">退出</button>
+				<div>已登录</div>
+				<h1>欢迎{{msg1}}</h1>
+			  </div>
+		  `,
+		  methods:{
+		    logout(){
+				this.time = new Date().toLocaleString()
+			    this.$router.push('/?time='+this.time)
+			}
+		  },
+		  created(){
+		    this.msg1 = this.$route.params.userName
+		  }
+		})
+
+		const myRoutes = [
+		  {path:'/',component:firstStep},
+		  {path:'/sec/:userName',component:secondStep}
+		]
+
+		const router = new VueRouter({
+		    routes:myRoutes
+		})
+
+	    new Vue({
+		   el:'#app',
+		   router,
+		   data:{
+		      msg:'hello Vue'
+		   }
+		})
+	 </script>
+ </body>
+</html>
